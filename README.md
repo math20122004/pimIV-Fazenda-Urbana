@@ -4,5 +4,11 @@
 
 ## Integrantes:
 
-✹ Matheus Rafael da Silva Jesus 
-✹ Victor Hugo
+✹ Matheus Rafael da Silva Jesus \
+✹ Victor Hugo \
+✹ \
+✹ \
+✹ \
+✹ \
+
+
