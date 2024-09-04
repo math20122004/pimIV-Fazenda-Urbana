@@ -1,0 +1,17 @@
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\bin\Debug\net8.0-windows\Barra_Lateral.exe
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\bin\Debug\net8.0-windows\Barra_Lateral.deps.json
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\bin\Debug\net8.0-windows\Barra_Lateral.runtimeconfig.json
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\bin\Debug\net8.0-windows\Barra_Lateral.dll
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\bin\Debug\net8.0-windows\Barra_Lateral.pdb
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\Barra_Lateral.Form1.resources
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\Barra_Lateral.Properties.Resources.resources
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\Barra_Lateral.csproj.GenerateResource.cache
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\Barra_Lateral.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\Barra_Lateral.AssemblyInfoInputs.cache
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\Barra_Lateral.AssemblyInfo.cs
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\Barra_Lateral.csproj.CoreCompileInputs.cache
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\Barra_Lateral.dll
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\refint\Barra_Lateral.dll
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\Barra_Lateral.pdb
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\Barra_Lateral.genruntimeconfig.cache
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\ref\Barra_Lateral.dll
