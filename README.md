@@ -25,8 +25,8 @@
 
 ### REQUISITOS:
 
-| TIPO | DESCRIÇÃO |
-| ------ | ------ |
+| TIPO | DESCRIÇÃO | PRIORIDADE |
+| ------ | ------ | ------ |
 | FUNCIONAL | Cadastro, alteração, inativação, consulta, monitoramento e pesquisa dos usuários. |
 | FUNCIONAL | Cadastro, alteração, inativação, consulta, monitoramento e pesquisa dos fornecedores. |
 | FUNCIONAL | Cadastro, alteração, monitoramento e pesquisa sobre os clientes pelo vendedor. |
