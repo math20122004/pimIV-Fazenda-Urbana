@@ -27,14 +27,14 @@
 
 | TIPO | DESCRIÇÃO | PRIORIDADE |
 | ------ | ------ | ------ |
-| FUNCIONAL | Cadastro, alteração, inativação, consulta, monitoramento e pesquisa dos usuários. |
-| FUNCIONAL | Cadastro, alteração, inativação, consulta, monitoramento e pesquisa dos fornecedores. |
-| FUNCIONAL | Cadastro, alteração, monitoramento e pesquisa sobre os clientes pelo vendedor. |
-| FUNCIONAL | O sistema deverá registrar todas as atividades relacionadas á produção, incluindo o acompanhamento do progresso das etapas de produção, a quantidade de produtos fabricados e o uso de materiais e recursos. |
-|  NÃO FUNCIONAL | O sistema poderá ser acessado via web. Permitindo a conexão de qualquer pessoa com dispotivo com internet e navegador web. |
-|  NÃO FUNCIONAL | O layout será de fácil entedimento, com a fonte das letras entre 20 e 24. |
-|  NÃO FUNCIONAL | Para logar no sistema o usuário tem que estar cadastrado pelo usuário admin. Na hora de guardar as informações a senha e criptografada. |
-|  NÃO FUNCIONAL | O acesso as funcionalidades será pré determinado pelo usuário admin. |
-|  NÃO FUNCIONAL | O sistema contará com o usuário admin e os usuários normais que terá acesso limitado pelo admin ao sistema. |
+| FUNCIONAL | Cadastro, alteração, inativação, consulta, monitoramento e pesquisa dos usuários. | ESSENCIAL |
+| FUNCIONAL | Cadastro, alteração, inativação, consulta, monitoramento e pesquisa dos fornecedores. | IMPORTANTE |
+| FUNCIONAL | Cadastro, alteração, monitoramento e pesquisa sobre os clientes pelo vendedor. | IMPORTANTE |
+| FUNCIONAL | O sistema deverá registrar todas as atividades relacionadas á produção, incluindo o acompanhamento do progresso das etapas de produção, a quantidade de produtos fabricados e o uso de materiais e recursos. | IMPORTANTE |
+|  NÃO FUNCIONAL | O sistema poderá ser acessado via web. Permitindo a conexão de qualquer pessoa com dispotivo com internet e navegador web. | IMPORTANTE
+|  NÃO FUNCIONAL | O layout será de fácil entedimento, com a fonte das letras entre 20 e 24. | OPCIONAL |
+|  NÃO FUNCIONAL | Para logar no sistema o usuário tem que estar cadastrado pelo usuário admin. Na hora de guardar as informações a senha e criptografada. | ESSENCIAL |
+|  NÃO FUNCIONAL | O acesso as funcionalidades será pré determinado pelo usuário admin. | ESSENCIAL |
+|  NÃO FUNCIONAL | O sistema contará com o usuário admin e os usuários normais que terá acesso limitado pelo admin ao sistema. | ESSENCIAL |
 
 
