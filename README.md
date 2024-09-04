@@ -27,10 +27,10 @@
 
 | TIPO | DESCRIÇÃO |
 | ------ | ------ |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| FUNCIONAL | Cadastro, alteração, inativação, consulta, monitoramento e pesquisa dos usuários. |
+| FUNCIONAL | Cadastro, alteração, inativação, consulta, monitoramento e pesquisa dos fornecedores. |
+| FUNCIONAL | Cadastro, alteração, monitoramento e pesquisa sobre os clientes pelo vendedor. |
+| FUNCIONAL | O sistema deverá registrar todas as atividades relacionadas á produção, incluindo o acompanhamento do progresso das etapas de produção, a quantidade de produtos fabricados e o uso de materiais e recursos. |
 |  |  |
 |  |  |
 
