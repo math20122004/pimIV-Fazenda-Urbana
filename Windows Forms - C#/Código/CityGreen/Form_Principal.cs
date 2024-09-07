@@ -1,5 +1,7 @@
 namespace CityGreen
 {
+
+
     public partial class Form_Principal : Form
     {
         Form_Fornecedores fornecedores;
@@ -9,17 +11,17 @@ namespace CityGreen
         Form_Producao producao;
         Form_Usuarios usuarios;
 
+        Thread t2;
 
         public Form_Principal()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form_Principal_Load(object sender, EventArgs e)
         {
-
+            btn_inicio.PerformClick();
         }
-
         private void btn_inicio_Click(object sender, EventArgs e)
         {
             if (inicio == null)
@@ -151,5 +153,18 @@ namespace CityGreen
             TransicaoBarra.Start();
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+            t2 = new Thread(voltarJanela);
+            t2.SetApartmentState(ApartmentState.STA);
+            t2.Start();
+        }
+
+    private void voltarJanela(object obj)
+    {
+        Application.Run(new Form_Login());
     }
+}
 }
