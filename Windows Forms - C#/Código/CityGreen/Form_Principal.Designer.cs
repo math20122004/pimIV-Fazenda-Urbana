@@ -91,6 +91,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // label1
             // 
@@ -141,7 +142,7 @@
             // 
             btn_inicio.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_inicio.BackColor = Color.Black;
-            btn_inicio.Font = new Font("Alef", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_inicio.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_inicio.ForeColor = Color.LawnGreen;
             btn_inicio.Image = (Image)resources.GetObject("btn_inicio.Image");
             btn_inicio.ImageAlign = ContentAlignment.MiddleLeft;
@@ -167,7 +168,7 @@
             // 
             btn_vendas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_vendas.BackColor = Color.Black;
-            btn_vendas.Font = new Font("Alef", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_vendas.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_vendas.ForeColor = Color.LawnGreen;
             btn_vendas.Image = (Image)resources.GetObject("btn_vendas.Image");
             btn_vendas.ImageAlign = ContentAlignment.MiddleLeft;
@@ -193,7 +194,7 @@
             // 
             btn_producao.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_producao.BackColor = Color.Black;
-            btn_producao.Font = new Font("Alef", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_producao.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_producao.ForeColor = Color.LawnGreen;
             btn_producao.Image = (Image)resources.GetObject("btn_producao.Image");
             btn_producao.ImageAlign = ContentAlignment.MiddleLeft;
@@ -219,7 +220,7 @@
             // 
             btn_fornecedores.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_fornecedores.BackColor = Color.Black;
-            btn_fornecedores.Font = new Font("Alef", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_fornecedores.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_fornecedores.ForeColor = Color.LawnGreen;
             btn_fornecedores.Image = (Image)resources.GetObject("btn_fornecedores.Image");
             btn_fornecedores.ImageAlign = ContentAlignment.MiddleLeft;
@@ -246,7 +247,7 @@
             // 
             btn_usuarios.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_usuarios.BackColor = Color.Black;
-            btn_usuarios.Font = new Font("Alef", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_usuarios.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_usuarios.ForeColor = Color.LawnGreen;
             btn_usuarios.Image = (Image)resources.GetObject("btn_usuarios.Image");
             btn_usuarios.ImageAlign = ContentAlignment.MiddleLeft;
@@ -279,6 +280,7 @@
             Name = "Form_Principal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "_";
+            Load += Form_Principal_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
