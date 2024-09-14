@@ -3,13 +3,15 @@ CREATE DATABASE CityGreen;
 USE CityGreen;
 
 -- Tabela de Funcionalidades
-CREATE TABLE Funcionalidade (
+CREATE TABLE Funcionalidade 
+(
     idFuncionalidade INT IDENTITY(1,1) PRIMARY KEY,
     nome NVARCHAR(100)
 );
 
 -- Tabela de Usuários
-CREATE TABLE Usuarios (
+CREATE TABLE Usuarios 
+(
     idUsuario NVARCHAR(8) PRIMARY KEY NOT NULL,
     nome NVARCHAR(255),
     email NVARCHAR(100),
@@ -18,7 +20,8 @@ CREATE TABLE Usuarios (
 );
 
 -- Tabela de Permissões de Usuários
-CREATE TABLE User_Permissao_Tem (
+CREATE TABLE User_Permissao_Tem 
+(
     fk_Usuarios_idUsuario NVARCHAR(8),
     fk_Funcionalidade_idFuncionalidade INT,
     criar BIT,
@@ -29,7 +32,8 @@ CREATE TABLE User_Permissao_Tem (
 );
 
 -- Tabela de Fornecedores
-CREATE TABLE Fornecedores (
+CREATE TABLE Fornecedores 
+(
     idFornecedor INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     nome NVARCHAR(255),
     razaoSocial NVARCHAR(255),
@@ -49,20 +53,29 @@ CREATE TABLE Fornecedores (
     cep NVARCHAR(10)
 );
 
+CREATE TABLE CompraInsumo 
+(
+    idCompra INT PRIMARY KEY,
+    dataCompra DATE,
+    idFornecedor INT,
+    FOREIGN KEY (idFornecedor) REFERENCES Fornecedores(idFornecedor)
+);
+
 -- Tabela de Insumos
-CREATE TABLE Insumo (
+CREATE TABLE Insumo 
+(
     idInsumo INT PRIMARY KEY,
     nomeInsumo NVARCHAR(255),
-    statusInsumo NVARCHAR(10) CHECK (statusInsumo IN ('ativo', 'inativo')) DEFAULT 'ativo',
     quantidadeInsumo INT,
-    id_fornecedor INT,
-    validade NVARCHAR(10) CHECK (validade IN ('Vencido', 'Usavel')) DEFAULT 'Usavel',
+    validade NVARCHAR(10) CHECK (validade IN ('Vencido', 'Disponivel','esgotado')) DEFAULT 'Usavel',
     dataValidade DATE,
-    FOREIGN KEY (id_fornecedor) REFERENCES Fornecedores (idFornecedor)
+    idCompra INT,
+    FOREIGN KEY (idCompra) REFERENCES compraInsumo(idCompra)
 );
 
 -- Tabela de Produção
-CREATE TABLE Producao (
+CREATE TABLE Producao 
+(
     idPlantio INT PRIMARY KEY,
     dataInicio DATE,
     dataFim DATE,
@@ -71,7 +84,8 @@ CREATE TABLE Producao (
 );
 
 -- Tabela de Insumos utilizados na Produção
-CREATE TABLE InsumoProducao (
+CREATE TABLE InsumoProducao 
+(
     idInsumo INT,
     idPlantio INT,
     quantidade INT,
@@ -79,19 +93,30 @@ CREATE TABLE InsumoProducao (
     FOREIGN KEY (idInsumo) REFERENCES Insumo (idInsumo)
 );
 
+CREATE TABLE Produto 
+(
+    idProduto INT PRIMARY KEY,
+    nomeProduto VARCHAR(100),
+    categoria VARCHAR(50)
+);
+
 -- Tabela de Lotes
-CREATE TABLE Lote (
+CREATE TABLE Lote 
+(
     idLote INT PRIMARY KEY,
-    nomeProduto NVARCHAR(255),
+    idProduto INT,
     quantidade INT,
     idProducao INT,
+	status NVARCHAR(10) CHECK (status IN ('disponível', 'esgotado')) DEFAULT 'disponível',
     validade NVARCHAR(10) CHECK (validade IN ('Vencido', 'Usavel')) DEFAULT 'Usavel',
     dataValidade DATE,
-    FOREIGN KEY (idProducao) REFERENCES Producao (idPlantio)
+    FOREIGN KEY (idProducao) REFERENCES Producao (idPlantio),
+    FOREIGN KEY (idProduto) REFERENCES produto (idProduto)
 );
 
 -- Tabela de Clientes
-CREATE TABLE Cliente (
+CREATE TABLE Cliente 
+(
     idCliente INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     nome NVARCHAR(255),
     telefone1 NVARCHAR(20),
@@ -112,7 +137,8 @@ CREATE TABLE Cliente (
 );
 
 -- Tabela de Vendas
-CREATE TABLE Vendas (
+CREATE TABLE Vendas 
+(
     idVenda INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     numero NVARCHAR(30),
     infoAdicionais NVARCHAR(255),
@@ -122,7 +148,8 @@ CREATE TABLE Vendas (
 );
 
 -- Tabela de Itens da Venda
-CREATE TABLE Itens_Venda (
+CREATE TABLE Itens_Venda 
+(
     quantidade INT,
     valor_total DECIMAL(9,2),
     lote INT,
@@ -275,3 +302,18 @@ INSERT INTO Funcionalidade (nome) VALUES ('Fornecedores');
 INSERT INTO Funcionalidade (nome) VALUES ('Vendas');
 INSERT INTO Funcionalidade (nome) VALUES ('Produção');
 INSERT INTO Funcionalidade (nome) VALUES ('Administrador');
+
+INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (1, 'Tomate Cereja', 'Vegetal');
+INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (2, 'Alface', 'Vegetal');
+INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (3, 'Manjericão', 'Erva');
+INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (4, 'Morango', 'Fruta');
+INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (5, 'Rúcula', 'Vegetal');
+INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (6, 'Cebolinha', 'Erva');
+INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (7, 'Pimentão', 'Vegetal');
+INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (8, 'Espinafre', 'Vegetal');
+INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (9, 'Cenoura', 'Vegetal');
+INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (10, 'Pepino', 'Vegetal');
+
+
+
+
