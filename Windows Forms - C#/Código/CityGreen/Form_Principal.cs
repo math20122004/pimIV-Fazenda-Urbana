@@ -21,6 +21,11 @@ namespace CityGreen
         private void Form_Principal_Load(object sender, EventArgs e)
         {
             btn_inicio.PerformClick();
+            string nomeUser = "Niuan Spolidorio da Rocha Souza";
+            string emailUser = "niuan.spolid@hotmail.com";
+
+            lbl_nome.Text = nomeUser;
+            lbl_email.Text = emailUser;
         }
         private void btn_inicio_Click(object sender, EventArgs e)
         {
@@ -44,6 +49,7 @@ namespace CityGreen
 
         private void btn_vendas_Click(object sender, EventArgs e)
         {
+
             if (vendas == null)
             {
                 vendas = new Form_Vendas();
@@ -64,17 +70,7 @@ namespace CityGreen
 
         private void btn_producao_Click(object sender, EventArgs e)
         {
-            if (producao == null)
-            {
-                producao = new Form_Producao();
-                producao.FormClosed += Producao_FormClosed;
-                producao.MdiParent = this;
-                producao.Show();
-            }
-            else
-            {
-                producao.Activate();
-            };
+
         }
 
         private void Producao_FormClosed(object? sender, FormClosedEventArgs e)
@@ -84,6 +80,7 @@ namespace CityGreen
 
         private void btn_fornecedores_Click(object sender, EventArgs e)
         {
+
             if (fornecedores == null)
             {
                 fornecedores = new Form_Fornecedores();
@@ -156,15 +153,46 @@ namespace CityGreen
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
-            this.Close();
-            t2 = new Thread(voltarJanela);
-            t2.SetApartmentState(ApartmentState.STA);
-            t2.Start();
+            if (BarraUser.Height == 0)
+            {
+                BarraUser.Height = 200;
+
+
+            }
+            else
+            {
+                BarraUser.Height = 0;
+
+
+            }
         }
 
-    private void voltarJanela(object obj)
-    {
-        Application.Run(new Form_Login());
+        private void voltarJanela(object obj)
+        {
+            Application.Run(new Form_Login());
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        private void lbl_sair_Click(object sender, EventArgs e)
+        {
+
+            string message = "Você gostaria de Deslogar?";
+            string title = "Deslogar";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+                t2 = new Thread(voltarJanela);
+                t2.SetApartmentState(ApartmentState.STA);
+                t2.Start();
+            }
+
+        }
     }
-}
 }

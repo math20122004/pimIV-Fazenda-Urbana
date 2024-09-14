@@ -56,7 +56,7 @@
             lbl_login.Font = new Font("Verdana", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_login.ForeColor = Color.Linen;
             lbl_login.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_login.Location = new Point(260, 218);
+            lbl_login.Location = new Point(274, 213);
             lbl_login.Margin = new Padding(0);
             lbl_login.Name = "lbl_login";
             lbl_login.Size = new Size(129, 59);
@@ -67,6 +67,7 @@
             // 
             // textBox1
             // 
+            textBox1.BackColor = Color.FromArgb(223, 223, 223);
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.Location = new Point(599, 275);
@@ -92,7 +93,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Verdana", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Linen;
-            label1.Location = new Point(88, 218);
+            label1.Location = new Point(102, 213);
             label1.Name = "label1";
             label1.Size = new Size(187, 59);
             label1.TabIndex = 2;
@@ -104,7 +105,7 @@
             label2.BackColor = Color.DarkGreen;
             label2.Font = new Font("Verdana", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Linen;
-            label2.Location = new Point(88, 278);
+            label2.Location = new Point(115, 272);
             label2.Name = "label2";
             label2.Size = new Size(284, 38);
             label2.TabIndex = 3;
@@ -140,6 +141,7 @@
             // 
             // textBox2
             // 
+            textBox2.BackColor = Color.FromArgb(223, 223, 223);
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox2.Location = new Point(599, 364);
@@ -153,7 +155,7 @@
             button1.BackColor = Color.DarkGreen;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Verdana", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ButtonFace;
+            button1.ForeColor = Color.FromArgb(223, 223, 223);
             button1.Location = new Point(656, 457);
             button1.Name = "button1";
             button1.Size = new Size(207, 57);
@@ -206,7 +208,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(223, 223, 223);
             ClientSize = new Size(996, 622);
             ControlBox = false;
             Controls.Add(pictureBox4);

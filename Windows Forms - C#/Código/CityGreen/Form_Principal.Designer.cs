@@ -31,10 +31,15 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Principal));
             panel1 = new Panel();
+            panel4 = new Panel();
+            label2 = new Label();
+            lbl_email = new Label();
             panel2 = new Panel();
-            pictureBox2 = new PictureBox();
+            btn_User = new PictureBox();
             label1 = new Label();
             btn_alternar = new PictureBox();
+            panel3 = new Panel();
+            lbl_nome = new Label();
             barraLateral = new FlowLayoutPanel();
             pn_inicio = new Panel();
             btn_inicio = new Button();
@@ -47,24 +52,31 @@
             pn_usuarios = new Panel();
             btn_usuarios = new Button();
             TransicaoBarra = new System.Windows.Forms.Timer(components);
+            BarraUser = new Panel();
+            lbl_sair = new Label();
             panel1.SuspendLayout();
+            panel4.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btn_User).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_alternar).BeginInit();
+            panel3.SuspendLayout();
             barraLateral.SuspendLayout();
             pn_inicio.SuspendLayout();
             pn_vendas.SuspendLayout();
             pn_producao.SuspendLayout();
             pn_fornecedores.SuspendLayout();
             pn_usuarios.SuspendLayout();
+            BarraUser.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Black;
+            panel1.BackColor = Color.FromArgb(7, 30, 34);
+            panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btn_alternar);
+            panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -72,32 +84,68 @@
             panel1.Size = new Size(996, 69);
             panel1.TabIndex = 0;
             // 
+            // panel4
+            // 
+            panel4.Controls.Add(label2);
+            panel4.Controls.Add(lbl_email);
+            panel4.ForeColor = Color.Black;
+            panel4.Location = new Point(604, 42);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(311, 17);
+            panel4.TabIndex = 6;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Dock = DockStyle.Right;
+            label2.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.ImageAlign = ContentAlignment.MiddleRight;
+            label2.Location = new Point(311, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 18);
+            label2.TabIndex = 0;
+            // 
+            // lbl_email
+            // 
+            lbl_email.AutoSize = true;
+            lbl_email.Cursor = Cursors.UpArrow;
+            lbl_email.Dock = DockStyle.Right;
+            lbl_email.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_email.ForeColor = Color.White;
+            lbl_email.ImageAlign = ContentAlignment.MiddleRight;
+            lbl_email.Location = new Point(311, 0);
+            lbl_email.Name = "lbl_email";
+            lbl_email.Size = new Size(0, 14);
+            lbl_email.TabIndex = 1;
+            lbl_email.TextAlign = ContentAlignment.BottomLeft;
+            // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel2.Controls.Add(pictureBox2);
+            panel2.Controls.Add(btn_User);
             panel2.Location = new Point(932, 6);
             panel2.Name = "panel2";
             panel2.Size = new Size(63, 59);
             panel2.TabIndex = 3;
             // 
-            // pictureBox2
+            // btn_User
             // 
-            pictureBox2.BackColor = SystemColors.ActiveCaptionText;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(-2, -1);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(65, 60);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            btn_User.BackColor = Color.FromArgb(7, 30, 34);
+            btn_User.Image = (Image)resources.GetObject("btn_User.Image");
+            btn_User.Location = new Point(-2, -1);
+            btn_User.Name = "btn_User";
+            btn_User.Size = new Size(65, 60);
+            btn_User.SizeMode = PictureBoxSizeMode.StretchImage;
+            btn_User.TabIndex = 1;
+            btn_User.TabStop = false;
+            btn_User.Click += pictureBox2_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Verdana", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.LawnGreen;
+            label1.ForeColor = Color.FromArgb(29, 120, 116);
             label1.Location = new Point(71, 14);
             label1.Name = "label1";
             label1.Size = new Size(185, 35);
@@ -109,15 +157,37 @@
             btn_alternar.Image = (Image)resources.GetObject("btn_alternar.Image");
             btn_alternar.Location = new Point(25, 12);
             btn_alternar.Name = "btn_alternar";
-            btn_alternar.Size = new Size(40, 39);
+            btn_alternar.Size = new Size(40, 37);
             btn_alternar.SizeMode = PictureBoxSizeMode.StretchImage;
             btn_alternar.TabIndex = 1;
             btn_alternar.TabStop = false;
             btn_alternar.Click += btn_alternar_Click;
             // 
+            // panel3
+            // 
+            panel3.Controls.Add(lbl_nome);
+            panel3.Location = new Point(604, 14);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(311, 22);
+            panel3.TabIndex = 5;
+            // 
+            // lbl_nome
+            // 
+            lbl_nome.AutoSize = true;
+            lbl_nome.BackColor = Color.Transparent;
+            lbl_nome.Dock = DockStyle.Right;
+            lbl_nome.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_nome.ForeColor = Color.WhiteSmoke;
+            lbl_nome.ImageAlign = ContentAlignment.MiddleRight;
+            lbl_nome.Location = new Point(311, 0);
+            lbl_nome.Name = "lbl_nome";
+            lbl_nome.Size = new Size(0, 18);
+            lbl_nome.TabIndex = 0;
+            lbl_nome.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // barraLateral
             // 
-            barraLateral.BackColor = Color.Black;
+            barraLateral.BackColor = Color.FromArgb(7, 30, 34);
             barraLateral.Controls.Add(pn_inicio);
             barraLateral.Controls.Add(pn_vendas);
             barraLateral.Controls.Add(pn_producao);
@@ -141,17 +211,17 @@
             // btn_inicio
             // 
             btn_inicio.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_inicio.BackColor = Color.Black;
+            btn_inicio.BackColor = Color.FromArgb(7, 30, 34);
             btn_inicio.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_inicio.ForeColor = Color.LawnGreen;
+            btn_inicio.ForeColor = Color.FromArgb(29, 120, 116);
             btn_inicio.Image = (Image)resources.GetObject("btn_inicio.Image");
             btn_inicio.ImageAlign = ContentAlignment.MiddleLeft;
             btn_inicio.Location = new Point(-6, -11);
             btn_inicio.Name = "btn_inicio";
-            btn_inicio.Padding = new Padding(10, 0, 0, 0);
+            btn_inicio.Padding = new Padding(20, 0, 0, 0);
             btn_inicio.Size = new Size(256, 89);
             btn_inicio.TabIndex = 4;
-            btn_inicio.Text = "               Inicio";
+            btn_inicio.Text = "            Inicio";
             btn_inicio.TextAlign = ContentAlignment.MiddleLeft;
             btn_inicio.UseVisualStyleBackColor = false;
             btn_inicio.Click += btn_inicio_Click;
@@ -167,17 +237,17 @@
             // btn_vendas
             // 
             btn_vendas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_vendas.BackColor = Color.Black;
+            btn_vendas.BackColor = Color.FromArgb(7, 30, 34);
             btn_vendas.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_vendas.ForeColor = Color.LawnGreen;
+            btn_vendas.ForeColor = Color.FromArgb(29, 120, 116);
             btn_vendas.Image = (Image)resources.GetObject("btn_vendas.Image");
             btn_vendas.ImageAlign = ContentAlignment.MiddleLeft;
             btn_vendas.Location = new Point(-9, -10);
             btn_vendas.Name = "btn_vendas";
-            btn_vendas.Padding = new Padding(10, 0, 0, 0);
+            btn_vendas.Padding = new Padding(20, 0, 0, 0);
             btn_vendas.Size = new Size(259, 89);
             btn_vendas.TabIndex = 3;
-            btn_vendas.Text = "               Vendas";
+            btn_vendas.Text = "            Vendas";
             btn_vendas.TextAlign = ContentAlignment.MiddleLeft;
             btn_vendas.UseVisualStyleBackColor = false;
             btn_vendas.Click += btn_vendas_Click;
@@ -193,17 +263,17 @@
             // btn_producao
             // 
             btn_producao.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_producao.BackColor = Color.Black;
+            btn_producao.BackColor = Color.FromArgb(7, 30, 34);
             btn_producao.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_producao.ForeColor = Color.LawnGreen;
+            btn_producao.ForeColor = Color.FromArgb(29, 120, 116);
             btn_producao.Image = (Image)resources.GetObject("btn_producao.Image");
             btn_producao.ImageAlign = ContentAlignment.MiddleLeft;
             btn_producao.Location = new Point(-9, -10);
             btn_producao.Name = "btn_producao";
-            btn_producao.Padding = new Padding(10, 0, 0, 0);
+            btn_producao.Padding = new Padding(20, 0, 0, 0);
             btn_producao.Size = new Size(259, 89);
             btn_producao.TabIndex = 3;
-            btn_producao.Text = "               Produção";
+            btn_producao.Text = "            Produção";
             btn_producao.TextAlign = ContentAlignment.MiddleLeft;
             btn_producao.UseVisualStyleBackColor = false;
             btn_producao.Click += btn_producao_Click;
@@ -219,17 +289,17 @@
             // btn_fornecedores
             // 
             btn_fornecedores.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_fornecedores.BackColor = Color.Black;
+            btn_fornecedores.BackColor = Color.FromArgb(7, 30, 34);
             btn_fornecedores.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_fornecedores.ForeColor = Color.LawnGreen;
+            btn_fornecedores.ForeColor = Color.FromArgb(29, 120, 116);
             btn_fornecedores.Image = (Image)resources.GetObject("btn_fornecedores.Image");
             btn_fornecedores.ImageAlign = ContentAlignment.MiddleLeft;
             btn_fornecedores.Location = new Point(-9, -10);
             btn_fornecedores.Name = "btn_fornecedores";
-            btn_fornecedores.Padding = new Padding(10, 0, 0, 0);
+            btn_fornecedores.Padding = new Padding(20, 0, 0, 0);
             btn_fornecedores.Size = new Size(259, 89);
             btn_fornecedores.TabIndex = 3;
-            btn_fornecedores.Text = "               Fornecedores";
+            btn_fornecedores.Text = "            Fornecedores";
             btn_fornecedores.TextAlign = ContentAlignment.MiddleLeft;
             btn_fornecedores.UseVisualStyleBackColor = false;
             btn_fornecedores.Click += btn_fornecedores_Click;
@@ -246,17 +316,17 @@
             // btn_usuarios
             // 
             btn_usuarios.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_usuarios.BackColor = Color.Black;
+            btn_usuarios.BackColor = Color.FromArgb(7, 30, 34);
             btn_usuarios.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_usuarios.ForeColor = Color.LawnGreen;
+            btn_usuarios.ForeColor = Color.FromArgb(29, 120, 116);
             btn_usuarios.Image = (Image)resources.GetObject("btn_usuarios.Image");
             btn_usuarios.ImageAlign = ContentAlignment.MiddleLeft;
             btn_usuarios.Location = new Point(-9, -10);
             btn_usuarios.Name = "btn_usuarios";
-            btn_usuarios.Padding = new Padding(10, 0, 0, 0);
+            btn_usuarios.Padding = new Padding(20, 0, 0, 0);
             btn_usuarios.Size = new Size(259, 89);
             btn_usuarios.TabIndex = 3;
-            btn_usuarios.Text = "               Usuários";
+            btn_usuarios.Text = "            Usuários";
             btn_usuarios.TextAlign = ContentAlignment.MiddleLeft;
             btn_usuarios.UseVisualStyleBackColor = false;
             btn_usuarios.Click += btn_usuarios_Click;
@@ -266,14 +336,40 @@
             TransicaoBarra.Interval = 10;
             TransicaoBarra.Tick += TransicaoBarra_Tick;
             // 
+            // BarraUser
+            // 
+            BarraUser.BackColor = Color.FromArgb(7, 30, 34);
+            BarraUser.Controls.Add(lbl_sair);
+            BarraUser.Location = new Point(730, 69);
+            BarraUser.Name = "BarraUser";
+            BarraUser.Size = new Size(266, 0);
+            BarraUser.TabIndex = 3;
+            BarraUser.Paint += panel3_Paint;
+            // 
+            // lbl_sair
+            // 
+            lbl_sair.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lbl_sair.AutoSize = true;
+            lbl_sair.BackColor = Color.Transparent;
+            lbl_sair.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_sair.ForeColor = Color.FromArgb(238, 46, 49);
+            lbl_sair.Location = new Point(210, -28);
+            lbl_sair.Name = "lbl_sair";
+            lbl_sair.Size = new Size(53, 23);
+            lbl_sair.TabIndex = 5;
+            lbl_sair.Text = "Sair";
+            lbl_sair.Click += lbl_sair_Click;
+            // 
             // Form_Principal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
             ClientSize = new Size(996, 622);
+            Controls.Add(BarraUser);
             Controls.Add(barraLateral);
             Controls.Add(panel1);
+            ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
@@ -283,15 +379,21 @@
             Load += Form_Principal_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btn_User).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_alternar).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             barraLateral.ResumeLayout(false);
             pn_inicio.ResumeLayout(false);
             pn_vendas.ResumeLayout(false);
             pn_producao.ResumeLayout(false);
             pn_fornecedores.ResumeLayout(false);
             pn_usuarios.ResumeLayout(false);
+            BarraUser.ResumeLayout(false);
+            BarraUser.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -300,7 +402,7 @@
         private Panel panel1;
         private PictureBox btn_alternar;
         private Label label1;
-        private PictureBox pictureBox2;
+        private PictureBox btn_User;
         private FlowLayoutPanel barraLateral;
         private Panel pn_inicio;
         private Button btn_inicio;
@@ -314,5 +416,12 @@
         private Button btn_usuarios;
         private System.Windows.Forms.Timer TransicaoBarra;
         private Panel panel2;
+        private Panel BarraUser;
+        private Label lbl_sair;
+        private Panel panel3;
+        private Label lbl_email;
+        private Label lbl_nome;
+        private Panel panel4;
+        private Label label2;
     }
 }

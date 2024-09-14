@@ -113,3 +113,26 @@ C:\Users\UNIP\Desktop\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.dll
 C:\Users\UNIP\Desktop\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.pdb
 C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
 C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.exe
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.deps.json
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.runtimeconfig.json
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.dll
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Fornecedores.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Inicio.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Login.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Principal.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Producao.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Usuarios.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Vendas.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Properties.Resources.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.GenerateResource.cache
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfoInputs.cache
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfo.cs
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.CoreCompileInputs.cache
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.dll
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\refint\CityGreen.dll
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
