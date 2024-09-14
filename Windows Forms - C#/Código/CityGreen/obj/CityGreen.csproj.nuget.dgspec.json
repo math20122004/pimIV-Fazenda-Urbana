@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\UNIP\\Desktop\\Código\\CityGreen\\CityGreen.csproj": {}
+    "C:\\Users\\UNIP\\Downloads\\Windows Forms - C#\\Código\\CityGreen\\CityGreen.csproj": {}
   },
   "projects": {
-    "C:\\Users\\UNIP\\Desktop\\Código\\CityGreen\\CityGreen.csproj": {
+    "C:\\Users\\UNIP\\Downloads\\Windows Forms - C#\\Código\\CityGreen\\CityGreen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UNIP\\Desktop\\Código\\CityGreen\\CityGreen.csproj",
+        "projectUniqueName": "C:\\Users\\UNIP\\Downloads\\Windows Forms - C#\\Código\\CityGreen\\CityGreen.csproj",
         "projectName": "CityGreen",
-        "projectPath": "C:\\Users\\UNIP\\Desktop\\Código\\CityGreen\\CityGreen.csproj",
+        "projectPath": "C:\\Users\\UNIP\\Downloads\\Windows Forms - C#\\Código\\CityGreen\\CityGreen.csproj",
         "packagesPath": "C:\\Users\\UNIP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UNIP\\Desktop\\Código\\CityGreen\\obj\\",
+        "outputPath": "C:\\Users\\UNIP\\Downloads\\Windows Forms - C#\\Código\\CityGreen\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\UNIP\\AppData\\Roaming\\NuGet\\NuGet.Config",

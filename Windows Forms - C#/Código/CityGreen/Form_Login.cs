@@ -36,7 +36,15 @@ namespace CityGreen
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            string message = "Você gostaria de sair do Sistema?";
+            string title = "Fehcar Sistema";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
