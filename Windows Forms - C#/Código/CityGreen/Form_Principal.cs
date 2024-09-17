@@ -70,7 +70,17 @@ namespace CityGreen
 
         private void btn_producao_Click(object sender, EventArgs e)
         {
-
+            if (producao == null)
+            {
+                producao = new Form_Producao();
+                producao.FormClosed += Producao_FormClosed;
+                producao.MdiParent = this;
+                producao.Show();
+            }
+            else
+            {
+                producao.Activate();
+            };
         }
 
         private void Producao_FormClosed(object? sender, FormClosedEventArgs e)
