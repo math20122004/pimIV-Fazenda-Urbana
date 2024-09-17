@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Login));
             lbl_login = new Label();
-            textBox1 = new TextBox();
+            txtB_login = new TextBox();
             panel1 = new Panel();
             label1 = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             panel3 = new Panel();
-            textBox2 = new TextBox();
+            txtB_senha = new TextBox();
             button1 = new Button();
             pictureBox3 = new PictureBox();
             label3 = new Label();
@@ -65,17 +65,18 @@
             lbl_login.TextAlign = ContentAlignment.MiddleLeft;
             lbl_login.Click += lbl_login_Click;
             // 
-            // textBox1
+            // txtB_login
             // 
-            textBox1.BackColor = Color.FromArgb(223, 223, 223);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(599, 275);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(326, 20);
-            textBox1.TabIndex = 2;
-            textBox1.Text = "Email ou RA";
-            textBox1.TextChanged += textBox1_TextChanged;
+            txtB_login.BackColor = Color.FromArgb(223, 223, 223);
+            txtB_login.BorderStyle = BorderStyle.None;
+            txtB_login.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtB_login.Location = new Point(599, 275);
+            txtB_login.Name = "txtB_login";
+            txtB_login.PlaceholderText = "Email ou RA";
+            txtB_login.Size = new Size(326, 20);
+            txtB_login.TabIndex = 2;
+            txtB_login.Tag = "";
+            txtB_login.TextChanged += textBox1_TextChanged;
             // 
             // panel1
             // 
@@ -139,16 +140,16 @@
             panel3.Size = new Size(372, 3);
             panel3.TabIndex = 9;
             // 
-            // textBox2
+            // txtB_senha
             // 
-            textBox2.BackColor = Color.FromArgb(223, 223, 223);
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(599, 364);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(326, 20);
-            textBox2.TabIndex = 8;
-            textBox2.Text = "Senha";
+            txtB_senha.BackColor = Color.FromArgb(223, 223, 223);
+            txtB_senha.BorderStyle = BorderStyle.None;
+            txtB_senha.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtB_senha.Location = new Point(599, 364);
+            txtB_senha.Name = "txtB_senha";
+            txtB_senha.PlaceholderText = "Senha";
+            txtB_senha.Size = new Size(326, 20);
+            txtB_senha.TabIndex = 8;
             // 
             // button1
             // 
@@ -217,11 +218,11 @@
             Controls.Add(button1);
             Controls.Add(pictureBox2);
             Controls.Add(panel3);
-            Controls.Add(textBox2);
+            Controls.Add(txtB_senha);
             Controls.Add(pictureBox1);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(textBox1);
+            Controls.Add(txtB_login);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form_Login";
             StartPosition = FormStartPosition.CenterScreen;
@@ -239,14 +240,14 @@
 
         #endregion
         private Label lbl_login;
-        private TextBox textBox1;
+        private TextBox txtB_login;
         private Panel panel1;
         private Label label2;
         private Label label1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Panel panel3;
-        private TextBox textBox2;
+        private TextBox txtB_senha;
         private Button button1;
         private PictureBox pictureBox3;
         private Label label3;
