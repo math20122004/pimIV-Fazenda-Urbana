@@ -314,6 +314,24 @@ INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (8, 'Espinafre', 
 INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (9, 'Cenoura', 'Vegetal');
 INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (10, 'Pepino', 'Vegetal');
 
+-- Criptografar a senha "12345" usando SHA-256
+DECLARE @senha NVARCHAR(50) = '12345';
+DECLARE @senhaHash VARBINARY(64);
+SET @senhaHash = HASHBYTES('SHA2_256', @senha);
+
+-- Inserir usuários no banco de dados
+INSERT INTO Usuarios (idUsuario, nome, email, senhaHash, status) VALUES
+('G764AE9', 'Maria Clara Sousa Torres', 'maria.clara@example.com', @senhaHash, 'ativo'),
+('G783GA4', 'Niuan Spolidorio Da Rocha Souza', 'niuan.spolidorio@example.com', @senhaHash, 'ativo'),
+('G79JBF6', 'Gabriel Contatori de Assis', 'gabriel.contatori@example.com', @senhaHash, 'ativo'),
+('G872EC9', 'Sabrina Aparecida V Da Silva', 'sabrina.silva@example.com', @senhaHash, 'ativo'),
+('N3573A1', 'Matheus Rafael Da Silva Jesus', 'matheus.jesus@example.com', @senhaHash, 'ativo'),
+('G71GEG3', 'Victor Hugo Rodrigues Barros Antunes', 'victor.antunes@example.com', @senhaHash, 'ativo');
+
+
+
+
+
 
 
 
