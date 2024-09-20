@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LoginSistema;
+using Microsoft.VisualBasic.Logging;
 
 namespace CityGreen
 {
     public partial class Form_Login : Form
     {
+        private Login login = new Login();
+
         Thread t1;
 
         public Form_Login()
@@ -49,10 +53,21 @@ namespace CityGreen
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            t1 = new Thread(abrirJanela);
-            t1.SetApartmentState(ApartmentState.STA);
-            t1.Start();
+            string userLogin = txtB_login.Text;
+            string userSenha = txtB_senha.Text;
+
+            if (login.LogarSistema(userLogin, userSenha))
+            {
+                MessageBox.Show("Login bem-sucedido!");
+                this.Close();
+                t1 = new Thread(abrirJanela);
+                t1.SetApartmentState(ApartmentState.STA);
+                t1.Start();
+            }
+            else
+            {
+                MessageBox.Show("Credenciais inválidas. Tente novamente.");
+            }
         }
 
         private void abrirJanela(object obj)
