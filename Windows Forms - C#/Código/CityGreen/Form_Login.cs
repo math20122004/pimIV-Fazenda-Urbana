@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LoginSistema;
 using Microsoft.VisualBasic.Logging;
+using CityGreen.Classes;
+
 
 namespace CityGreen
 {
@@ -21,21 +23,6 @@ namespace CityGreen
         public Form_Login()
         {
             InitializeComponent();
-        }
-
-        private void lbl_login_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form_Login_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -56,23 +43,36 @@ namespace CityGreen
             string userLogin = txtB_login.Text;
             string userSenha = txtB_senha.Text;
 
-            if (login.LogarSistema(userLogin, userSenha))
+            Login login = new Login();
+            string resultado = login.VerificarCredenciais(userLogin, userSenha);
+
+            if (resultado == "Login inválido")
+            {
+                MessageBox.Show("Login inválido. Tente novamente.");
+            }
+            else if (resultado == "SenhaInvalida")
+            {
+                MessageBox.Show("Senha inválida. Tente novamente.");
+            }
+            else if (resultado == "Erro no sistema")
+            {
+                MessageBox.Show("Ocorreu um erro no sistema. Tente novamente mais tarde.");
+            }
+            else
             {
                 MessageBox.Show("Login bem-sucedido!");
                 this.Close();
                 t1 = new Thread(abrirJanela);
                 t1.SetApartmentState(ApartmentState.STA);
-                t1.Start();
-            }
-            else
-            {
-                MessageBox.Show("Credenciais inválidas. Tente novamente.");
+                t1.Start(resultado); // Passa o idUsuario como parâmetro
             }
         }
 
         private void abrirJanela(object obj)
         {
-            Application.Run(new Form_Principal());
+            string idUsuario = obj as string;
+            Application.Run(new Form_Principal(idUsuario));
         }
+
     }
 }

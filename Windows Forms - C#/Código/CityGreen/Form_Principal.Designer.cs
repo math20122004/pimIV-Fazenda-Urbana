@@ -344,7 +344,6 @@
             BarraUser.Name = "BarraUser";
             BarraUser.Size = new Size(266, 0);
             BarraUser.TabIndex = 3;
-            BarraUser.Paint += panel3_Paint;
             // 
             // lbl_sair
             // 
