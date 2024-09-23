@@ -328,6 +328,17 @@ INSERT INTO Usuarios (idUsuario, nome, email, senhaHash, status) VALUES
 ('N3573A1', 'Matheus Rafael Da Silva Jesus', 'matheus.jesus@example.com', @senhaHash, 'ativo'),
 ('G71GEG3', 'Victor Hugo Rodrigues Barros Antunes', 'victor.antunes@example.com', @senhaHash, 'ativo');
 
+INSERT INTO User_Permissao_Tem (fk_Usuarios_idUsuario, fk_Funcionalidade_idFuncionalidade, criar, leitura, modificacao)VALUES 
+('G783GA4', 1, 1, 1, 1),
+('G764AE9', 1, 1, 1, 1),
+('G783GA4', 2, 1, 1, 1),
+('G79JBF6', 2, 1, 1, 1),
+('G783GA4', 3, 1, 1, 1),
+('N3573A1', 3, 1, 1, 1),
+('G783GA4', 4, 1, 1, 1),
+('G71GEG3', 4, 1, 1, 1);
+
+
 
 
 
