@@ -1,37 +1,69 @@
 using System;
 using System.Data.SqlClient;
+using CityGreen.Classes;
 
 namespace LoginSistema
 {
     public class Login
     {
-        private string connectionString = "Server=DESKTOP-C8MJ6C3;Database=CityGreen;Trusted_Connection=True;";
+        private DatabaseController dbController;
 
-        public bool VerificarCredenciais(string login, string senha)
+        public Login()
         {
-            string query = @"
-                SELECT COUNT(*)
+            dbController = new DatabaseController();
+        }
+
+        public string VerificarCredenciais(string login, string senha)
+        {
+            string queryLogin = @"
+                SELECT idUsuario
+                FROM Usuarios
+                WHERE (idUsuario = @login OR email = @login)
+                AND status = 'ativo'";
+
+            string querySenha = @"
+                SELECT idUsuario
                 FROM Usuarios
                 WHERE (idUsuario = @login OR email = @login)
                 AND senhaHash = HASHBYTES('SHA2_256', @senha)
                 AND status = 'ativo'";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@login", login);
-                command.Parameters.AddWithValue("@senha", senha);
+                using (SqlConnection connection = dbController.GetConnection())
+                {
+                    SqlCommand commandLogin = new SqlCommand(queryLogin, connection);
+                    commandLogin.Parameters.AddWithValue("@login", login);
 
-                connection.Open();
-                int count = (int)command.ExecuteScalar();
+                    connection.Open();
+                    var resultLogin = commandLogin.ExecuteScalar();
+                    connection.Close();
 
-                return count > 0;
+                    if (resultLogin == null)
+                    {
+                        return "Login inválido";
+                    }
+
+                    SqlCommand commandSenha = new SqlCommand(querySenha, connection);
+                    commandSenha.Parameters.AddWithValue("@login", login);
+                    commandSenha.Parameters.AddWithValue("@senha", senha);
+
+                    connection.Open();
+                    var resultSenha = commandSenha.ExecuteScalar();
+
+                    if (resultSenha == null)
+                    {
+                        return "SenhaInvalida";
+                    }
+
+                    return resultSenha.ToString();
+                }
             }
-        }
-
-        public bool LogarSistema(string login, string senha)
-        {
-            return VerificarCredenciais(login, senha);
+            catch (Exception ex)
+            {
+                // Log the exception (ex) if necessary
+                return "Erro no sistema";
+            }
         }
     }
 }

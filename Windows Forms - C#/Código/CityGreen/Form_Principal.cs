@@ -1,3 +1,5 @@
+using Gestão_Usuarios;
+
 namespace CityGreen
 {
 
@@ -13,20 +15,60 @@ namespace CityGreen
 
         Thread t2;
 
-        public Form_Principal()
+        private string idUsuario;
+
+        public Form_Principal(string idUsuario)
         {
             InitializeComponent();
+            this.idUsuario = idUsuario;
         }
 
         private void Form_Principal_Load(object sender, EventArgs e)
         {
             btn_inicio.PerformClick();
-            string nomeUser = "Niuan Spolidorio da Rocha Souza";
-            string emailUser = "niuan.spolid@hotmail.com";
 
-            lbl_nome.Text = nomeUser;
-            lbl_email.Text = emailUser;
+            Usuario usuario = new Usuario();
+            Usuario dadosUsuario = usuario.VerUsuario(idUsuario);
+
+            if (dadosUsuario != null)
+            {
+                lbl_nome.Text = dadosUsuario.Nome;
+                lbl_email.Text = dadosUsuario.Email;
+
+                List<Permissao> permissoes = usuario.ListarPermissoes(idUsuario);
+
+                // Inicialmente, esconda todos os painéis
+                pn_fornecedores.Visible = false;
+                pn_usuarios.Visible = false;
+                pn_producao.Visible = false;
+                pn_vendas.Visible = false;
+
+                // Verifique as permissões e mostre os painéis correspondentes
+                foreach (var permissao in permissoes)
+                {
+                    switch (permissao.NomeFuncionalidade)
+                    {
+                        case "Fornecedores":
+                            pn_fornecedores.Visible = true;
+                            break;
+                        case "Vendas":
+                            pn_vendas.Visible = true;
+                            break;
+                        case "Produção":
+                            pn_producao.Visible = true;
+                            break;
+                        case "Administrador":
+                            pn_usuarios.Visible = true;
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Erro ao carregar os dados do usuário.");
+            }
         }
+
         private void btn_inicio_Click(object sender, EventArgs e)
         {
             if (inicio == null)
@@ -182,12 +224,6 @@ namespace CityGreen
             Application.Run(new Form_Login());
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
         private void lbl_sair_Click(object sender, EventArgs e)
         {
 
@@ -204,5 +240,6 @@ namespace CityGreen
             }
 
         }
+
     }
 }

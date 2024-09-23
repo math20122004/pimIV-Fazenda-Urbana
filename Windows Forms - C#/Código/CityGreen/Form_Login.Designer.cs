@@ -63,7 +63,6 @@
             lbl_login.TabIndex = 1;
             lbl_login.Text = "City";
             lbl_login.TextAlign = ContentAlignment.MiddleLeft;
-            lbl_login.Click += lbl_login_Click;
             // 
             // txtB_login
             // 
@@ -76,7 +75,6 @@
             txtB_login.Size = new Size(326, 20);
             txtB_login.TabIndex = 2;
             txtB_login.Tag = "";
-            txtB_login.TextChanged += textBox1_TextChanged;
             // 
             // panel1
             // 
@@ -150,6 +148,7 @@
             txtB_senha.PlaceholderText = "Senha";
             txtB_senha.Size = new Size(326, 20);
             txtB_senha.TabIndex = 8;
+            txtB_senha.UseSystemPasswordChar = true;
             // 
             // button1
             // 
@@ -227,7 +226,6 @@
             Name = "Form_Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form_Login";
-            Load += Form_Login_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
