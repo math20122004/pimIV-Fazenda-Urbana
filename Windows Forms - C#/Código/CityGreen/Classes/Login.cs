@@ -61,7 +61,6 @@ namespace LoginSistema
             }
             catch (Exception ex)
             {
-                // Log the exception (ex) if necessary
                 return "Erro no sistema";
             }
         }

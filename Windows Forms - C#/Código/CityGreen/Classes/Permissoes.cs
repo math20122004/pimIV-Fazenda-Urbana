@@ -104,7 +104,7 @@ namespace Gestão_Usuarios
             }
             catch (Exception ex)
             {
-                // Log the exception (ex) if necessary
+
             }
             return permissoes;
         }

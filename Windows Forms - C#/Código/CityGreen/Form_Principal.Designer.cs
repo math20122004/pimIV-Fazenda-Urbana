@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Principal));
             panel1 = new Panel();
             panel4 = new Panel();
@@ -43,17 +42,21 @@
             barraLateral = new FlowLayoutPanel();
             pn_inicio = new Panel();
             btn_inicio = new Button();
+            pn_fornecedores = new Panel();
+            btn_fornecedores = new Button();
             pn_vendas = new Panel();
             btn_vendas = new Button();
             pn_producao = new Panel();
             btn_producao = new Button();
-            pn_fornecedores = new Panel();
-            btn_fornecedores = new Button();
             pn_usuarios = new Panel();
             btn_usuarios = new Button();
-            TransicaoBarra = new System.Windows.Forms.Timer(components);
             BarraUser = new Panel();
-            lbl_sair = new Label();
+            btn_sair = new Button();
+            lbl_permissao = new Label();
+            panel5 = new Panel();
+            label3 = new Label();
+            lbl_RA = new Label();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel2.SuspendLayout();
@@ -62,9 +65,9 @@
             panel3.SuspendLayout();
             barraLateral.SuspendLayout();
             pn_inicio.SuspendLayout();
+            pn_fornecedores.SuspendLayout();
             pn_vendas.SuspendLayout();
             pn_producao.SuspendLayout();
-            pn_fornecedores.SuspendLayout();
             pn_usuarios.SuspendLayout();
             BarraUser.SuspendLayout();
             SuspendLayout();
@@ -155,13 +158,12 @@
             // btn_alternar
             // 
             btn_alternar.Image = (Image)resources.GetObject("btn_alternar.Image");
-            btn_alternar.Location = new Point(25, 12);
+            btn_alternar.Location = new Point(12, 6);
             btn_alternar.Name = "btn_alternar";
-            btn_alternar.Size = new Size(40, 37);
+            btn_alternar.Size = new Size(53, 57);
             btn_alternar.SizeMode = PictureBoxSizeMode.StretchImage;
             btn_alternar.TabIndex = 1;
             btn_alternar.TabStop = false;
-            btn_alternar.Click += btn_alternar_Click;
             // 
             // panel3
             // 
@@ -189,75 +191,100 @@
             // 
             barraLateral.BackColor = Color.FromArgb(7, 30, 34);
             barraLateral.Controls.Add(pn_inicio);
+            barraLateral.Controls.Add(pn_fornecedores);
             barraLateral.Controls.Add(pn_vendas);
             barraLateral.Controls.Add(pn_producao);
-            barraLateral.Controls.Add(pn_fornecedores);
             barraLateral.Controls.Add(pn_usuarios);
             barraLateral.Dock = DockStyle.Left;
             barraLateral.Location = new Point(0, 69);
             barraLateral.Name = "barraLateral";
-            barraLateral.Size = new Size(247, 553);
+            barraLateral.Size = new Size(138, 553);
             barraLateral.TabIndex = 1;
             // 
             // pn_inicio
             // 
             pn_inicio.Controls.Add(btn_inicio);
-            pn_inicio.Location = new Point(3, 40);
-            pn_inicio.Margin = new Padding(3, 40, 3, 3);
+            pn_inicio.Location = new Point(3, 20);
+            pn_inicio.Margin = new Padding(3, 20, 3, 3);
             pn_inicio.Name = "pn_inicio";
-            pn_inicio.Size = new Size(244, 70);
+            pn_inicio.Size = new Size(132, 100);
             pn_inicio.TabIndex = 2;
             // 
             // btn_inicio
             // 
             btn_inicio.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_inicio.BackColor = Color.FromArgb(7, 30, 34);
-            btn_inicio.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_inicio.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_inicio.ForeColor = Color.FromArgb(29, 120, 116);
             btn_inicio.Image = (Image)resources.GetObject("btn_inicio.Image");
-            btn_inicio.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_inicio.Location = new Point(-6, -11);
+            btn_inicio.Location = new Point(-6, -7);
             btn_inicio.Name = "btn_inicio";
-            btn_inicio.Padding = new Padding(20, 0, 0, 0);
-            btn_inicio.Size = new Size(256, 89);
+            btn_inicio.Padding = new Padding(5, 0, 5, 0);
+            btn_inicio.Size = new Size(143, 115);
             btn_inicio.TabIndex = 4;
-            btn_inicio.Text = "            Inicio";
-            btn_inicio.TextAlign = ContentAlignment.MiddleLeft;
+            btn_inicio.Text = "Inicio";
+            btn_inicio.TextAlign = ContentAlignment.BottomCenter;
+            btn_inicio.TextImageRelation = TextImageRelation.ImageAboveText;
             btn_inicio.UseVisualStyleBackColor = false;
             btn_inicio.Click += btn_inicio_Click;
+            // 
+            // pn_fornecedores
+            // 
+            pn_fornecedores.Controls.Add(btn_fornecedores);
+            pn_fornecedores.Location = new Point(3, 126);
+            pn_fornecedores.Name = "pn_fornecedores";
+            pn_fornecedores.Size = new Size(132, 101);
+            pn_fornecedores.TabIndex = 5;
+            // 
+            // btn_fornecedores
+            // 
+            btn_fornecedores.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_fornecedores.BackColor = Color.FromArgb(7, 30, 34);
+            btn_fornecedores.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_fornecedores.ForeColor = Color.FromArgb(29, 120, 116);
+            btn_fornecedores.Image = (Image)resources.GetObject("btn_fornecedores.Image");
+            btn_fornecedores.Location = new Point(-6, -4);
+            btn_fornecedores.Name = "btn_fornecedores";
+            btn_fornecedores.Padding = new Padding(5, 0, 5, 0);
+            btn_fornecedores.Size = new Size(143, 112);
+            btn_fornecedores.TabIndex = 3;
+            btn_fornecedores.Text = "Fornecedores";
+            btn_fornecedores.TextImageRelation = TextImageRelation.ImageAboveText;
+            btn_fornecedores.UseVisualStyleBackColor = false;
+            btn_fornecedores.Click += btn_fornecedores_Click;
             // 
             // pn_vendas
             // 
             pn_vendas.Controls.Add(btn_vendas);
-            pn_vendas.Location = new Point(3, 116);
+            pn_vendas.Location = new Point(3, 233);
             pn_vendas.Name = "pn_vendas";
-            pn_vendas.Size = new Size(244, 70);
+            pn_vendas.Size = new Size(132, 101);
             pn_vendas.TabIndex = 4;
             // 
             // btn_vendas
             // 
             btn_vendas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_vendas.BackColor = Color.FromArgb(7, 30, 34);
-            btn_vendas.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_vendas.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_vendas.ForeColor = Color.FromArgb(29, 120, 116);
             btn_vendas.Image = (Image)resources.GetObject("btn_vendas.Image");
-            btn_vendas.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_vendas.Location = new Point(-9, -10);
+            btn_vendas.Location = new Point(-6, -6);
             btn_vendas.Name = "btn_vendas";
-            btn_vendas.Padding = new Padding(20, 0, 0, 0);
-            btn_vendas.Size = new Size(259, 89);
+            btn_vendas.Padding = new Padding(5, 0, 5, 0);
+            btn_vendas.Size = new Size(143, 115);
             btn_vendas.TabIndex = 3;
-            btn_vendas.Text = "            Vendas";
-            btn_vendas.TextAlign = ContentAlignment.MiddleLeft;
+            btn_vendas.Text = "Vendas";
+            btn_vendas.TextAlign = ContentAlignment.BottomCenter;
+            btn_vendas.TextImageRelation = TextImageRelation.ImageAboveText;
             btn_vendas.UseVisualStyleBackColor = false;
             btn_vendas.Click += btn_vendas_Click;
             // 
             // pn_producao
             // 
             pn_producao.Controls.Add(btn_producao);
-            pn_producao.Location = new Point(3, 192);
+            pn_producao.Location = new Point(3, 340);
             pn_producao.Name = "pn_producao";
-            pn_producao.Size = new Size(244, 70);
+            pn_producao.Size = new Size(132, 101);
             pn_producao.TabIndex = 6;
             // 
             // btn_producao
@@ -267,50 +294,23 @@
             btn_producao.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_producao.ForeColor = Color.FromArgb(29, 120, 116);
             btn_producao.Image = (Image)resources.GetObject("btn_producao.Image");
-            btn_producao.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_producao.Location = new Point(-9, -10);
+            btn_producao.Location = new Point(-5, -6);
             btn_producao.Name = "btn_producao";
-            btn_producao.Padding = new Padding(20, 0, 0, 0);
-            btn_producao.Size = new Size(259, 89);
+            btn_producao.Padding = new Padding(5, 0, 5, 0);
+            btn_producao.Size = new Size(141, 115);
             btn_producao.TabIndex = 3;
-            btn_producao.Text = "            Produção";
-            btn_producao.TextAlign = ContentAlignment.MiddleLeft;
+            btn_producao.Text = "Produção";
+            btn_producao.TextAlign = ContentAlignment.BottomCenter;
+            btn_producao.TextImageRelation = TextImageRelation.ImageAboveText;
             btn_producao.UseVisualStyleBackColor = false;
             btn_producao.Click += btn_producao_Click;
-            // 
-            // pn_fornecedores
-            // 
-            pn_fornecedores.Controls.Add(btn_fornecedores);
-            pn_fornecedores.Location = new Point(3, 268);
-            pn_fornecedores.Name = "pn_fornecedores";
-            pn_fornecedores.Size = new Size(244, 70);
-            pn_fornecedores.TabIndex = 5;
-            // 
-            // btn_fornecedores
-            // 
-            btn_fornecedores.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_fornecedores.BackColor = Color.FromArgb(7, 30, 34);
-            btn_fornecedores.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_fornecedores.ForeColor = Color.FromArgb(29, 120, 116);
-            btn_fornecedores.Image = (Image)resources.GetObject("btn_fornecedores.Image");
-            btn_fornecedores.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_fornecedores.Location = new Point(-9, -10);
-            btn_fornecedores.Name = "btn_fornecedores";
-            btn_fornecedores.Padding = new Padding(20, 0, 0, 0);
-            btn_fornecedores.Size = new Size(259, 89);
-            btn_fornecedores.TabIndex = 3;
-            btn_fornecedores.Text = "            Fornecedores";
-            btn_fornecedores.TextAlign = ContentAlignment.MiddleLeft;
-            btn_fornecedores.UseVisualStyleBackColor = false;
-            btn_fornecedores.Click += btn_fornecedores_Click;
             // 
             // pn_usuarios
             // 
             pn_usuarios.Controls.Add(btn_usuarios);
-            pn_usuarios.Location = new Point(3, 466);
-            pn_usuarios.Margin = new Padding(3, 125, 3, 3);
+            pn_usuarios.Location = new Point(3, 447);
             pn_usuarios.Name = "pn_usuarios";
-            pn_usuarios.Size = new Size(244, 70);
+            pn_usuarios.Size = new Size(132, 101);
             pn_usuarios.TabIndex = 7;
             // 
             // btn_usuarios
@@ -320,44 +320,82 @@
             btn_usuarios.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_usuarios.ForeColor = Color.FromArgb(29, 120, 116);
             btn_usuarios.Image = (Image)resources.GetObject("btn_usuarios.Image");
-            btn_usuarios.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_usuarios.Location = new Point(-9, -10);
+            btn_usuarios.Location = new Point(-5, -5);
             btn_usuarios.Name = "btn_usuarios";
-            btn_usuarios.Padding = new Padding(20, 0, 0, 0);
-            btn_usuarios.Size = new Size(259, 89);
+            btn_usuarios.Padding = new Padding(5, 0, 5, 0);
+            btn_usuarios.Size = new Size(143, 115);
             btn_usuarios.TabIndex = 3;
-            btn_usuarios.Text = "            Usuários";
-            btn_usuarios.TextAlign = ContentAlignment.MiddleLeft;
+            btn_usuarios.Text = "Usuários";
+            btn_usuarios.TextAlign = ContentAlignment.BottomCenter;
+            btn_usuarios.TextImageRelation = TextImageRelation.ImageAboveText;
             btn_usuarios.UseVisualStyleBackColor = false;
             btn_usuarios.Click += btn_usuarios_Click;
-            // 
-            // TransicaoBarra
-            // 
-            TransicaoBarra.Interval = 10;
-            TransicaoBarra.Tick += TransicaoBarra_Tick;
             // 
             // BarraUser
             // 
             BarraUser.BackColor = Color.FromArgb(7, 30, 34);
-            BarraUser.Controls.Add(lbl_sair);
+            BarraUser.Controls.Add(btn_sair);
+            BarraUser.Controls.Add(lbl_permissao);
+            BarraUser.Controls.Add(panel5);
+            BarraUser.Controls.Add(label3);
+            BarraUser.Controls.Add(lbl_RA);
             BarraUser.Location = new Point(730, 69);
             BarraUser.Name = "BarraUser";
             BarraUser.Size = new Size(266, 0);
             BarraUser.TabIndex = 3;
             // 
-            // lbl_sair
+            // btn_sair
             // 
-            lbl_sair.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            lbl_sair.AutoSize = true;
-            lbl_sair.BackColor = Color.Transparent;
-            lbl_sair.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_sair.ForeColor = Color.FromArgb(238, 46, 49);
-            lbl_sair.Location = new Point(210, -28);
-            lbl_sair.Name = "lbl_sair";
-            lbl_sair.Size = new Size(53, 23);
-            lbl_sair.TabIndex = 5;
-            lbl_sair.Text = "Sair";
-            lbl_sair.Click += lbl_sair_Click;
+            btn_sair.Font = new Font("Verdana", 14.25F, FontStyle.Bold);
+            btn_sair.ForeColor = Color.IndianRed;
+            btn_sair.Location = new Point(197, 159);
+            btn_sair.Name = "btn_sair";
+            btn_sair.Size = new Size(61, 32);
+            btn_sair.TabIndex = 5;
+            btn_sair.Text = "Sair";
+            btn_sair.UseVisualStyleBackColor = true;
+            btn_sair.Click += btn_sair_Click;
+            // 
+            // lbl_permissao
+            // 
+            lbl_permissao.AutoSize = true;
+            lbl_permissao.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_permissao.ForeColor = Color.White;
+            lbl_permissao.Location = new Point(20, 88);
+            lbl_permissao.Name = "lbl_permissao";
+            lbl_permissao.Size = new Size(19, 18);
+            lbl_permissao.TabIndex = 8;
+            lbl_permissao.Text = "P";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.White;
+            panel5.Location = new Point(3, 38);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(260, 3);
+            panel5.TabIndex = 6;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(20, 57);
+            label3.Name = "label3";
+            label3.Size = new Size(109, 18);
+            label3.TabIndex = 7;
+            label3.Text = "Permissões:";
+            // 
+            // lbl_RA
+            // 
+            lbl_RA.AutoSize = true;
+            lbl_RA.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_RA.ForeColor = Color.White;
+            lbl_RA.Location = new Point(20, 16);
+            lbl_RA.Name = "lbl_RA";
+            lbl_RA.Size = new Size(32, 18);
+            lbl_RA.TabIndex = 6;
+            lbl_RA.Text = "RA";
             // 
             // Form_Principal
             // 
@@ -387,9 +425,9 @@
             panel3.PerformLayout();
             barraLateral.ResumeLayout(false);
             pn_inicio.ResumeLayout(false);
+            pn_fornecedores.ResumeLayout(false);
             pn_vendas.ResumeLayout(false);
             pn_producao.ResumeLayout(false);
-            pn_fornecedores.ResumeLayout(false);
             pn_usuarios.ResumeLayout(false);
             BarraUser.ResumeLayout(false);
             BarraUser.PerformLayout();
@@ -413,14 +451,18 @@
         private Button btn_vendas;
         private Panel pn_usuarios;
         private Button btn_usuarios;
-        private System.Windows.Forms.Timer TransicaoBarra;
         private Panel panel2;
         private Panel BarraUser;
-        private Label lbl_sair;
         private Panel panel3;
         private Label lbl_email;
         private Label lbl_nome;
         private Panel panel4;
         private Label label2;
+        private Label label3;
+        private Label lbl_RA;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Panel panel5;
+        private Label lbl_permissao;
+        private Button btn_sair;
     }
 }

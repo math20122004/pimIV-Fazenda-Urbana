@@ -167,3 +167,4 @@ C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\City
 C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.AssemblyReference.cache
 C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.Up2Date
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerUsuario.resources
