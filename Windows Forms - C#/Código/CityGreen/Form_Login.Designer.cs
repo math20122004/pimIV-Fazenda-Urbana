@@ -223,6 +223,7 @@
             Controls.Add(panel1);
             Controls.Add(txtB_login);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form_Login";

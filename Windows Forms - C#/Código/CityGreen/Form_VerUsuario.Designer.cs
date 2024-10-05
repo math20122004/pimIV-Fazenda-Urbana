@@ -1,6 +1,6 @@
 ﻿namespace CityGreen
 {
-    partial class Form_Producao
+    partial class Form_VerUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // dataGridView1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Verdana", 72F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(133, 169);
-            label1.Name = "label1";
-            label1.Size = new Size(554, 116);
-            label1.TabIndex = 0;
-            label1.Text = "Produção";
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(364, 155);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(152, 254);
+            dataGridView1.TabIndex = 0;
             // 
-            // Form_Producao
+            // Form_VerUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(858, 553);
-            Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "Form_Producao";
-            StartPosition = FormStartPosition.CenterParent;
-            Text = "FM_Produção";
-            WindowState = FormWindowState.Maximized;
-            Load += Form_Producao_Load;
+            ClientSize = new Size(842, 514);
+            Controls.Add(dataGridView1);
+            Name = "Form_VerUsuario";
+            Text = "Form_VerUsuario";
+            Load += Form_VerUsuario_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private DataGridView dataGridView1;
     }
 }
