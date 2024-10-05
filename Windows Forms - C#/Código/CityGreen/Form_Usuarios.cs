@@ -19,8 +19,19 @@ namespace CityGreen
         private void Form_Usuarios_Load(object sender, EventArgs e)
         {
             this.ControlBox = false; // Desabilitar botões de controle
+
+            // Adiciona a coluna do botão "Visualizar"
+            if (!dgw_usuarios.Columns.Contains("col_VerUsuario"))
+            {
+                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+                buttonColumn.HeaderText = "Ação";
+                buttonColumn.Name = "col_VerUsuario"; // Nome da coluna para identificação
+                buttonColumn.Text = "Visualizar";
+                buttonColumn.UseColumnTextForButtonValue = true; // Usar o texto para todos os botões na coluna
+                dgw_usuarios.Columns.Add(buttonColumn);
+            }
+
             CarregarUsuarios();
-            AdicionarBotaoVerUsuario();
         }
 
         private void CarregarUsuarios()
@@ -28,10 +39,19 @@ namespace CityGreen
             Usuario usuario = new Usuario();
             List<Usuario> listaUsuarios = usuario.ListarUsuarios();
 
+            dgw_usuarios.Rows.Clear(); // Limpa os dados existentes
+
             if (listaUsuarios != null && listaUsuarios.Count > 0)
             {
-                dgw_usuarios.DataSource = listaUsuarios;
-                dgw_usuarios.Columns["idUsuario"].Visible = false; // Oculta a coluna do ID para não exibir diretamente
+                foreach (var usr in listaUsuarios)
+                {
+                    dgw_usuarios.Rows.Add(
+                        usr.IdUsuario,    // Coluna ID
+                        usr.Nome,         // Coluna Nome
+                        usr.StatusUsuario, // Coluna Status
+                        usr.Email         // Coluna Email
+                    );
+                }
             }
             else
             {
@@ -39,49 +59,31 @@ namespace CityGreen
             }
         }
 
-        private void AdicionarBotaoVerUsuario()
-        {
-            DataGridViewButtonColumn btnVerUsuario = new DataGridViewButtonColumn();
-            btnVerUsuario.Name = "btnVerUsuario";
-            btnVerUsuario.HeaderText = "Ver Usuário";
-            btnVerUsuario.Text = "Ver";
-            btnVerUsuario.UseColumnTextForButtonValue = true;
-            dgw_usuarios.Columns.Add(btnVerUsuario); // Adiciona o botão "Ver Usuário"
-        }
-
         private void dgw_usuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verifica se o clique foi na coluna do botão "Ver Usuário"
-            if (e.ColumnIndex == dgw_usuarios.Columns["btnVerUsuario"].Index && e.RowIndex >= 0)
+            // Verifica se a coluna clicada é a do botão "Visualizar"
+            if (e.ColumnIndex == dgw_usuarios.Columns["col_VerUsuario"].Index && e.RowIndex >= 0)
             {
-                // Pega o valor da célula "idUsuario" da linha selecionada
                 string idUsuarioSelecionado = dgw_usuarios.Rows[e.RowIndex].Cells["idUsuario"].Value.ToString();
-
-                // Abre o Form_VerUsuario com base no id do usuário
-                AbrirFormVerUsuario(idUsuarioSelecionado);
+                AbrirFormVerUsuario(idUsuarioSelecionado, "ver"); // Passa o ID e a string "ver"
             }
         }
 
-        private void AbrirFormVerUsuario(string idUsuarioSelecionado)
+        private void AbrirFormVerUsuario(string idUsuarioSelecionado, string funcao)
         {
-            if (this.InvokeRequired)
+            // Verifica se o formulário já está aberto
+            if (verUsuario == null || verUsuario.IsDisposed)
             {
-                this.Invoke(new Action<string>(AbrirFormVerUsuario), idUsuarioSelecionado);
+                verUsuario = new Form_VerUsuario(idUsuarioSelecionado, funcao)
+                {
+                    MdiParent = this.MdiParent // Define o pai como o Form_Principal
+                };
+                verUsuario.FormClosed += VerUsuario_FormClosed;
+                verUsuario.Show(); // Abre o formulário
             }
             else
             {
-                // Inicializa o formulário de visualização de usuário e abre como MDI
-                if (verUsuario == null)
-                {
-                    verUsuario = new Form_VerUsuario(idUsuarioSelecionado);
-                    verUsuario.MdiParent = this.MdiParent; // Define o pai como o form principal
-                    verUsuario.FormClosed += VerUsuario_FormClosed;
-                    verUsuario.Show();
-                }
-                else
-                {
-                    verUsuario.Activate();
-                }
+                verUsuario.Activate(); // Ativa o formulário se ele já estiver aberto
             }
         }
 
@@ -90,7 +92,30 @@ namespace CityGreen
             verUsuario = null; // Limpa a referência ao fechar o form
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_CadastrarUser_Click(object sender, EventArgs e)
+        {
+            
+            var formVerUsuario = new Form_VerUsuario(idUsuario, "cadastro")
+            {
+                MdiParent = this.MdiParent
+            };
+            formVerUsuario.Show(); // Mostra o formulário
+
+            this.Close();
+        }
+
+        private void btn_Recarregar_Click(object sender, EventArgs e)
+        {
+            // Chama o método que carrega os usuários novamente
+            CarregarUsuarios();
+        }
+
+        private void tbx_pequisa_TextChanged(object sender, EventArgs e)
+        {
+            // Lógica de pesquisa (se necessário)
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             // Ação de algum botão adicional se necessário
         }
