@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gestão_Usuarios;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CityGreen
@@ -17,19 +19,248 @@ namespace CityGreen
 
         private void Form_VerUsuario_Load(object sender, EventArgs e)
         {
-            // Aqui você pode usar a variável funcao para determinar o que fazer quando o formulário abrir
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            rb_naoF.Checked = true;
+            rb_naoV.Checked = true;
+            rb_naoP.Checked = true;
+            rb_naoA.Checked = true;
+            rb_naoR.Checked = true;
+
             if (funcao == "ver")
             {
+                pl_confirmar.Hide();
+                pl_cancelar.Hide();
+                CarregarInformacoesUsuario();
+                lbl_funcao.Text = "Visualizar Usuário";
+                DesabilitarCampos();
             }
             else if (funcao == "cadastro")
             {
-
+                lbl_funcao.Text = "Cadastrar Usuário";
+                pl_editar.Hide();
+                pl_cancelar.Hide();
+                btn_confirmar.Text = "Cadastrar";
+                HabilitarCampos();
+                gb_status.Hide();
+                lbl_ativo.Hide();
+                gb_Senha.Hide();
+                lbl_senha.Hide();
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DesabilitarCampos()
         {
-            // Lógica para lidar com cliques nas células do DataGridView (se necessário)
+            tbx_ID.Enabled = false;
+            tbx_nome.Enabled = false;
+            tbx_email.Enabled = false;
+            gb_administrador.Enabled = false;
+            gb_fornecedores.Enabled = false;
+            gb_producao.Enabled = false;
+            gb_vendas.Enabled = false;
+            gb_Senha.Enabled = false;
+            gb_status.Enabled = false;
+        }
+
+        private void HabilitarCampos()
+        {
+            tbx_ID.Enabled = true;
+            tbx_nome.Enabled = true;
+            tbx_email.Enabled = true;
+            gb_administrador.Enabled = true;
+            gb_fornecedores.Enabled = true;
+            gb_producao.Enabled = true;
+            gb_vendas.Enabled = true;
+            gb_Senha.Enabled = true;
+            gb_status.Enabled = true;
+        }
+
+        private void CarregarInformacoesUsuario()
+        {
+            Usuario usuario = new Usuario();
+            Usuario info = usuario.VerUsuario(idUsuario);
+
+            if (info != null)
+            {
+
+                rb_naoF.Checked = true;
+                rb_naoV.Checked = true;
+                rb_naoP.Checked = true;
+                rb_naoA.Checked = true;
+
+                tbx_ID.Text = info.IdUsuario;
+                tbx_nome.Text = info.Nome;
+                tbx_email.Text = info.Email;
+                rb_simS.Checked = info.StatusUsuario == "ativo"; // Marca "sim" se ativo.
+                rb_naoS.Checked = info.StatusUsuario == "inativo";
+                rb_naoR.Checked = true;
+
+                List<Permissao> permissoes = info.ListarPermissoes(idUsuario);
+
+                foreach (var permissao in permissoes)
+                {
+                    switch (permissao.NomeFuncionalidade)
+                    {
+                        case "Fornecedores":
+                            rb_simF.Checked = true;
+                            break;
+                        case "Vendas":
+                            rb_simV.Checked = true;
+                            break;
+                        case "Produção":
+                            rb_simP.Checked = true;
+                            break;
+                        case "Administrador":
+                            rb_simA.Checked = true;
+                            break;
+                    }
+                }    
+
+            }
+            else
+            {
+                MessageBox.Show("Usuário não encontrado.");
+            }
+        }
+
+
+        private void btn_confirmar_Click(object sender, EventArgs e)
+        {
+            if (funcao == "cadastro")
+            {
+                CadastrarUsuario();
+            }
+            else if (funcao == "ver")
+            {
+                EditarUsuario();
+            }
+        }
+
+        private void CadastrarUsuario()
+        {
+            Usuario novoUsuario = new Usuario
+            {
+                IdUsuario = tbx_ID.Text,
+                Nome = tbx_nome.Text,
+                Email = tbx_email.Text,
+            };
+
+            bool resultado = novoUsuario.CadastrarUsuario(novoUsuario.IdUsuario, novoUsuario.Nome, novoUsuario.Email);
+
+            if (resultado)
+            {
+                if (CadastrarPermissoes(novoUsuario.IdUsuario))
+                {
+                    MessageBox.Show("Usuário cadastrado com sucesso!");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar permissões do usuário.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Erro ao cadastrar o usuário.");
+            }
+        }
+
+        private bool CadastrarPermissoes(string idUsuario)
+        {
+            List<int> permissoesIds = new List<int>();
+
+            if (rb_simF.Checked)
+                permissoesIds.Add(1);
+            if (rb_simV.Checked)
+                permissoesIds.Add(2);
+            if (rb_simP.Checked)
+                permissoesIds.Add(3);
+            if (rb_simA.Checked)
+                permissoesIds.Add(4);
+
+            Usuario usuario = new Usuario();
+            return usuario.CadastrarPermissoes(idUsuario, permissoesIds);
+        }
+
+        private void EditarUsuario()
+        {
+            // Verifica se a opção de redefinição de senha está marcada
+            bool redefinirSenha = rb_simR.Checked;
+            string novaSenha = redefinirSenha ? "Troca123" : null; // Define a nova senha se necessário
+
+            // Cria um objeto Usuario com os dados atualizados
+            Usuario usuarioEditado = new Usuario
+            {
+                IdUsuario = idUsuario, // Certifique-se de que idUsuario está definido no contexto
+                Nome = tbx_nome.Text,
+                Email = tbx_email.Text,
+                StatusUsuario = rb_simS.Checked ? "ativo" : "inativo" // Define o status.
+            };
+
+            // Edita o usuário no banco de dados
+            bool sucesso = usuarioEditado.EditarUsuario(
+                usuarioEditado.IdUsuario,
+                usuarioEditado.Nome,
+                usuarioEditado.Email,
+                usuarioEditado.StatusUsuario,
+                novaSenha // Envia a nova senha (ou null)
+            );
+
+            // Verifica se a edição do usuário foi bem-sucedida
+            if (sucesso)
+            {
+                // Cria uma lista de IDs de permissões a serem atribuídas
+                List<int> permissoesIds = new List<int>();
+                if (rb_simF.Checked) permissoesIds.Add(1); // Permissão 1
+                if (rb_simV.Checked) permissoesIds.Add(2); // Permissão 2
+                if (rb_simP.Checked) permissoesIds.Add(3); // Permissão 3
+                if (rb_simA.Checked) permissoesIds.Add(4); // Permissão 4
+
+                // Edita as permissões do usuário
+                if (usuarioEditado.EditarPermissoes(usuarioEditado.IdUsuario, permissoesIds)) // Ajuste este método conforme necessário
+                {
+                    MessageBox.Show("Usuário atualizado com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao atualizar as permissões do usuário.");
+                }
+
+                this.Close(); // Fecha o formulário após a atualização
+            }
+            else
+            {
+                MessageBox.Show("Erro ao atualizar o usuário.");
+            }
+        }
+
+
+
+        private void btn_voltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            pl_editar.Hide();
+            lbl_funcao.Text = "Editar Usuário";
+            HabilitarCampos();
+            pl_cancelar.Show();
+            pl_confirmar.Show();
+            gb_Senha.Enabled = true;
+
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            DesabilitarCampos();
+            CarregarInformacoesUsuario();
+            pl_editar.Show();
+            lbl_funcao.Text = "Visualizar Usuário";
+            pl_cancelar.Hide();
+            pl_confirmar.Hide();
         }
     }
 }

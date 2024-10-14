@@ -19,105 +19,127 @@ namespace CityGreen
         private void Form_Usuarios_Load(object sender, EventArgs e)
         {
             this.ControlBox = false; // Desabilitar botões de controle
-
-            // Adiciona a coluna do botão "Visualizar"
             if (!dgw_usuarios.Columns.Contains("col_VerUsuario"))
             {
-                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-                buttonColumn.HeaderText = "Ação";
-                buttonColumn.Name = "col_VerUsuario"; // Nome da coluna para identificação
-                buttonColumn.Text = "Visualizar";
-                buttonColumn.UseColumnTextForButtonValue = true; // Usar o texto para todos os botões na coluna
+                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn
+                {
+                    HeaderText = "Ação",
+                    Name = "col_VerUsuario",
+                    Text = "Visualizar",
+                    UseColumnTextForButtonValue = true
+                };
                 dgw_usuarios.Columns.Add(buttonColumn);
             }
-
-            CarregarUsuarios();
+            CarregarUsuarios("");
         }
 
-        private void CarregarUsuarios()
+        private void CarregarUsuarios(string pesquisa)
         {
             Usuario usuario = new Usuario();
-            List<Usuario> listaUsuarios = usuario.ListarUsuarios();
-
+            List<Usuario> listaUsuarios = usuario.ListarUsuarios(pesquisa);
             dgw_usuarios.Rows.Clear(); // Limpa os dados existentes
 
             if (listaUsuarios != null && listaUsuarios.Count > 0)
             {
+                lblMensagem.Visible = false;
+
                 foreach (var usr in listaUsuarios)
                 {
-                    dgw_usuarios.Rows.Add(
-                        usr.IdUsuario,    // Coluna ID
-                        usr.Nome,         // Coluna Nome
-                        usr.StatusUsuario, // Coluna Status
-                        usr.Email         // Coluna Email
+                    int rowIndex = dgw_usuarios.Rows.Add(
+                        usr.IdUsuario,
+                        usr.Nome,
+                        usr.StatusUsuario,
+                        usr.Email
                     );
+
+                    // Adiciona o botão "Visualizar" à linha
+                    DataGridViewButtonCell btn_verUsuario = new DataGridViewButtonCell
+                    {
+                        Value = "Visualizar"
+                    };
+                    dgw_usuarios.Rows[rowIndex].Cells["col_VerUsuario"] = btn_verUsuario;
+                }
+
+                // Configura as cores após adicionar todas as linhas
+                foreach (DataGridViewRow row in dgw_usuarios.Rows)
+                {
+                    DataGridViewButtonCell btnCell = (DataGridViewButtonCell)row.Cells["col_VerUsuario"];
+                    btnCell.FlatStyle = FlatStyle.Flat;
+                    btnCell.Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffffff");
+                    btnCell.Style.ForeColor = System.Drawing.ColorTranslator.FromHtml("#071E22");
+                    btnCell.Style.SelectionBackColor = System.Drawing.ColorTranslator.FromHtml("#1D7874");
+                    btnCell.Style.SelectionForeColor = System.Drawing.ColorTranslator.FromHtml("#071E22");
                 }
             }
             else
             {
-                MessageBox.Show("Nenhum usuário encontrado.");
+                lblMensagem.Visible = true;
             }
         }
 
         private void dgw_usuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verifica se a coluna clicada é a do botão "Visualizar"
             if (e.ColumnIndex == dgw_usuarios.Columns["col_VerUsuario"].Index && e.RowIndex >= 0)
             {
-                string idUsuarioSelecionado = dgw_usuarios.Rows[e.RowIndex].Cells["idUsuario"].Value.ToString();
-                AbrirFormVerUsuario(idUsuarioSelecionado, "ver"); // Passa o ID e a string "ver"
+                btn_verUsuario_Click(sender, e);
             }
         }
 
-        private void AbrirFormVerUsuario(string idUsuarioSelecionado, string funcao)
+        private void btn_verUsuario_Click(object sender, DataGridViewCellEventArgs e)
         {
-            // Verifica se o formulário já está aberto
+            string idUsuarioSelecionado = dgw_usuarios.Rows[e.RowIndex].Cells["col_RA"].Value.ToString();
+            AbrirFormVerUsuario(idUsuarioSelecionado, "ver"); // Passa o ID e a string "ver"
+        }
+
+        public void AbrirFormVerUsuario(string idUsuarioSelecionado, string funcao)
+        {
             if (verUsuario == null || verUsuario.IsDisposed)
             {
                 verUsuario = new Form_VerUsuario(idUsuarioSelecionado, funcao)
                 {
-                    MdiParent = this.MdiParent // Define o pai como o Form_Principal
+                    MdiParent = this.MdiParent
                 };
+
+                verUsuario.ControlBox = false;
+                verUsuario.FormBorderStyle = FormBorderStyle.FixedDialog;
                 verUsuario.FormClosed += VerUsuario_FormClosed;
-                verUsuario.Show(); // Abre o formulário
+                verUsuario.Show();
             }
             else
             {
-                verUsuario.Activate(); // Ativa o formulário se ele já estiver aberto
+                verUsuario.Activate();
             }
         }
 
         private void VerUsuario_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            verUsuario = null; // Limpa a referência ao fechar o form
+            verUsuario = null;
+
+            if (this.MdiParent is Form_Principal principalForm)
+            {
+                principalForm.btn_usuarios.PerformClick(); // Simula o clique
+            }
+
+            this.Activate();
         }
 
         private void btn_CadastrarUser_Click(object sender, EventArgs e)
         {
-            
-            var formVerUsuario = new Form_VerUsuario(idUsuario, "cadastro")
-            {
-                MdiParent = this.MdiParent
-            };
-            formVerUsuario.Show(); // Mostra o formulário
-
-            this.Close();
+            // Aqui você pode passar um ID de usuário vazio ou um específico
+            string idUsuarioParaCadastrar = ""; // ou um ID específico se necessário
+            AbrirFormVerUsuario(idUsuarioParaCadastrar, "cadastro");
         }
 
         private void btn_Recarregar_Click(object sender, EventArgs e)
         {
-            // Chama o método que carrega os usuários novamente
-            CarregarUsuarios();
+            CarregarUsuarios("");
+            tbx_pequisa.Text = "";
         }
 
         private void tbx_pequisa_TextChanged(object sender, EventArgs e)
         {
-            // Lógica de pesquisa (se necessário)
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            // Ação de algum botão adicional se necessário
+            string pesquisa = tbx_pequisa.Text;
+            CarregarUsuarios(pesquisa);
         }
     }
 }
