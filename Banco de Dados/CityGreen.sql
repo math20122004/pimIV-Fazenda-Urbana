@@ -24,9 +24,6 @@ CREATE TABLE User_Permissao_Tem
 (
     fk_Usuarios_idUsuario NVARCHAR(8),
     fk_Funcionalidade_idFuncionalidade INT,
-    criar BIT,
-    leitura BIT,
-    modificacao BIT,
     FOREIGN KEY (fk_Usuarios_idUsuario) REFERENCES Usuarios (idUsuario),
     FOREIGN KEY (fk_Funcionalidade_idFuncionalidade) REFERENCES Funcionalidade (idFuncionalidade)
 );
@@ -245,21 +242,23 @@ CREATE PROCEDURE uspAddUsuario
     @idUsuario NVARCHAR(8),
     @nome NVARCHAR(255),
     @pEmail NVARCHAR(100),
-    @pSenha NVARCHAR(50),
     @status NVARCHAR(10) = 'ativo',
     @responseMessage NVARCHAR(250) OUTPUT
 AS
 BEGIN
     SET NOCOUNT ON;
     BEGIN TRY
+        DECLARE @senhaPadrao NVARCHAR(50) = 'Troca123';
+
         INSERT INTO Usuarios (idUsuario, nome, email, senhaHash, status)
-        VALUES (@idUsuario, @nome, @pEmail, HASHBYTES('SHA2_512', @pSenha), @status);
+        VALUES (@idUsuario, @nome, @pEmail, HASHBYTES('SHA2_256', @senhaPadrao), @status);
         SET @responseMessage = 'Usuário inserido com sucesso';
     END TRY
     BEGIN CATCH
         SET @responseMessage = ERROR_MESSAGE();
     END CATCH
 END;
+
 
 -- Procedimento Armazenado para Autenticar Usuário
 CREATE PROCEDURE uspAutenticarUsuario
@@ -286,8 +285,8 @@ BEGIN
         WHERE idUsuario = @login;
     END
 
-    -- Verifica a senha
-    IF @senhaHash = HASHBYTES('SHA2_512', @pSenha)
+    -- Verifica se a senha corresponde ao hash armazenado
+    IF @senhaHash = HASHBYTES('SHA2_256', @pSenha)
     BEGIN
         SET @responseMessage = 'Autenticação bem-sucedida';
     END
@@ -295,13 +294,70 @@ BEGIN
     BEGIN
         SET @responseMessage = 'Falha na autenticação';
     END
-END
+END;
+
+CREATE PROCEDURE uspEditarUsuario
+    @idUsuario NVARCHAR(8),
+    @nome NVARCHAR(255),
+    @pEmail NVARCHAR(100),
+    @novaSenha NVARCHAR(50) = NULL,  -- Altera o tipo para NVARCHAR(50)
+    @novoStatus NVARCHAR(10),
+    @responseMessage NVARCHAR(255) OUTPUT -- Parâmetro de saída para a mensagem
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    BEGIN TRY
+        -- Validações
+        IF @idUsuario IS NULL OR @idUsuario = ''
+            THROW 50001, 'O ID do usuário é inválido', 1;
+
+        IF @nome IS NULL OR @nome = ''
+            THROW 50002, 'O nome do usuário é inválido', 1;
+
+        -- Validação de email utilizando expressão regular (exemplo simples)
+        IF @pEmail NOT LIKE '%_@_%.__%'
+            THROW 50003, 'O email do usuário é inválido', 1;
+
+        IF @novoStatus NOT IN ('ativo', 'inativo')
+            THROW 50004, 'O status informado é inválido', 1;
+
+        -- Verifica se o usuário existe
+        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE idUsuario = @idUsuario)
+            THROW 50005, 'Usuário não encontrado', 1;
+
+        -- Atualização do usuário
+        UPDATE Usuarios
+        SET
+            nome = @nome,
+            email = @pEmail,
+            status = @novoStatus,
+            senhaHash = CASE
+                        WHEN @novaSenha IS NOT NULL AND @novaSenha != ''
+                            THEN HASHBYTES('SHA2_256', @novaSenha)
+                        ELSE senhaHash
+                    END
+        WHERE idUsuario = @idUsuario;
+
+        -- Mensagem de sucesso
+        SET @responseMessage = 'Usuário atualizado com sucesso';
+    END TRY
+    BEGIN CATCH
+        -- Tratamento de erros
+        SET @responseMessage = ERROR_MESSAGE();
+        THROW; -- Re-throws the error to the caller
+    END CATCH
+END;
+
+
+
 
 -- Inserindo funcionalidades na tabela Funcionalidade
-INSERT INTO Funcionalidade (nome) VALUES ('Fornecedores');
-INSERT INTO Funcionalidade (nome) VALUES ('Vendas');
-INSERT INTO Funcionalidade (nome) VALUES ('Produção');
-INSERT INTO Funcionalidade (nome) VALUES ('Administrador');
+INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (1, 'Fornecedores');
+INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (2, 'Vendas');
+INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (3, 'Produção');
+INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (4, 'Administrador');
+
 
 INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (1, 'Tomate Cereja', 'Vegetal');
 INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (2, 'Alface', 'Vegetal');
@@ -328,21 +384,12 @@ INSERT INTO Usuarios (idUsuario, nome, email, senhaHash, status) VALUES
 ('N3573A1', 'Matheus Rafael Da Silva Jesus', 'matheus.jesus@example.com', @senhaHash, 'ativo'),
 ('G71GEG3', 'Victor Hugo Rodrigues Barros Antunes', 'victor.antunes@example.com', @senhaHash, 'ativo');
 
-INSERT INTO User_Permissao_Tem (fk_Usuarios_idUsuario, fk_Funcionalidade_idFuncionalidade, criar, leitura, modificacao)VALUES 
-('G783GA4', 1, 1, 1, 1),
-('G764AE9', 1, 1, 1, 1),
-('G783GA4', 2, 1, 1, 1),
-('G79JBF6', 2, 1, 1, 1),
-('G783GA4', 3, 1, 1, 1),
-('N3573A1', 3, 1, 1, 1),
-('G783GA4', 4, 1, 1, 1),
-('G71GEG3', 4, 1, 1, 1);
-
-
-
-
-
-
-
-
-
+INSERT INTO User_Permissao_Tem (fk_Usuarios_idUsuario, fk_Funcionalidade_idFuncionalidade) VALUES 
+('G783GA4', 1),
+('G764AE9', 1),
+('G783GA4', 2),
+('G79JBF6', 2),
+('G783GA4', 3),
+('N3573A1', 3),
+('G783GA4', 4),
+('G71GEG3', 4);
