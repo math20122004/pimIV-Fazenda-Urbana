@@ -1,47 +1,63 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 using System.Text;
 using CityGreen.Classes;
 
 namespace Gestão_Usuarios
 {
-    public class Usuario
+    public class Usuario : Permissao
     {
         public string Nome { get; set; }
         public string IdUsuario { get; set; }
         public string StatusUsuario { get; set; }
         public string Email { get; set; }
-        public List<Permissao> Permissoes { get; set; }
-        private DatabaseController dbController;
+        public string Senha { get; set; }
+
+        private readonly DatabaseController dbController;
+        private readonly Permissao permissaoController;
 
         public Usuario()
         {
             dbController = new DatabaseController();
-            Permissoes = new List<Permissao>();
+            permissaoController = new Permissao();
         }
 
-        public bool CadastrarUsuario(string idUsuario, string nome, string email, string senha)
+        public bool CadastrarUsuario(string idUsuario, string nome, string email)
         {
-            string query = "INSERT INTO Usuarios (idUsuario, nome, email, senhaHash, status) VALUES (@idUsuario, @nome, @senhaHash, 'ativo')";
             try
             {
                 using (SqlConnection connection = dbController.GetConnection())
                 {
-                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlCommand command = new SqlCommand("uspAddUsuario", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
                     command.Parameters.AddWithValue("@idUsuario", idUsuario);
                     command.Parameters.AddWithValue("@nome", nome);
-                    command.Parameters.AddWithValue("@senhaHash", HashPassword(senha));
+                    command.Parameters.AddWithValue("@pEmail", email);
                     command.Parameters.AddWithValue("@status", "ativo");
+
+                    SqlParameter outputParam = new SqlParameter("@responseMessage", SqlDbType.NVarChar, 250)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    command.Parameters.Add(outputParam);
 
                     connection.Open();
                     command.ExecuteNonQuery();
-                    return true;
+
+                    string responseMessage = outputParam.Value.ToString();
+                    return responseMessage == "Usuário inserido com sucesso";
                 }
             }
             catch (Exception ex)
             {
-                // Log the exception (ex) if necessary
+                // Log exception here
+                Console.WriteLine($"Erro ao cadastrar usuário: {ex.Message}");
                 return false;
             }
         }
@@ -58,6 +74,7 @@ namespace Gestão_Usuarios
 
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
+
                     if (reader.Read())
                     {
                         return new Usuario
@@ -73,22 +90,36 @@ namespace Gestão_Usuarios
             }
             catch (Exception ex)
             {
-                // Log the exception (ex) if necessary
+                // Log exception here
+                Console.WriteLine($"Erro ao visualizar usuário: {ex.Message}");
                 return null;
             }
         }
 
-        public List<Usuario> ListarUsuarios()
+        public List<Usuario> ListarUsuarios(string termoPesquisa)
         {
             List<Usuario> usuarios = new List<Usuario>();
             string query = "SELECT idUsuario, nome, email, status FROM Usuarios";
+
+            if (!string.IsNullOrWhiteSpace(termoPesquisa))
+            {
+                query += " WHERE idUsuario LIKE @termoPesquisa OR nome LIKE @termoPesquisa OR email LIKE @termoPesquisa";
+            }
+
             try
             {
                 using (SqlConnection connection = dbController.GetConnection())
                 {
                     SqlCommand command = new SqlCommand(query, connection);
+
+                    if (!string.IsNullOrWhiteSpace(termoPesquisa))
+                    {
+                        command.Parameters.AddWithValue("@termoPesquisa", "%" + termoPesquisa + "%");
+                    }
+
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
+
                     while (reader.Read())
                     {
                         Usuario usuario = new Usuario
@@ -104,24 +135,71 @@ namespace Gestão_Usuarios
             }
             catch (Exception ex)
             {
-                // Log the exception (ex) if necessary
+                // Log exception here
+                Console.WriteLine($"Erro ao listar usuários: {ex.Message}");
             }
+
             return usuarios;
         }
 
-        public List<Permissao> ListarPermissoes(string idUsuario)
+        public bool EditarUsuario(string idUsuario, string nome, string email, string status, string novaSenha)
         {
-            Permissao permissao = new Permissao();
-            return permissao.ListarPermissoes(idUsuario);
+            try
+            {
+                using (SqlConnection connection = dbController.GetConnection())
+                {
+                    SqlCommand command = new SqlCommand("uspEditarUsuario", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    command.Parameters.AddWithValue("@nome", nome);
+                    command.Parameters.AddWithValue("@pEmail", email);
+                    command.Parameters.AddWithValue("@novaSenha", string.IsNullOrEmpty(novaSenha) ? (object)DBNull.Value : HashSenha(novaSenha));
+                    command.Parameters.AddWithValue("@novoStatus", status);
+
+                    SqlParameter outputParam = new SqlParameter("@responseMessage", SqlDbType.NVarChar, 250)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    command.Parameters.Add(outputParam);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    string responseMessage = outputParam.Value.ToString();
+                    if (!string.IsNullOrEmpty(responseMessage))
+                    {
+                        Console.WriteLine(responseMessage); // Optionally log the response
+                    }
+                    return responseMessage == "Usuário atualizado com sucesso";
+                }
+            }
+            catch (SqlException ex) when (ex.Number >= 50001 && ex.Number <= 50004)
+            {
+                Console.WriteLine($"Erro na stored procedure: {ex.Message}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                // Log exception here
+                Console.WriteLine($"Erro ao editar usuário: {ex.Message}");
+                return false;
+            }
         }
 
-        private byte[] HashPassword(string senha)
+        private byte[] HashSenha(string senha)
         {
-            // Implementação do hash da senha
-            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            using (SHA256 sha256 = SHA256.Create())
             {
                 return sha256.ComputeHash(Encoding.UTF8.GetBytes(senha));
             }
+        }
+
+        public bool CadastrarPermissoes(string idUsuario, List<int> permissoesIds)
+        {
+            return permissaoController.CadastrarPermissoes(idUsuario, permissoesIds);
         }
     }
 }
