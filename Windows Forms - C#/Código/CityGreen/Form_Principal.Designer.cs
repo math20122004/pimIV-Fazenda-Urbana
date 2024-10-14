@@ -74,6 +74,7 @@
             // 
             // panel1
             // 
+            panel1.AutoScroll = true;
             panel1.BackColor = Color.FromArgb(7, 30, 34);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel2);
@@ -450,7 +451,7 @@
         private Panel pn_vendas;
         private Button btn_vendas;
         private Panel pn_usuarios;
-        private Button btn_usuarios;
+        public Button btn_usuarios;
         private Panel panel2;
         private Panel BarraUser;
         private Panel panel3;

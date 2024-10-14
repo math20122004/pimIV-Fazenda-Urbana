@@ -45,6 +45,7 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             panel2 = new Panel();
+            lblMensagem = new Label();
             ((System.ComponentModel.ISupportInitialize)dgw_usuarios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -83,7 +84,7 @@
             dgw_usuarios.DefaultCellStyle = dataGridViewCellStyle2;
             dgw_usuarios.EnableHeadersVisualStyles = false;
             dgw_usuarios.GridColor = Color.FromArgb(7, 30, 34);
-            dgw_usuarios.Location = new Point(3, 61);
+            dgw_usuarios.Location = new Point(3, 59);
             dgw_usuarios.MultiSelect = false;
             dgw_usuarios.Name = "dgw_usuarios";
             dgw_usuarios.ReadOnly = true;
@@ -108,6 +109,7 @@
             dgw_usuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgw_usuarios.Size = new Size(814, 447);
             dgw_usuarios.TabIndex = 3;
+            dgw_usuarios.CellContentClick += dgw_usuarios_CellContentClick;
             // 
             // col_RA
             // 
@@ -196,7 +198,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // panel1
             // 
@@ -210,6 +211,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(lblMensagem);
             panel2.Controls.Add(dgw_usuarios);
             panel2.Controls.Add(panel1);
             panel2.Controls.Add(btn_CadastrarUser);
@@ -218,6 +220,17 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(820, 511);
             panel2.TabIndex = 9;
+            // 
+            // lblMensagem
+            // 
+            lblMensagem.AutoSize = true;
+            lblMensagem.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMensagem.ForeColor = Color.Red;
+            lblMensagem.Location = new Point(257, 120);
+            lblMensagem.Name = "lblMensagem";
+            lblMensagem.Size = new Size(291, 25);
+            lblMensagem.TabIndex = 10;
+            lblMensagem.Text = "Usuário não encontrado";
             // 
             // Form_Usuarios
             // 
@@ -237,6 +250,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -253,5 +267,6 @@
         private DataGridViewTextBoxColumn col_Status;
         private DataGridViewLinkColumn col_email;
         private DataGridViewTextBoxColumn col_VerUsuario;
+        private Label lblMensagem;
     }
 }
