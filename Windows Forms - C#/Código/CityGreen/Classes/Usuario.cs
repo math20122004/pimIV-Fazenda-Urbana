@@ -25,7 +25,7 @@ namespace Gestão_Usuarios
             permissaoController = new Permissao();
         }
 
-        public bool CadastrarUsuario(string idUsuario, string nome, string email)
+        public bool CadastrarUsuario(string idUsuario, string nome, string email, List<int> permissoesIds)
         {
             try
             {
@@ -51,7 +51,14 @@ namespace Gestão_Usuarios
                     command.ExecuteNonQuery();
 
                     string responseMessage = outputParam.Value.ToString();
-                    return responseMessage == "Usuário inserido com sucesso";
+                    bool usuarioCadastrado = responseMessage == "Usuário inserido com sucesso";
+
+                    // Se o usuário foi cadastrado, cadastra as permissões
+                    if (usuarioCadastrado)
+                    {
+                        return permissaoController.CadastrarPermissoes(idUsuario, permissoesIds);
+                    }
+                    return false;
                 }
             }
             catch (Exception ex)
@@ -142,44 +149,42 @@ namespace Gestão_Usuarios
             return usuarios;
         }
 
-        public bool EditarUsuario(string idUsuario, string nome, string email, string status, string novaSenha)
+        public bool EditarUsuario(string idUsuario, string nome, string email, string status, string novaSenha, List<int> permissoesIds)
         {
             try
             {
                 using (SqlConnection connection = dbController.GetConnection())
                 {
-                    SqlCommand command = new SqlCommand("uspEditarUsuario", connection)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
+                    string query = @"
+                        UPDATE Usuarios
+                        SET 
+                            nome = @nome,
+                            email = @pEmail,
+                            status = @novoStatus,
+                            senhaHash = CASE 
+                                WHEN @novaSenha IS NOT NULL AND @novaSenha != '' 
+                                THEN HASHBYTES('SHA2_256', @novaSenha) 
+                                ELSE senhaHash 
+                            END
+                        WHERE idUsuario = @idUsuario";
 
+                    SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@idUsuario", idUsuario);
                     command.Parameters.AddWithValue("@nome", nome);
                     command.Parameters.AddWithValue("@pEmail", email);
-                    command.Parameters.AddWithValue("@novaSenha", string.IsNullOrEmpty(novaSenha) ? (object)DBNull.Value : HashSenha(novaSenha));
                     command.Parameters.AddWithValue("@novoStatus", status);
-
-                    SqlParameter outputParam = new SqlParameter("@responseMessage", SqlDbType.NVarChar, 250)
-                    {
-                        Direction = ParameterDirection.Output
-                    };
-                    command.Parameters.Add(outputParam);
+                    command.Parameters.AddWithValue("@novaSenha", string.IsNullOrEmpty(novaSenha) ? (object)DBNull.Value : novaSenha);
 
                     connection.Open();
-                    command.ExecuteNonQuery();
+                    int rowsAffected = command.ExecuteNonQuery();
 
-                    string responseMessage = outputParam.Value.ToString();
-                    if (!string.IsNullOrEmpty(responseMessage))
+                    // Atualiza permissões se o usuário foi editado com sucesso
+                    if (rowsAffected > 0)
                     {
-                        Console.WriteLine(responseMessage); // Optionally log the response
+                        return permissaoController.EditarPermissoes(idUsuario, permissoesIds);
                     }
-                    return responseMessage == "Usuário atualizado com sucesso";
+                    return false; // Retorna false se a edição não alterou nenhum registro
                 }
-            }
-            catch (SqlException ex) when (ex.Number >= 50001 && ex.Number <= 50004)
-            {
-                Console.WriteLine($"Erro na stored procedure: {ex.Message}");
-                return false;
             }
             catch (Exception ex)
             {
@@ -195,11 +200,6 @@ namespace Gestão_Usuarios
             {
                 return sha256.ComputeHash(Encoding.UTF8.GetBytes(senha));
             }
-        }
-
-        public bool CadastrarPermissoes(string idUsuario, List<int> permissoesIds)
-        {
-            return permissaoController.CadastrarPermissoes(idUsuario, permissoesIds);
         }
     }
 }

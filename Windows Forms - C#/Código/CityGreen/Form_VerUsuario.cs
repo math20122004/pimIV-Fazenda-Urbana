@@ -83,12 +83,6 @@ namespace CityGreen
 
             if (info != null)
             {
-
-                rb_naoF.Checked = true;
-                rb_naoV.Checked = true;
-                rb_naoP.Checked = true;
-                rb_naoA.Checked = true;
-
                 tbx_ID.Text = info.IdUsuario;
                 tbx_nome.Text = info.Nome;
                 tbx_email.Text = info.Email;
@@ -115,8 +109,7 @@ namespace CityGreen
                             rb_simA.Checked = true;
                             break;
                     }
-                }    
-
+                }
             }
             else
             {
@@ -124,16 +117,22 @@ namespace CityGreen
             }
         }
 
-
         private void btn_confirmar_Click(object sender, EventArgs e)
         {
-            if (funcao == "cadastro")
+            try
             {
-                CadastrarUsuario();
+                if (funcao == "cadastro")
+                {
+                    CadastrarUsuario();
+                }
+                else if (funcao == "ver")
+                {
+                    EditarUsuario();
+                }
             }
-            else if (funcao == "ver")
+            catch (Exception ex)
             {
-                EditarUsuario();
+                MessageBox.Show("Erro ao processar a operação: " + ex.Message);
             }
         }
 
@@ -146,41 +145,23 @@ namespace CityGreen
                 Email = tbx_email.Text,
             };
 
-            bool resultado = novoUsuario.CadastrarUsuario(novoUsuario.IdUsuario, novoUsuario.Nome, novoUsuario.Email);
+            List<int> permissoesIds = new List<int>();
+            if (rb_simF.Checked) permissoesIds.Add(1);
+            if (rb_simV.Checked) permissoesIds.Add(2);
+            if (rb_simP.Checked) permissoesIds.Add(3);
+            if (rb_simA.Checked) permissoesIds.Add(4);
+
+            bool resultado = novoUsuario.CadastrarUsuario(novoUsuario.IdUsuario, novoUsuario.Nome, novoUsuario.Email, permissoesIds);
 
             if (resultado)
             {
-                if (CadastrarPermissoes(novoUsuario.IdUsuario))
-                {
-                    MessageBox.Show("Usuário cadastrado com sucesso!");
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Erro ao cadastrar permissões do usuário.");
-                }
+                MessageBox.Show("Usuário cadastrado com sucesso!");
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Erro ao cadastrar o usuário.");
             }
-        }
-
-        private bool CadastrarPermissoes(string idUsuario)
-        {
-            List<int> permissoesIds = new List<int>();
-
-            if (rb_simF.Checked)
-                permissoesIds.Add(1);
-            if (rb_simV.Checked)
-                permissoesIds.Add(2);
-            if (rb_simP.Checked)
-                permissoesIds.Add(3);
-            if (rb_simA.Checked)
-                permissoesIds.Add(4);
-
-            Usuario usuario = new Usuario();
-            return usuario.CadastrarPermissoes(idUsuario, permissoesIds);
         }
 
         private void EditarUsuario()
@@ -192,11 +173,17 @@ namespace CityGreen
             // Cria um objeto Usuario com os dados atualizados
             Usuario usuarioEditado = new Usuario
             {
-                IdUsuario = idUsuario, // Certifique-se de que idUsuario está definido no contexto
+                IdUsuario = idUsuario,
                 Nome = tbx_nome.Text,
                 Email = tbx_email.Text,
-                StatusUsuario = rb_simS.Checked ? "ativo" : "inativo" // Define o status.
+                StatusUsuario = rb_simS.Checked ? "ativo" : "inativo"
             };
+
+            List<int> permissoesIds = new List<int>();
+            if (rb_simF.Checked) permissoesIds.Add(1);
+            if (rb_simV.Checked) permissoesIds.Add(2);
+            if (rb_simP.Checked) permissoesIds.Add(3);
+            if (rb_simA.Checked) permissoesIds.Add(4);
 
             // Edita o usuário no banco de dados
             bool sucesso = usuarioEditado.EditarUsuario(
@@ -204,38 +191,21 @@ namespace CityGreen
                 usuarioEditado.Nome,
                 usuarioEditado.Email,
                 usuarioEditado.StatusUsuario,
-                novaSenha // Envia a nova senha (ou null)
+                novaSenha, // Passando a nova senha
+                permissoesIds // Passando as permissões
             );
 
             // Verifica se a edição do usuário foi bem-sucedida
             if (sucesso)
             {
-                // Cria uma lista de IDs de permissões a serem atribuídas
-                List<int> permissoesIds = new List<int>();
-                if (rb_simF.Checked) permissoesIds.Add(1); // Permissão 1
-                if (rb_simV.Checked) permissoesIds.Add(2); // Permissão 2
-                if (rb_simP.Checked) permissoesIds.Add(3); // Permissão 3
-                if (rb_simA.Checked) permissoesIds.Add(4); // Permissão 4
-
-                // Edita as permissões do usuário
-                if (usuarioEditado.EditarPermissoes(usuarioEditado.IdUsuario, permissoesIds)) // Ajuste este método conforme necessário
-                {
-                    MessageBox.Show("Usuário atualizado com sucesso!");
-                }
-                else
-                {
-                    MessageBox.Show("Erro ao atualizar as permissões do usuário.");
-                }
-
-                this.Close(); // Fecha o formulário após a atualização
+                MessageBox.Show("Usuário atualizado com sucesso!");
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Erro ao atualizar o usuário.");
             }
         }
-
-
 
         private void btn_voltar_Click(object sender, EventArgs e)
         {
@@ -250,7 +220,6 @@ namespace CityGreen
             pl_cancelar.Show();
             pl_confirmar.Show();
             gb_Senha.Enabled = true;
-
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
