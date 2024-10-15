@@ -296,68 +296,11 @@ BEGIN
     END
 END;
 
-CREATE PROCEDURE uspEditarUsuario
-    @idUsuario NVARCHAR(8),
-    @nome NVARCHAR(255),
-    @pEmail NVARCHAR(100),
-    @novaSenha NVARCHAR(50) = NULL,  -- Altera o tipo para NVARCHAR(50)
-    @novoStatus NVARCHAR(10),
-    @responseMessage NVARCHAR(255) OUTPUT -- Parâmetro de saída para a mensagem
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    BEGIN TRY
-        -- Validações
-        IF @idUsuario IS NULL OR @idUsuario = ''
-            THROW 50001, 'O ID do usuário é inválido', 1;
-
-        IF @nome IS NULL OR @nome = ''
-            THROW 50002, 'O nome do usuário é inválido', 1;
-
-        -- Validação de email utilizando expressão regular (exemplo simples)
-        IF @pEmail NOT LIKE '%_@_%.__%'
-            THROW 50003, 'O email do usuário é inválido', 1;
-
-        IF @novoStatus NOT IN ('ativo', 'inativo')
-            THROW 50004, 'O status informado é inválido', 1;
-
-        -- Verifica se o usuário existe
-        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE idUsuario = @idUsuario)
-            THROW 50005, 'Usuário não encontrado', 1;
-
-        -- Atualização do usuário
-        UPDATE Usuarios
-        SET
-            nome = @nome,
-            email = @pEmail,
-            status = @novoStatus,
-            senhaHash = CASE
-                        WHEN @novaSenha IS NOT NULL AND @novaSenha != ''
-                            THEN HASHBYTES('SHA2_256', @novaSenha)
-                        ELSE senhaHash
-                    END
-        WHERE idUsuario = @idUsuario;
-
-        -- Mensagem de sucesso
-        SET @responseMessage = 'Usuário atualizado com sucesso';
-    END TRY
-    BEGIN CATCH
-        -- Tratamento de erros
-        SET @responseMessage = ERROR_MESSAGE();
-        THROW; -- Re-throws the error to the caller
-    END CATCH
-END;
-
-
-
-
 -- Inserindo funcionalidades na tabela Funcionalidade
 INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (1, 'Fornecedores');
 INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (2, 'Vendas');
 INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (3, 'Produção');
 INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (4, 'Administrador');
-
 
 INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (1, 'Tomate Cereja', 'Vegetal');
 INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (2, 'Alface', 'Vegetal');
@@ -371,7 +314,7 @@ INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (9, 'Cenoura', 'V
 INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (10, 'Pepino', 'Vegetal');
 
 -- Criptografar a senha "12345" usando SHA-256
-DECLARE @senha NVARCHAR(50) = '12345';
+DECLARE @senha NVARCHAR(50) = 'Troca123';
 DECLARE @senhaHash VARBINARY(64);
 SET @senhaHash = HASHBYTES('SHA2_256', @senha);
 
