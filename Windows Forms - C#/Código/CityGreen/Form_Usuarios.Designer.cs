@@ -28,17 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Usuarios));
             dgw_usuarios = new DataGridView();
-            col_RA = new DataGridViewTextBoxColumn();
-            col_Nome = new DataGridViewLinkColumn();
-            col_Status = new DataGridViewTextBoxColumn();
-            col_email = new DataGridViewLinkColumn();
-            col_VerUsuario = new DataGridViewTextBoxColumn();
             btn_CadastrarUser = new Button();
             btn_Recarregar = new Button();
             tbx_pequisa = new TextBox();
@@ -46,6 +41,11 @@
             panel1 = new Panel();
             panel2 = new Panel();
             lblMensagem = new Label();
+            col_VerUsuario = new DataGridViewTextBoxColumn();
+            col_email = new DataGridViewLinkColumn();
+            col_Status = new DataGridViewTextBoxColumn();
+            col_Nome = new DataGridViewLinkColumn();
+            col_RA = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgw_usuarios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -63,25 +63,25 @@
             dgw_usuarios.BorderStyle = BorderStyle.None;
             dgw_usuarios.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgw_usuarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(7, 30, 34);
-            dataGridViewCellStyle1.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(7, 30, 34);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgw_usuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = Color.FromArgb(7, 30, 34);
+            dataGridViewCellStyle21.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle21.ForeColor = Color.White;
+            dataGridViewCellStyle21.SelectionBackColor = Color.FromArgb(7, 30, 34);
+            dataGridViewCellStyle21.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = DataGridViewTriState.True;
+            dgw_usuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             dgw_usuarios.ColumnHeadersHeight = 50;
             dgw_usuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgw_usuarios.Columns.AddRange(new DataGridViewColumn[] { col_RA, col_Nome, col_Status, col_email, col_VerUsuario });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgw_usuarios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = Color.White;
+            dataGridViewCellStyle22.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle22.ForeColor = Color.Black;
+            dataGridViewCellStyle22.SelectionBackColor = Color.White;
+            dataGridViewCellStyle22.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.False;
+            dgw_usuarios.DefaultCellStyle = dataGridViewCellStyle22;
             dgw_usuarios.EnableHeadersVisualStyles = false;
             dgw_usuarios.GridColor = Color.FromArgb(7, 30, 34);
             dgw_usuarios.Location = new Point(3, 59);
@@ -89,60 +89,27 @@
             dgw_usuarios.Name = "dgw_usuarios";
             dgw_usuarios.ReadOnly = true;
             dgw_usuarios.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(7, 30, 34);
-            dataGridViewCellStyle3.SelectionBackColor = Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(7, 30, 34);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgw_usuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = Color.White;
+            dataGridViewCellStyle23.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle23.ForeColor = Color.FromArgb(7, 30, 34);
+            dataGridViewCellStyle23.SelectionBackColor = Color.White;
+            dataGridViewCellStyle23.SelectionForeColor = Color.FromArgb(7, 30, 34);
+            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.True;
+            dgw_usuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             dgw_usuarios.RowHeadersVisible = false;
             dgw_usuarios.RowHeadersWidth = 50;
             dgw_usuarios.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(7, 30, 34);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(29, 120, 116);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dgw_usuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.BackColor = Color.White;
+            dataGridViewCellStyle24.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle24.ForeColor = Color.FromArgb(7, 30, 34);
+            dataGridViewCellStyle24.SelectionBackColor = Color.FromArgb(29, 120, 116);
+            dataGridViewCellStyle24.SelectionForeColor = Color.White;
+            dgw_usuarios.RowsDefaultCellStyle = dataGridViewCellStyle24;
             dgw_usuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgw_usuarios.Size = new Size(814, 447);
             dgw_usuarios.TabIndex = 3;
             dgw_usuarios.CellContentClick += dgw_usuarios_CellContentClick;
-            // 
-            // col_RA
-            // 
-            col_RA.HeaderText = "RA";
-            col_RA.Name = "col_RA";
-            col_RA.ReadOnly = true;
-            col_RA.Width = 102;
-            // 
-            // col_Nome
-            // 
-            col_Nome.HeaderText = "Nome:";
-            col_Nome.Name = "col_Nome";
-            col_Nome.ReadOnly = true;
-            col_Nome.Width = 260;
-            // 
-            // col_Status
-            // 
-            col_Status.HeaderText = "Status:";
-            col_Status.Name = "col_Status";
-            col_Status.ReadOnly = true;
-            // 
-            // col_email
-            // 
-            col_email.HeaderText = "Email:";
-            col_email.Name = "col_email";
-            col_email.ReadOnly = true;
-            col_email.Width = 252;
-            // 
-            // col_VerUsuario
-            // 
-            col_VerUsuario.HeaderText = "Ver";
-            col_VerUsuario.Name = "col_VerUsuario";
-            col_VerUsuario.ReadOnly = true;
             // 
             // btn_CadastrarUser
             // 
@@ -231,6 +198,40 @@
             lblMensagem.Size = new Size(291, 25);
             lblMensagem.TabIndex = 10;
             lblMensagem.Text = "Usuário não encontrado";
+            lblMensagem.Click += lblMensagem_Click;
+            // 
+            // col_VerUsuario
+            // 
+            col_VerUsuario.HeaderText = "Ver";
+            col_VerUsuario.Name = "col_VerUsuario";
+            col_VerUsuario.ReadOnly = true;
+            // 
+            // col_email
+            // 
+            col_email.HeaderText = "Email:";
+            col_email.Name = "col_email";
+            col_email.ReadOnly = true;
+            col_email.Width = 252;
+            // 
+            // col_Status
+            // 
+            col_Status.HeaderText = "Status:";
+            col_Status.Name = "col_Status";
+            col_Status.ReadOnly = true;
+            // 
+            // col_Nome
+            // 
+            col_Nome.HeaderText = "Nome:";
+            col_Nome.Name = "col_Nome";
+            col_Nome.ReadOnly = true;
+            col_Nome.Width = 260;
+            // 
+            // col_RA
+            // 
+            col_RA.HeaderText = "RA";
+            col_RA.Name = "col_RA";
+            col_RA.ReadOnly = true;
+            col_RA.Width = 102;
             // 
             // Form_Usuarios
             // 
@@ -262,11 +263,11 @@
         private PictureBox pictureBox1;
         private Panel panel1;
         private Panel panel2;
+        private Label lblMensagem;
         private DataGridViewTextBoxColumn col_RA;
         private DataGridViewLinkColumn col_Nome;
         private DataGridViewTextBoxColumn col_Status;
         private DataGridViewLinkColumn col_email;
         private DataGridViewTextBoxColumn col_VerUsuario;
-        private Label lblMensagem;
     }
 }
