@@ -302,6 +302,14 @@ INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (2, 'Vendas');
 INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (3, 'Produção');
 INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (4, 'Administrador');
 
+INSERT INTO Fornecedores (nome, razaoSocial, cnpj, telefone1, telefone2, email, status)
+VALUES 
+    ('Fornecedor 1', 'Razão Social 1', '12345678000195', '11999999999', '11888888888', 'fornecedor1@email.com', 'ativo'),
+    ('Fornecedor 2', 'Razão Social 2', '23456789000196', '21999999999', '21888888888', 'fornecedor2@email.com', 'ativo'),
+    ('Fornecedor 3', 'Razão Social 3', '34567890000197', '31999999999', '31888888888', 'fornecedor3@email.com', 'inativo'),
+    ('Fornecedor 4', 'Razão Social 4', '45678901000198', '41999999999', '41888888888', 'fornecedor4@email.com', 'ativo');
+
+
 INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (1, 'Tomate Cereja', 'Vegetal');
 INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (2, 'Alface', 'Vegetal');
 INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (3, 'Manjericão', 'Erva');
