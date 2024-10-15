@@ -200,3 +200,4 @@ C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\refint\CityG
 C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.pdb
 C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
 C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerFornecedor.resources

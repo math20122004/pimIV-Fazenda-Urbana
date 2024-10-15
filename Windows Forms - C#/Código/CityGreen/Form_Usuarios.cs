@@ -141,5 +141,10 @@ namespace CityGreen
             string pesquisa = tbx_pequisa.Text;
             CarregarUsuarios(pesquisa);
         }
+
+        private void lblMensagem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
