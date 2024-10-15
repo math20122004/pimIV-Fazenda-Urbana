@@ -21,13 +21,6 @@ namespace LoginSistema
                 WHERE (idUsuario = @login OR email = @login)
                 AND status = 'ativo'";
 
-            string querySenha = @"
-                SELECT idUsuario
-                FROM Usuarios
-                WHERE (idUsuario = @login OR email = @login)
-                AND senhaHash = HASHBYTES('SHA2_256', @senha)
-                AND status = 'ativo'";
-
             try
             {
                 using (SqlConnection connection = dbController.GetConnection())
@@ -37,31 +30,73 @@ namespace LoginSistema
 
                     connection.Open();
                     var resultLogin = commandLogin.ExecuteScalar();
-                    connection.Close();
 
                     if (resultLogin == null)
                     {
                         return "Login inválido";
                     }
 
+                    // A senha é verificada aqui, e se for "Troca123", deve retornar "TrocaSenha".
+                    if (senha == "Troca123")
+                    {
+                        return "TrocaSenha"; // Indica que deve solicitar nova senha
+                    }
+
+                    string querySenha = @"
+                        SELECT idUsuario
+                        FROM Usuarios
+                        WHERE (idUsuario = @login OR email = @login)
+                        AND senhaHash = HASHBYTES('SHA2_256', @senha)
+                        AND status = 'ativo'";
+
                     SqlCommand commandSenha = new SqlCommand(querySenha, connection);
                     commandSenha.Parameters.AddWithValue("@login", login);
                     commandSenha.Parameters.AddWithValue("@senha", senha);
 
-                    connection.Open();
                     var resultSenha = commandSenha.ExecuteScalar();
 
                     if (resultSenha == null)
                     {
-                        return "SenhaInvalida";
+                        return "SenhaInvalida"; // Para senhas inválidas
                     }
 
-                    return resultSenha.ToString();
+                    return resultLogin.ToString(); // Retorna o id do usuário
                 }
             }
             catch (Exception ex)
             {
-                return "Erro no sistema";
+                // Log exception here
+                Console.WriteLine($"Erro ao verificar credenciais: {ex.Message}");
+                return "Erro no sistema"; // Mensagem de erro
+            }
+        }
+
+        public bool EditarSenha(string login, string novaSenha)
+        {
+            string query = @"
+                UPDATE Usuarios
+                SET senhaHash = HASHBYTES('SHA2_256', @novaSenha)
+                WHERE (idUsuario = @login OR email = @login) AND status = 'ativo'";
+
+            try
+            {
+                using (SqlConnection connection = dbController.GetConnection())
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@login", login);
+                    command.Parameters.AddWithValue("@novaSenha", novaSenha);
+
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0; // Retorna true se a senha foi atualizada
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log exception here
+                Console.WriteLine($"Erro ao editar senha: {ex.Message}");
+                return false; // Retorna false em caso de erro
             }
         }
     }
