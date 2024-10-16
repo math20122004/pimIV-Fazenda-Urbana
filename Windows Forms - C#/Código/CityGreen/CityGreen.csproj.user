@@ -25,6 +25,9 @@
     <Compile Update="Form_VerFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form_VerInsumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form_VerUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
