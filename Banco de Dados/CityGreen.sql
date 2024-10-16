@@ -50,15 +50,6 @@ CREATE TABLE Fornecedores
     cep NVARCHAR(10)
 );
 
-CREATE TABLE CompraInsumo 
-(
-    idCompra INT PRIMARY KEY,
-    dataCompra DATE,
-    idFornecedor INT,
-    FOREIGN KEY (idFornecedor) REFERENCES Fornecedores(idFornecedor)
-);
-
--- Tabela de Insumos
 CREATE TABLE Insumo 
 (
     idInsumo INT PRIMARY KEY,
@@ -66,8 +57,8 @@ CREATE TABLE Insumo
     quantidadeInsumo INT,
     validade NVARCHAR(10) CHECK (validade IN ('Vencido', 'Disponivel','esgotado')) DEFAULT 'Usavel',
     dataValidade DATE,
-    idCompra INT,
-    FOREIGN KEY (idCompra) REFERENCES compraInsumo(idCompra)
+    idFornecedor INT,
+    FOREIGN KEY (idFornecedor) REFERENCES Fornecedores(idFornecedor)
 );
 
 -- Tabela de Produção
@@ -297,17 +288,88 @@ BEGIN
 END;
 
 -- Inserindo funcionalidades na tabela Funcionalidade
-INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (1, 'Fornecedores');
-INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (2, 'Vendas');
-INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (3, 'Produção');
-INSERT INTO Funcionalidade (idFuncionalidade, nome) VALUES (4, 'Administrador');
+INSERT INTO Funcionalidade (nome) VALUES ('Fornecedores');
+INSERT INTO Funcionalidade (nome) VALUES ('Vendas');
+INSERT INTO Funcionalidade (nome) VALUES ('Produção');
+INSERT INTO Funcionalidade (nome) VALUES ( 'Administrador');
 
-INSERT INTO Fornecedores (nome, razaoSocial, cnpj, telefone1, telefone2, email, status)
+SELECT * FROM Fornecedores
+INSERT INTO Fornecedores 
+(
+    nome, 
+    razaoSocial, 
+    cnpj, 
+    telefone1, 
+    telefone2, 
+    email, 
+    status, 
+    tipo, 
+    infAdicionais, 
+    endereco, 
+    numeroEndereco, 
+    bairro, 
+    cidade, 
+    estado, 
+    pais, 
+    cep
+) 
 VALUES 
-    ('Fornecedor 1', 'Razão Social 1', '12345678000195', '11999999999', '11888888888', 'fornecedor1@email.com', 'ativo'),
-    ('Fornecedor 2', 'Razão Social 2', '23456789000196', '21999999999', '21888888888', 'fornecedor2@email.com', 'ativo'),
-    ('Fornecedor 3', 'Razão Social 3', '34567890000197', '31999999999', '31888888888', 'fornecedor3@email.com', 'inativo'),
-    ('Fornecedor 4', 'Razão Social 4', '45678901000198', '41999999999', '41888888888', 'fornecedor4@email.com', 'ativo');
+(
+    'Fornecedor Agro',
+    'Fornecedor Agro LTDA',
+    '12345678000199',
+    '(11) 98765-4321',
+    '(11) 91234-5678',
+    'contato@fornecedoragro.com',
+    'ativo',
+    'Fertilizantes',
+    'Especializado em insumos orgânicos',
+    'Rua das Palmeiras',
+    123,
+    'Centro',
+    'São Paulo',
+    'SP',
+    'Brasil',
+    '01001-000'
+);
+
+INSERT INTO Insumo 
+(
+    idInsumo, 
+    nomeInsumo, 
+    quantidadeInsumo, 
+    validade, 
+    dataValidade, 
+    idFornecedor
+) 
+VALUES 
+(
+    1, 
+    'Adubo Orgânico',
+    50, 
+    'Disponivel',
+    '2024-12-31',
+    1
+);
+
+INSERT INTO Insumo 
+(
+    idInsumo, 
+    nomeInsumo, 
+    quantidadeInsumo, 
+    validade, 
+    dataValidade, 
+    idFornecedor
+) 
+VALUES 
+(
+    2, 
+    'Substrato Vegetal',
+    30, 
+    'Disponivel',
+    '2025-03-15',
+    1
+);
 
 
 INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (1, 'Tomate Cereja', 'Vegetal');
@@ -344,3 +406,5 @@ INSERT INTO User_Permissao_Tem (fk_Usuarios_idUsuario, fk_Funcionalidade_idFunci
 ('N3573A1', 3),
 ('G783GA4', 4),
 ('G71GEG3', 4);
+
+SELECT * from Fornecedores
