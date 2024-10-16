@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using CityGreen.Classes;
-using CityGreen.Classes;
 
 namespace Gestão_Fornecedores
 {
@@ -24,14 +23,15 @@ namespace Gestão_Fornecedores
             dbController = new DatabaseController();
         }
 
-        // Método para listar insumos com fornecedor e compra relacionados
-        public List<Insumo> ListarInsumos()
+        // Método para listar insumos com fornecedor e compra relacionados com filtro de idFornecedor e pesquisa
+        public List<Insumo> ListarInsumos(int idFornecedor, string pesquisa)
         {
             string query = @"
-                SELECT i.*, f.nome AS NomeFornecedor, f.cnpj, c.dataCompra 
-                FROM Insumo i
-                JOIN CompraInsumo c ON i.idCompra = c.idCompra
-                JOIN Fornecedores f ON c.idFornecedor = f.idFornecedor";
+        SELECT i.*, f.nome AS NomeFornecedor, f.cnpj 
+        FROM Insumo i
+        JOIN Fornecedores f ON i.idFornecedor = f.idFornecedor
+        WHERE f.idFornecedor = @idFornecedor 
+        AND (i.nomeInsumo LIKE @pesquisa OR f.nome LIKE @pesquisa)";
 
             List<Insumo> insumos = new List<Insumo>();
 
@@ -41,6 +41,9 @@ namespace Gestão_Fornecedores
                 {
                     connection.Open();
                     SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@idFornecedor", idFornecedor);
+                    command.Parameters.AddWithValue("@pesquisa", $"%{pesquisa}%");
+
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -52,8 +55,6 @@ namespace Gestão_Fornecedores
                                 QuantidadeInsumo = (int)reader["quantidadeInsumo"],
                                 Validade = reader["validade"].ToString(),
                                 DataValidade = Convert.ToDateTime(reader["dataValidade"]),
-                                DataCompra = Convert.ToDateTime(reader["dataCompra"]),
-                                IdCompra = (int)reader["idCompra"],
                                 Fornecedor = new Fornecedor
                                 {
                                     IdFornecedor = (int)reader["idFornecedor"],
@@ -72,6 +73,7 @@ namespace Gestão_Fornecedores
                 return null;
             }
         }
+
 
         // Método para cadastrar insumo com referência à compra e fornecedor
         public bool CadastrarInsumo()

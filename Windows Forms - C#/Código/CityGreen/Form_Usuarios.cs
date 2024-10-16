@@ -87,9 +87,28 @@ namespace CityGreen
 
         private void btn_verUsuario_Click(object sender, DataGridViewCellEventArgs e)
         {
-            string idUsuarioSelecionado = dgw_usuarios.Rows[e.RowIndex].Cells["col_RA"].Value.ToString();
-            AbrirFormVerUsuario(idUsuarioSelecionado, "ver"); // Passa o ID e a string "ver"
+            // Verifica se o valor da célula "col_ID" não é nulo e converte para string
+            if (e.RowIndex >= 0 && dgw_usuarios.Rows[e.RowIndex].Cells["col_RA"].Value != null)
+            {
+                string idUsuarioSelecionado = dgw_usuarios.Rows[e.RowIndex].Cells["col_RA"].Value.ToString();
+
+                // Verifica se o idUsuarioSelecionado não é vazio antes de prosseguir
+                if (!string.IsNullOrEmpty(idUsuarioSelecionado))
+                {
+                    AbrirFormVerUsuario(idUsuarioSelecionado, "ver");
+                }
+                else
+                {
+                    MessageBox.Show("O ID do fornecedor não foi encontrado. Por favor, tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Erro ao acessar o ID do fornecedor. Verifique se a célula está preenchida corretamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
+
 
         public void AbrirFormVerUsuario(string idUsuarioSelecionado, string funcao)
         {

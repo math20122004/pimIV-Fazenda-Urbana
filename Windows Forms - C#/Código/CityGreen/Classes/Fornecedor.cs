@@ -63,34 +63,78 @@ public List<Fornecedor> ListarFornecedores(string pesquisa = "")
             return listaFornecedores;
         }
 
+
+        public Fornecedor VerFornecedor(int idFornecedor)
+        {
+            string query = "SELECT * FROM Fornecedores WHERE idFornecedor = @idFornecedor";
+
+            using (SqlConnection connection = dbController.GetConnection())
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@idFornecedor", idFornecedor);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new Fornecedor
+                    {
+                        IdFornecedor = reader.GetInt32(reader.GetOrdinal("idFornecedor")),
+                        NomeFornecedor = reader["nome"] as string ?? "",
+                        RazaoSocial = reader["razaoSocial"] as string ?? "",
+                        CNPJ = reader["cnpj"] as string ?? "",
+                        Telefone1 = reader["telefone1"] as string ?? "",
+                        Telefone2 = reader["telefone2"] as string ?? "",
+                        Email = reader["email"] as string ?? "",
+                        StatusFornecedor = reader["status"] as string ?? "",
+                        Tipo = reader["tipo"] as string ?? "",
+                        InfAdicionais = reader["infAdicionais"] as string ?? "",
+                        Endereco = reader["endereco"] as string ?? "",
+                        NumeroEndereco = reader["numeroEndereco"] as int? ?? 0,
+                        Bairro = reader["bairro"] as string ?? "",
+                        Cidade = reader["cidade"] as string ?? "",
+                        Estado = reader["estado"] as string ?? "",
+                        Pais = reader["pais"] as string ?? "",
+                        CEP = reader["cep"] as string ?? ""
+                    };
+                }
+            }
+
+            return null;
+        }
+
+
         // Método para cadastrar fornecedor
         public bool CadastrarFornecedor()
         {
             string query = @"
-                INSERT INTO Fornecedores (nome, razaoSocial, cnpj, telefone1, telefone2, email, status, tipo, infAdicionais, endereco, numeroEndereco, bairro, cidade, estado, pais, cep) 
-                VALUES (@nome, @razaoSocial, @cnpj, @telefone1, @telefone2, @Email, @status, @tipo, @infAdicionais, @endereco, @numeroEndereco, @bairro, @cidade, @estado, @pais, @cep)";
+        INSERT INTO Fornecedores 
+        (nome, razaoSocial, cnpj, telefone1, telefone2, email, status, tipo, infAdicionais, endereco, numeroEndereco, bairro, cidade, estado, pais, cep) 
+        VALUES 
+        (@nome, @razaoSocial, @cnpj, @telefone1, @telefone2, @Email, @status, @tipo, @infAdicionais, @endereco, @numeroEndereco, @bairro, @cidade, @estado, @pais, @cep)";
 
             try
             {
                 using (SqlConnection connection = dbController.GetConnection())
                 {
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@nome", NomeFornecedor);
-                    command.Parameters.AddWithValue("@razaoSocial", RazaoSocial);
-                    command.Parameters.AddWithValue("@cnpj", CNPJ);
-                    command.Parameters.AddWithValue("@telefone1", Telefone1);
-                    command.Parameters.AddWithValue("@telefone2", Telefone2);
-                    command.Parameters.AddWithValue("@Email", Email);
+                    command.Parameters.AddWithValue("@nome", string.IsNullOrEmpty(NomeFornecedor) ? (object)DBNull.Value : NomeFornecedor);
+                    command.Parameters.AddWithValue("@razaoSocial", string.IsNullOrEmpty(RazaoSocial) ? (object)DBNull.Value : RazaoSocial);
+                    command.Parameters.AddWithValue("@cnpj", string.IsNullOrEmpty(CNPJ) ? (object)DBNull.Value : CNPJ);
+                    command.Parameters.AddWithValue("@telefone1", string.IsNullOrEmpty(Telefone1) ? (object)DBNull.Value : Telefone1);
+                    command.Parameters.AddWithValue("@telefone2", string.IsNullOrEmpty(Telefone2) ? (object)DBNull.Value : Telefone2);
+                    command.Parameters.AddWithValue("@Email", string.IsNullOrEmpty(Email) ? (object)DBNull.Value : Email);
                     command.Parameters.AddWithValue("@status", StatusFornecedor);
-                    command.Parameters.AddWithValue("@tipo", Tipo);
-                    command.Parameters.AddWithValue("@infAdicionais", InfAdicionais);
-                    command.Parameters.AddWithValue("@endereco", Endereco);
-                    command.Parameters.AddWithValue("@numeroEndereco", NumeroEndereco);
-                    command.Parameters.AddWithValue("@bairro", Bairro);
-                    command.Parameters.AddWithValue("@cidade", Cidade);
-                    command.Parameters.AddWithValue("@estado", Estado);
-                    command.Parameters.AddWithValue("@pais", Pais);
-                    command.Parameters.AddWithValue("@cep", CEP);
+                    command.Parameters.AddWithValue("@tipo", string.IsNullOrEmpty(Tipo) ? (object)DBNull.Value : Tipo);
+                    command.Parameters.AddWithValue("@infAdicionais", string.IsNullOrEmpty(InfAdicionais) ? (object)DBNull.Value : InfAdicionais);
+                    command.Parameters.AddWithValue("@endereco", string.IsNullOrEmpty(Endereco) ? (object)DBNull.Value : Endereco);
+                    command.Parameters.AddWithValue("@numeroEndereco", NumeroEndereco == 0 ? (object)DBNull.Value : NumeroEndereco);
+                    command.Parameters.AddWithValue("@bairro", string.IsNullOrEmpty(Bairro) ? (object)DBNull.Value : Bairro);
+                    command.Parameters.AddWithValue("@cidade", string.IsNullOrEmpty(Cidade) ? (object)DBNull.Value : Cidade);
+                    command.Parameters.AddWithValue("@estado", string.IsNullOrEmpty(Estado) ? (object)DBNull.Value : Estado);
+                    command.Parameters.AddWithValue("@pais", string.IsNullOrEmpty(Pais) ? (object)DBNull.Value : Pais);
+                    command.Parameters.AddWithValue("@cep", string.IsNullOrEmpty(CEP) ? (object)DBNull.Value : CEP);
 
                     connection.Open();
                     return command.ExecuteNonQuery() > 0;

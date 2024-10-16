@@ -36,16 +36,16 @@
             panel2 = new Panel();
             lblMensagem = new Label();
             dgw_fornecedores = new DataGridView();
-            col_ID = new DataGridViewTextBoxColumn();
-            col_Nome = new DataGridViewLinkColumn();
-            col_Status = new DataGridViewTextBoxColumn();
-            col_email = new DataGridViewLinkColumn();
-            col_VerFornecedor = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             tbx_pequisa = new TextBox();
             btn_CadastrarFornecedor = new Button();
             btn_Recarregar = new Button();
+            col_ID = new DataGridViewTextBoxColumn();
+            col_Nome = new DataGridViewTextBoxColumn();
+            col_Status = new DataGridViewTextBoxColumn();
+            col_email = new DataGridViewTextBoxColumn();
+            col_VerFornecedor = new DataGridViewButtonColumn();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgw_fornecedores).BeginInit();
             panel1.SuspendLayout();
@@ -59,7 +59,7 @@
             panel2.Controls.Add(panel1);
             panel2.Controls.Add(btn_CadastrarFornecedor);
             panel2.Controls.Add(btn_Recarregar);
-            panel2.Location = new Point(19, 21);
+            panel2.Location = new Point(26, 21);
             panel2.Name = "panel2";
             panel2.Size = new Size(820, 511);
             panel2.TabIndex = 10;
@@ -134,39 +134,6 @@
             dgw_fornecedores.TabIndex = 3;
             dgw_fornecedores.CellContentClick += dgw_fornecedores_CellContentClick;
             // 
-            // col_ID
-            // 
-            col_ID.HeaderText = "ID";
-            col_ID.Name = "col_ID";
-            col_ID.ReadOnly = true;
-            col_ID.Width = 102;
-            // 
-            // col_Nome
-            // 
-            col_Nome.HeaderText = "Nome:";
-            col_Nome.Name = "col_Nome";
-            col_Nome.ReadOnly = true;
-            col_Nome.Width = 260;
-            // 
-            // col_Status
-            // 
-            col_Status.HeaderText = "Status:";
-            col_Status.Name = "col_Status";
-            col_Status.ReadOnly = true;
-            // 
-            // col_email
-            // 
-            col_email.HeaderText = "Email:";
-            col_email.Name = "col_email";
-            col_email.ReadOnly = true;
-            col_email.Width = 252;
-            // 
-            // col_VerFornecedor
-            // 
-            col_VerFornecedor.HeaderText = "Ver";
-            col_VerFornecedor.Name = "col_VerFornecedor";
-            col_VerFornecedor.ReadOnly = true;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(7, 30, 34);
@@ -232,6 +199,45 @@
             btn_Recarregar.UseVisualStyleBackColor = false;
             btn_Recarregar.Click += btn_Recarregar_Click;
             // 
+            // col_ID
+            // 
+            col_ID.HeaderText = "ID";
+            col_ID.Name = "col_ID";
+            col_ID.ReadOnly = true;
+            col_ID.Width = 102;
+            // 
+            // col_Nome
+            // 
+            col_Nome.HeaderText = "Nome:";
+            col_Nome.Name = "col_Nome";
+            col_Nome.ReadOnly = true;
+            col_Nome.Resizable = DataGridViewTriState.True;
+            col_Nome.SortMode = DataGridViewColumnSortMode.NotSortable;
+            col_Nome.Width = 260;
+            // 
+            // col_Status
+            // 
+            col_Status.HeaderText = "Status:";
+            col_Status.Name = "col_Status";
+            col_Status.ReadOnly = true;
+            // 
+            // col_email
+            // 
+            col_email.HeaderText = "Email:";
+            col_email.Name = "col_email";
+            col_email.ReadOnly = true;
+            col_email.Resizable = DataGridViewTriState.True;
+            col_email.SortMode = DataGridViewColumnSortMode.NotSortable;
+            col_email.Width = 252;
+            // 
+            // col_VerFornecedor
+            // 
+            col_VerFornecedor.HeaderText = "Ver";
+            col_VerFornecedor.Name = "col_VerFornecedor";
+            col_VerFornecedor.ReadOnly = true;
+            col_VerFornecedor.Resizable = DataGridViewTriState.True;
+            col_VerFornecedor.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
             // Form_Fornecedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -265,9 +271,9 @@
         private Button btn_CadastrarFornecedor;
         private Button btn_Recarregar;
         private DataGridViewTextBoxColumn col_ID;
-        private DataGridViewLinkColumn col_Nome;
+        private DataGridViewTextBoxColumn col_Nome;
         private DataGridViewTextBoxColumn col_Status;
-        private DataGridViewLinkColumn col_email;
-        private DataGridViewTextBoxColumn col_VerFornecedor;
+        private DataGridViewTextBoxColumn col_email;
+        private DataGridViewButtonColumn col_VerFornecedor;
     }
 }
