@@ -4,12 +4,14 @@ namespace CityGreen
 {
     public partial class Form_Principal : Form
     {
-        private Form_Fornecedores fornecedores;
-        private Form_Inicio inicio;
-        private Form_Login login;
-        private Form_Vendas vendas;
-        private Form_Producao producao;
-        private Form_Usuarios usuarios;
+        Form_Fornecedores fornecedores;
+        Form_Inicio inicio;
+        Form_Login login;
+        Form_Vendas vendas;
+        Form_Producao producao;
+        Form_Usuarios usuarios;
+
+        Thread t2;
 
         private string idUsuario;
         private Button btnSelecionado = null;
@@ -17,7 +19,7 @@ namespace CityGreen
         // Definir as cores
         private Color corFundoOriginal = ColorTranslator.FromHtml("#071E22");
         private Color corTextoOriginal = ColorTranslator.FromHtml("#1D7874");
-        private Color corFundoSelecionado = ColorTranslator.FromHtml("#1D7874");
+        private Color corFundoSelecionado = ColorTranslator.FromHtml("#1D7874"); // Alterado para "1D7874"
         private Color corTextoSelecionado = ColorTranslator.FromHtml("#ffffff");
 
         public Form_Principal(string idUsuario)
@@ -53,6 +55,7 @@ namespace CityGreen
                 // Verifique as permissões e mostre os painéis correspondentes
                 foreach (var permissao in permissoes)
                 {
+                    // Adiciona a permissão no lbl_permissao, com "- " e uma nova linha
                     lbl_permissao.Text += "- " + permissao.NomeFuncionalidade + Environment.NewLine;
 
                     switch (permissao.NomeFuncionalidade)
@@ -83,6 +86,7 @@ namespace CityGreen
         {
             if (btnSelecionado != null)
             {
+                // Reseta a cor do botão para o padrão
                 btnSelecionado.BackColor = corFundoOriginal;
                 btnSelecionado.ForeColor = corTextoOriginal;
                 btnSelecionado = null;
@@ -95,96 +99,149 @@ namespace CityGreen
             ResetBtn(); // Reseta qualquer botão previamente selecionado
 
             btnSelecionado = btn;
-            btnSelecionado.BackColor = corFundoSelecionado;
-            btnSelecionado.ForeColor = corTextoSelecionado;
+            btnSelecionado.BackColor = corFundoSelecionado; // Cor de fundo selecionada ("1D7874")
+            btnSelecionado.ForeColor = corTextoSelecionado; // Cor do texto selecionada ("071E22")
         }
 
-        private void AbrirForm<T>(ref T form) where T : Form, new()
+        private void btn_inicio_Click(object sender, EventArgs e)
         {
-            // Tenta encontrar o botão correspondente
-            Button btn = (Button)this.Controls.Find($"btn_{typeof(T).Name.ToLower()}", true).FirstOrDefault();
+            SelectBtn(btn_inicio); // Marca o botão como selecionado
 
-            if (btn != null)
+            if (inicio == null)
             {
-                SelectBtn(btn);
-            }
-
-            if (form == null || form.IsDisposed)
-            {
-                form = new T { MdiParent = this };
-                form.FormClosed += Form_FormClosed; // Lida com o fechamento do formulário
-                form.Show();
+                inicio = new Form_Inicio();
+                inicio.FormClosed += Inicio_FormClosed;
+                inicio.MdiParent = this;
+                inicio.Show();
             }
             else
             {
-                form.Activate();
+                inicio.Activate();
             }
         }
 
-
-
-
-        private void Form_FormClosed(object sender, FormClosedEventArgs e)
+        private void Inicio_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            // Atualiza a referência do formulário que foi fechado
-            if (sender is Form closedForm)
-            {
-                if (closedForm is Form_Fornecedores)
-                {
-                    fornecedores = null;
-                }
-                else if (closedForm is Form_Inicio)
-                {
-                    inicio = null;
-                }
-                else if (closedForm is Form_Vendas)
-                {
-                    vendas = null;
-                }
-                else if (closedForm is Form_Producao)
-                {
-                    producao = null;
-                }
-                else if (closedForm is Form_Usuarios)
-                {
-                    usuarios = null;
-                }
-            }
+            inicio = null;
         }
 
-        private void btn_inicio_Click(object sender, EventArgs e) => AbrirForm(ref inicio);
-        private void btn_vendas_Click(object sender, EventArgs e) => AbrirForm(ref vendas);
-        private void btn_producao_Click(object sender, EventArgs e) => AbrirForm(ref producao);
-        private void btn_fornecedores_Click(object sender, EventArgs e) => AbrirForm(ref fornecedores);
+        private void btn_vendas_Click(object sender, EventArgs e)
+        {
+            SelectBtn(btn_vendas); // Marca o botão como selecionado
+
+            if (vendas == null)
+            {
+                vendas = new Form_Vendas();
+                vendas.FormClosed += Vendas_FormClosed;
+                vendas.MdiParent = this;
+                vendas.Show();
+            }
+            else
+            {
+                vendas.Activate();
+            };
+        }
+
+        private void Vendas_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            vendas = null;
+        }
+
+        private void btn_producao_Click(object sender, EventArgs e)
+        {
+            SelectBtn(btn_producao); // Marca o botão como selecionado
+
+            if (producao == null)
+            {
+                producao = new Form_Producao();
+                producao.FormClosed += Producao_FormClosed;
+                producao.MdiParent = this;
+                producao.Show();
+            }
+            else
+            {
+                producao.Activate();
+            };
+        }
+
+        private void Producao_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            producao = null;
+        }
+
+        private void btn_fornecedores_Click(object sender, EventArgs e)
+        {
+            SelectBtn(btn_fornecedores); // Marca o botão como selecionado
+
+            if (fornecedores == null)
+            {
+                fornecedores = new Form_Fornecedores();
+                fornecedores.FormClosed += Fornecedores_FormClosed;
+                fornecedores.MdiParent = this;
+                fornecedores.Show();
+            }
+            else
+            {
+                fornecedores.Activate();
+            };
+        }
+
+        private void Fornecedores_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            fornecedores = null;
+        }
+
         private void btn_usuarios_Click(object sender, EventArgs e)
         {
-            // Para Form_Usuarios, passando o idUsuario se necessário
-            if (usuarios == null || usuarios.IsDisposed)
+            SelectBtn(btn_usuarios); // Marca o botão como selecionado
+
+            if (usuarios == null)
             {
-                usuarios = new Form_Usuarios(idUsuario) { MdiParent = this };
-                usuarios.FormClosed += Form_FormClosed; // Lida com o fechamento do formulário
+                usuarios = new Form_Usuarios(idUsuario);
+                usuarios.FormClosed += Usuarios_FormClosed;
+                usuarios.MdiParent = this;
                 usuarios.Show();
             }
             else
             {
                 usuarios.Activate();
-            }
+            };
+        }
+
+        private void Usuarios_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            usuarios = null;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            BarraUser.Height = BarraUser.Height == 0 ? 200 : 0;
+            if (BarraUser.Height == 0)
+            {
+                BarraUser.Height = 200;
+            }
+            else
+            {
+                BarraUser.Height = 0;
+            }
+        }
+
+        private void voltarJanela(object obj)
+        {
+            Application.Run(new Form_Login());
         }
 
         private void btn_sair_Click(object sender, EventArgs e)
         {
             string message = "Você gostaria de Deslogar?";
             string title = "Deslogar";
-            DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo);
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
                 this.Close();
-                new Thread(() => Application.Run(new Form_Login())).Start();
+                t2 = new Thread(voltarJanela);
+                t2.SetApartmentState(ApartmentState.STA);
+                t2.Start();
             }
         }
     }

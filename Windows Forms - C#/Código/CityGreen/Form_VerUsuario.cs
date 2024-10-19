@@ -86,7 +86,7 @@ namespace CityGreen
                 tbx_ID.Text = info.IdUsuario;
                 tbx_nome.Text = info.Nome;
                 tbx_email.Text = info.Email;
-                rb_simS.Checked = info.StatusUsuario == "ativo"; // Marca "sim" se ativo.
+                rb_simS.Checked = info.StatusUsuario == "ativo";
                 rb_naoS.Checked = info.StatusUsuario == "inativo";
                 rb_naoR.Checked = true;
 

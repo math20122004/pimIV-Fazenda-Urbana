@@ -201,10 +201,10 @@
             // 
             // col_ID
             // 
-            col_ID.HeaderText = "ID";
+            col_ID.HeaderText = "CNPJ";
             col_ID.Name = "col_ID";
             col_ID.ReadOnly = true;
-            col_ID.Width = 102;
+            col_ID.Width = 150;
             // 
             // col_Nome
             // 
@@ -213,7 +213,7 @@
             col_Nome.ReadOnly = true;
             col_Nome.Resizable = DataGridViewTriState.True;
             col_Nome.SortMode = DataGridViewColumnSortMode.NotSortable;
-            col_Nome.Width = 260;
+            col_Nome.Width = 210;
             // 
             // col_Status
             // 
