@@ -34,7 +34,7 @@ namespace CityGreen
                 foreach (var forn in listaFornecedores)
                 {
                     int rowIndex = dgw_fornecedores.Rows.Add(
-                        forn.IdFornecedor,
+                        forn.CNPJ, // Alterado de IdFornecedor para CNPJ
                         forn.NomeFornecedor,
                         forn.StatusFornecedor,
                         forn.Email
@@ -75,15 +75,15 @@ namespace CityGreen
 
         private void btn_verFornecedor_Click(object sender, DataGridViewCellEventArgs e)
         {
-            string idFornecedorSelecionado = dgw_fornecedores.Rows[e.RowIndex].Cells["col_ID"].Value.ToString();
-            AbrirFormVerFornecedor(idFornecedorSelecionado, "ver"); // Passa o ID e a string "ver"
+            string cnpjSelecionado = dgw_fornecedores.Rows[e.RowIndex].Cells["col_ID"].Value.ToString(); // Alterado de IdFornecedor para CNPJ
+            AbrirFormVerFornecedor(cnpjSelecionado, "ver"); // Passa o CNPJ e a string "ver"
         }
 
-        public void AbrirFormVerFornecedor(string idFornecedorSelecionado, string funcao)
+        public void AbrirFormVerFornecedor(string cnpjSelecionado, string funcao) // Alterado aqui
         {
             if (verFornecedor == null || verFornecedor.IsDisposed)
             {
-                Form_VerFornecedor verFornecedor = new Form_VerFornecedor(idFornecedorSelecionado, funcao)
+                verFornecedor = new Form_VerFornecedor(cnpjSelecionado, funcao) // Alterado aqui
                 {
                     MdiParent = this.MdiParent
                 };
@@ -111,7 +111,6 @@ namespace CityGreen
             this.Activate();
         }
 
-
         private void btn_Recarregar_Click(object sender, EventArgs e)
         {
             CarregarFornecedores("");
@@ -126,9 +125,8 @@ namespace CityGreen
 
         private void btn_CadastrarFornecedor_Click(object sender, EventArgs e)
         {
-            string idFornecedorParaCadastrar = ""; // ou um ID específico se necessário
-            AbrirFormVerFornecedor(idFornecedorParaCadastrar, "cadastro");
+            string cnpjParaCadastrar = ""; // ou um CNPJ específico se necessário
+            AbrirFormVerFornecedor(cnpjParaCadastrar, "cadastro"); // Alterado aqui
         }
-
     }
 }

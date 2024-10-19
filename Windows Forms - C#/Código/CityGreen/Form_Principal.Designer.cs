@@ -443,13 +443,13 @@
         private PictureBox btn_User;
         private FlowLayoutPanel barraLateral;
         private Panel pn_inicio;
-        private Button btn_inicio;
+        public Button btn_inicio;
         private Panel pn_fornecedores;
-        private Button btn_fornecedores;
+        public Button btn_fornecedores;
         private Panel pn_producao;
-        private Button btn_producao;
+        public Button btn_producao;
         private Panel pn_vendas;
-        private Button btn_vendas;
+        public Button btn_vendas;
         private Panel pn_usuarios;
         public Button btn_usuarios;
         private Panel panel2;

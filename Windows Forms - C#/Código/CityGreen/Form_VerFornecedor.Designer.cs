@@ -46,8 +46,6 @@
             bt_voltar = new Button();
             tbx_email = new TextBox();
             lbl_email = new Label();
-            tbx_ID = new TextBox();
-            lbl_ID = new Label();
             lbl_nome = new Label();
             tbx_nome = new TextBox();
             tbx_CNPJ = new TextBox();
@@ -69,6 +67,11 @@
             pn_Insumo = new Panel();
             lbl_Mensagem = new Label();
             dgw_Insumo = new DataGridView();
+            col_IDInsumo = new DataGridViewTextBoxColumn();
+            col_NomeInsumo = new DataGridViewTextBoxColumn();
+            col_Validade = new DataGridViewTextBoxColumn();
+            col_data = new DataGridViewTextBoxColumn();
+            col_VerInsumo = new DataGridViewButtonColumn();
             panel6 = new Panel();
             pictureBox1 = new PictureBox();
             tbx_pequisarInsumo = new TextBox();
@@ -77,11 +80,10 @@
             txb_InfoAdicional = new TextBox();
             label7 = new Label();
             panel5 = new Panel();
-            col_IDInsumo = new DataGridViewTextBoxColumn();
-            col_NomeInsumo = new DataGridViewTextBoxColumn();
-            col_Validade = new DataGridViewTextBoxColumn();
-            col_data = new DataGridViewTextBoxColumn();
-            col_VerInsumo = new DataGridViewButtonColumn();
+            label8 = new Label();
+            gb_status = new GroupBox();
+            rb_simS = new RadioButton();
+            rb_naoS = new RadioButton();
             barraLateral.SuspendLayout();
             pl_editar.SuspendLayout();
             pl_confirmar.SuspendLayout();
@@ -93,6 +95,7 @@
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel5.SuspendLayout();
+            gb_status.SuspendLayout();
             SuspendLayout();
             // 
             // barraLateral
@@ -244,7 +247,7 @@
             // 
             tbx_email.BorderStyle = BorderStyle.FixedSingle;
             tbx_email.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbx_email.Location = new Point(128, 96);
+            tbx_email.Location = new Point(128, 106);
             tbx_email.MaxLength = 255;
             tbx_email.Name = "tbx_email";
             tbx_email.Size = new Size(669, 27);
@@ -254,37 +257,17 @@
             // 
             lbl_email.AutoSize = true;
             lbl_email.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_email.Location = new Point(42, 96);
+            lbl_email.Location = new Point(42, 106);
             lbl_email.Name = "lbl_email";
             lbl_email.Size = new Size(78, 23);
             lbl_email.TabIndex = 25;
             lbl_email.Text = "Email:";
             // 
-            // tbx_ID
-            // 
-            tbx_ID.BorderStyle = BorderStyle.FixedSingle;
-            tbx_ID.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbx_ID.Location = new Point(90, 14);
-            tbx_ID.MaxLength = 8;
-            tbx_ID.Name = "tbx_ID";
-            tbx_ID.Size = new Size(118, 27);
-            tbx_ID.TabIndex = 24;
-            // 
-            // lbl_ID
-            // 
-            lbl_ID.AutoSize = true;
-            lbl_ID.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_ID.Location = new Point(40, 14);
-            lbl_ID.Name = "lbl_ID";
-            lbl_ID.Size = new Size(44, 23);
-            lbl_ID.TabIndex = 23;
-            lbl_ID.Text = "ID:";
-            // 
             // lbl_nome
             // 
             lbl_nome.AutoSize = true;
             lbl_nome.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_nome.Location = new Point(40, 54);
+            lbl_nome.Location = new Point(40, 64);
             lbl_nome.Name = "lbl_nome";
             lbl_nome.Size = new Size(80, 23);
             lbl_nome.TabIndex = 22;
@@ -294,7 +277,7 @@
             // 
             tbx_nome.BorderStyle = BorderStyle.FixedSingle;
             tbx_nome.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbx_nome.Location = new Point(126, 50);
+            tbx_nome.Location = new Point(126, 60);
             tbx_nome.MaxLength = 255;
             tbx_nome.Name = "tbx_nome";
             tbx_nome.Size = new Size(669, 27);
@@ -304,17 +287,17 @@
             // 
             tbx_CNPJ.BorderStyle = BorderStyle.FixedSingle;
             tbx_CNPJ.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbx_CNPJ.Location = new Point(126, 139);
+            tbx_CNPJ.Location = new Point(126, 18);
             tbx_CNPJ.MaxLength = 255;
             tbx_CNPJ.Name = "tbx_CNPJ";
-            tbx_CNPJ.Size = new Size(669, 27);
+            tbx_CNPJ.Size = new Size(163, 27);
             tbx_CNPJ.TabIndex = 28;
             // 
             // lb_CNPJ
             // 
             lb_CNPJ.AutoSize = true;
             lb_CNPJ.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lb_CNPJ.Location = new Point(40, 139);
+            lb_CNPJ.Location = new Point(40, 18);
             lb_CNPJ.Name = "lb_CNPJ";
             lb_CNPJ.Size = new Size(73, 23);
             lb_CNPJ.TabIndex = 27;
@@ -324,7 +307,7 @@
             // 
             txb_RazaoSocial.BorderStyle = BorderStyle.FixedSingle;
             txb_RazaoSocial.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txb_RazaoSocial.Location = new Point(201, 179);
+            txb_RazaoSocial.Location = new Point(201, 147);
             txb_RazaoSocial.MaxLength = 255;
             txb_RazaoSocial.Name = "txb_RazaoSocial";
             txb_RazaoSocial.Size = new Size(594, 27);
@@ -334,7 +317,7 @@
             // 
             lb_RazaoSocial.AutoSize = true;
             lb_RazaoSocial.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lb_RazaoSocial.Location = new Point(40, 179);
+            lb_RazaoSocial.Location = new Point(40, 147);
             lb_RazaoSocial.Name = "lb_RazaoSocial";
             lb_RazaoSocial.Size = new Size(155, 23);
             lb_RazaoSocial.TabIndex = 29;
@@ -344,7 +327,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(40, 219);
+            label1.Location = new Point(40, 187);
             label1.Name = "label1";
             label1.Size = new Size(117, 23);
             label1.TabIndex = 31;
@@ -354,7 +337,7 @@
             // 
             txb_Endereco.BorderStyle = BorderStyle.FixedSingle;
             txb_Endereco.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txb_Endereco.Location = new Point(163, 219);
+            txb_Endereco.Location = new Point(163, 187);
             txb_Endereco.MaxLength = 255;
             txb_Endereco.Name = "txb_Endereco";
             txb_Endereco.Size = new Size(498, 27);
@@ -364,7 +347,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(667, 223);
+            label2.Location = new Point(667, 191);
             label2.Name = "label2";
             label2.Size = new Size(45, 23);
             label2.TabIndex = 33;
@@ -374,7 +357,7 @@
             // 
             txb_Numero.BorderStyle = BorderStyle.FixedSingle;
             txb_Numero.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txb_Numero.Location = new Point(718, 219);
+            txb_Numero.Location = new Point(718, 189);
             txb_Numero.MaxLength = 255;
             txb_Numero.Name = "txb_Numero";
             txb_Numero.Size = new Size(77, 27);
@@ -384,7 +367,7 @@
             // 
             txb_Bairro.BorderStyle = BorderStyle.FixedSingle;
             txb_Bairro.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txb_Bairro.Location = new Point(129, 255);
+            txb_Bairro.Location = new Point(129, 223);
             txb_Bairro.MaxLength = 255;
             txb_Bairro.Name = "txb_Bairro";
             txb_Bairro.Size = new Size(288, 27);
@@ -394,7 +377,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(40, 257);
+            label3.Location = new Point(40, 225);
             label3.Name = "label3";
             label3.Size = new Size(83, 23);
             label3.TabIndex = 35;
@@ -404,7 +387,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(425, 261);
+            label4.Location = new Point(425, 229);
             label4.Name = "label4";
             label4.Size = new Size(91, 23);
             label4.TabIndex = 37;
@@ -414,7 +397,7 @@
             // 
             txb_Cidade.BorderStyle = BorderStyle.FixedSingle;
             txb_Cidade.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txb_Cidade.Location = new Point(522, 255);
+            txb_Cidade.Location = new Point(522, 223);
             txb_Cidade.MaxLength = 255;
             txb_Cidade.Name = "txb_Cidade";
             txb_Cidade.Size = new Size(273, 27);
@@ -424,7 +407,7 @@
             // 
             txb_Estado.BorderStyle = BorderStyle.FixedSingle;
             txb_Estado.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txb_Estado.Location = new Point(136, 294);
+            txb_Estado.Location = new Point(136, 262);
             txb_Estado.MaxLength = 255;
             txb_Estado.Name = "txb_Estado";
             txb_Estado.Size = new Size(281, 27);
@@ -434,7 +417,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(40, 294);
+            label5.Location = new Point(40, 262);
             label5.Name = "label5";
             label5.Size = new Size(90, 23);
             label5.TabIndex = 39;
@@ -444,7 +427,7 @@
             // 
             txb_CEP.BorderStyle = BorderStyle.FixedSingle;
             txb_CEP.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txb_CEP.Location = new Point(519, 294);
+            txb_CEP.Location = new Point(519, 262);
             txb_CEP.MaxLength = 255;
             txb_CEP.Name = "txb_CEP";
             txb_CEP.Size = new Size(276, 27);
@@ -454,7 +437,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(454, 298);
+            label6.Location = new Point(454, 266);
             label6.Name = "label6";
             label6.Size = new Size(59, 23);
             label6.TabIndex = 41;
@@ -540,6 +523,45 @@
             dgw_Insumo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgw_Insumo.Size = new Size(663, 175);
             dgw_Insumo.TabIndex = 3;
+            dgw_Insumo.CellContentClick += dgw_Insumo_CellContentClick;
+            // 
+            // col_IDInsumo
+            // 
+            col_IDInsumo.HeaderText = "ID";
+            col_IDInsumo.Name = "col_IDInsumo";
+            col_IDInsumo.ReadOnly = true;
+            col_IDInsumo.Width = 102;
+            // 
+            // col_NomeInsumo
+            // 
+            col_NomeInsumo.HeaderText = "Nome:";
+            col_NomeInsumo.Name = "col_NomeInsumo";
+            col_NomeInsumo.ReadOnly = true;
+            col_NomeInsumo.Resizable = DataGridViewTriState.True;
+            col_NomeInsumo.SortMode = DataGridViewColumnSortMode.NotSortable;
+            col_NomeInsumo.Width = 260;
+            // 
+            // col_Validade
+            // 
+            col_Validade.HeaderText = "Validade:";
+            col_Validade.Name = "col_Validade";
+            col_Validade.ReadOnly = true;
+            // 
+            // col_data
+            // 
+            col_data.HeaderText = "Data Validade:";
+            col_data.Name = "col_data";
+            col_data.ReadOnly = true;
+            col_data.Resizable = DataGridViewTriState.True;
+            col_data.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // col_VerInsumo
+            // 
+            col_VerInsumo.HeaderText = "Ver";
+            col_VerInsumo.Name = "col_VerInsumo";
+            col_VerInsumo.ReadOnly = true;
+            col_VerInsumo.Resizable = DataGridViewTriState.True;
+            col_VerInsumo.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // panel6
             // 
@@ -610,7 +632,7 @@
             // 
             txb_InfoAdicional.BorderStyle = BorderStyle.FixedSingle;
             txb_InfoAdicional.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txb_InfoAdicional.Location = new Point(295, 338);
+            txb_InfoAdicional.Location = new Point(295, 303);
             txb_InfoAdicional.MaxLength = 255;
             txb_InfoAdicional.Name = "txb_InfoAdicional";
             txb_InfoAdicional.Size = new Size(500, 27);
@@ -620,7 +642,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(40, 338);
+            label7.Location = new Point(40, 303);
             label7.Name = "label7";
             label7.Size = new Size(249, 23);
             label7.TabIndex = 44;
@@ -628,9 +650,9 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(lbl_ID);
+            panel5.Controls.Add(label8);
+            panel5.Controls.Add(gb_status);
             panel5.Controls.Add(txb_InfoAdicional);
-            panel5.Controls.Add(tbx_ID);
             panel5.Controls.Add(label7);
             panel5.Controls.Add(lbl_nome);
             panel5.Controls.Add(tbx_nome);
@@ -657,43 +679,49 @@
             panel5.Size = new Size(850, 382);
             panel5.TabIndex = 46;
             // 
-            // col_IDInsumo
+            // label8
             // 
-            col_IDInsumo.HeaderText = "ID";
-            col_IDInsumo.Name = "col_IDInsumo";
-            col_IDInsumo.ReadOnly = true;
-            col_IDInsumo.Width = 102;
+            label8.AutoSize = true;
+            label8.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(40, 343);
+            label8.Name = "label8";
+            label8.Size = new Size(88, 23);
+            label8.TabIndex = 48;
+            label8.Text = "Status:";
             // 
-            // col_NomeInsumo
+            // gb_status
             // 
-            col_NomeInsumo.HeaderText = "Nome:";
-            col_NomeInsumo.Name = "col_NomeInsumo";
-            col_NomeInsumo.ReadOnly = true;
-            col_NomeInsumo.Resizable = DataGridViewTriState.True;
-            col_NomeInsumo.SortMode = DataGridViewColumnSortMode.NotSortable;
-            col_NomeInsumo.Width = 260;
+            gb_status.Controls.Add(rb_simS);
+            gb_status.Controls.Add(rb_naoS);
+            gb_status.Location = new Point(136, 336);
+            gb_status.Name = "gb_status";
+            gb_status.Size = new Size(162, 32);
+            gb_status.TabIndex = 47;
+            gb_status.TabStop = false;
             // 
-            // col_Validade
+            // rb_simS
             // 
-            col_Validade.HeaderText = "Validade:";
-            col_Validade.Name = "col_Validade";
-            col_Validade.ReadOnly = true;
+            rb_simS.AutoSize = true;
+            rb_simS.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rb_simS.Location = new Point(6, 8);
+            rb_simS.Name = "rb_simS";
+            rb_simS.Size = new Size(57, 22);
+            rb_simS.TabIndex = 20;
+            rb_simS.TabStop = true;
+            rb_simS.Text = "Sim";
+            rb_simS.UseVisualStyleBackColor = true;
             // 
-            // col_data
+            // rb_naoS
             // 
-            col_data.HeaderText = "Data Validade:";
-            col_data.Name = "col_data";
-            col_data.ReadOnly = true;
-            col_data.Resizable = DataGridViewTriState.True;
-            col_data.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // col_VerInsumo
-            // 
-            col_VerInsumo.HeaderText = "Ver";
-            col_VerInsumo.Name = "col_VerInsumo";
-            col_VerInsumo.ReadOnly = true;
-            col_VerInsumo.Resizable = DataGridViewTriState.True;
-            col_VerInsumo.SortMode = DataGridViewColumnSortMode.Automatic;
+            rb_naoS.AutoSize = true;
+            rb_naoS.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rb_naoS.Location = new Point(88, 8);
+            rb_naoS.Name = "rb_naoS";
+            rb_naoS.Size = new Size(61, 22);
+            rb_naoS.TabIndex = 21;
+            rb_naoS.TabStop = true;
+            rb_naoS.Text = "Não";
+            rb_naoS.UseVisualStyleBackColor = true;
             // 
             // Form_VerFornecedor
             // 
@@ -731,6 +759,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            gb_status.ResumeLayout(false);
+            gb_status.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -750,8 +780,6 @@
         private Button bt_voltar;
         private TextBox tbx_email;
         private Label lbl_email;
-        private TextBox tbx_ID;
-        private Label lbl_ID;
         private Label lbl_nome;
         private TextBox tbx_nome;
         private TextBox tbx_CNPJ;
@@ -786,5 +814,9 @@
         private DataGridViewTextBoxColumn col_Validade;
         private DataGridViewTextBoxColumn col_data;
         private DataGridViewButtonColumn col_VerInsumo;
+        private Label label8;
+        private GroupBox gb_status;
+        private RadioButton rb_simS;
+        private RadioButton rb_naoS;
     }
 }

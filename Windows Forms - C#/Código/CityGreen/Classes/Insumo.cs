@@ -11,10 +11,9 @@ namespace Gestão_Fornecedores
         public int IdInsumo { get; set; }
         public string NomeInsumo { get; set; }
         public int QuantidadeInsumo { get; set; }
-        public string Validade { get; set; } = "Disponivel"; // 'Vencido', 'Disponivel', 'Esgotado'
         public DateTime DataValidade { get; set; }
-        public DateTime DataCompra { get; set; }
-        public int IdCompra { get; set; }
+        public string Validade { get; set; }
+        public string CNPJ { get; set; } // Alterado de IdFornecedor para CNPJ
         public Fornecedor Fornecedor { get; set; }
         private DatabaseController dbController;
 
@@ -23,165 +22,167 @@ namespace Gestão_Fornecedores
             dbController = new DatabaseController();
         }
 
-        // Método para listar insumos com fornecedor e compra relacionados com filtro de idFornecedor e pesquisa
-        public List<Insumo> ListarInsumos(int idFornecedor, string pesquisa)
-        {
-            string query = @"
-        SELECT i.*, f.nome AS NomeFornecedor, f.cnpj 
-        FROM Insumo i
-        JOIN Fornecedores f ON i.idFornecedor = f.idFornecedor
-        WHERE f.idFornecedor = @idFornecedor 
-        AND (i.nomeInsumo LIKE @pesquisa OR f.nome LIKE @pesquisa)";
-
-            List<Insumo> insumos = new List<Insumo>();
-
-            try
-            {
-                using (SqlConnection connection = dbController.GetConnection())
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@idFornecedor", idFornecedor);
-                    command.Parameters.AddWithValue("@pesquisa", $"%{pesquisa}%");
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            insumos.Add(new Insumo
-                            {
-                                IdInsumo = (int)reader["idInsumo"],
-                                NomeInsumo = reader["nomeInsumo"].ToString(),
-                                QuantidadeInsumo = (int)reader["quantidadeInsumo"],
-                                Validade = reader["validade"].ToString(),
-                                DataValidade = Convert.ToDateTime(reader["dataValidade"]),
-                                Fornecedor = new Fornecedor
-                                {
-                                    IdFornecedor = (int)reader["idFornecedor"],
-                                    NomeFornecedor = reader["NomeFornecedor"].ToString(),
-                                    CNPJ = reader["cnpj"].ToString()
-                                }
-                            });
-                        }
-                    }
-                }
-                return insumos;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro ao listar insumos: {ex.Message}");
-                return null;
-            }
-        }
-
-
-        // Método para cadastrar insumo com referência à compra e fornecedor
+        // Método para cadastrar um novo insumo
         public bool CadastrarInsumo()
         {
-            string query = @"
-                INSERT INTO Insumo (nomeInsumo, quantidadeInsumo, validade, dataValidade, idCompra) 
-                VALUES (@nomeInsumo, @quantidadeInsumo, @validade, @dataValidade, @idCompra)";
-
-            try
+            using (SqlConnection conn = dbController.GetConnection())
             {
-                using (SqlConnection connection = dbController.GetConnection())
+                try
                 {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@nomeInsumo", NomeInsumo);
-                    command.Parameters.AddWithValue("@quantidadeInsumo", QuantidadeInsumo);
-                    command.Parameters.AddWithValue("@validade", Validade);
-                    command.Parameters.AddWithValue("@dataValidade", DataValidade);
-                    command.Parameters.AddWithValue("@idCompra", IdCompra);
+                    string sql = "INSERT INTO Insumo (nomeInsumo, quantidadeInsumo, validade, dataValidade, idFornecedor) " +
+                                 "VALUES (@nomeInsumo, @quantidadeInsumo, @validade, @dataValidade, @cnpj)";
 
-                    connection.Open();
-                    return command.ExecuteNonQuery() > 0;
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@nomeInsumo", NomeInsumo);
+                        cmd.Parameters.AddWithValue("@quantidadeInsumo", QuantidadeInsumo);
+                        cmd.Parameters.AddWithValue("@validade", Validade);
+                        cmd.Parameters.AddWithValue("@dataValidade", DataValidade);
+                        cmd.Parameters.AddWithValue("@cnpj", CNPJ);
+
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro ao cadastrar insumo: {ex.Message}");
-                return false;
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro ao cadastrar insumo: " + ex.Message);
+                    return false;
+                }
             }
         }
 
         // Método para editar um insumo existente
         public bool EditarInsumo()
         {
-            string query = @"
-                UPDATE Insumo 
-                SET nomeInsumo = @nomeInsumo, quantidadeInsumo = @quantidadeInsumo, validade = @validade, dataValidade = @dataValidade 
-                WHERE idInsumo = @idInsumo";
-
-            try
+            using (SqlConnection conn = dbController.GetConnection())
             {
-                using (SqlConnection connection = dbController.GetConnection())
+                try
                 {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@nomeInsumo", NomeInsumo);
-                    command.Parameters.AddWithValue("@quantidadeInsumo", QuantidadeInsumo);
-                    command.Parameters.AddWithValue("@validade", Validade);
-                    command.Parameters.AddWithValue("@dataValidade", DataValidade);
-                    command.Parameters.AddWithValue("@idInsumo", IdInsumo);
+                    string sql = "UPDATE Insumo SET nomeInsumo = @nomeInsumo, quantidadeInsumo = @quantidadeInsumo, " +
+                                 "validade = @validade, dataValidade = @dataValidade, idFornecedor = @cnpj " +
+                                 "WHERE idInsumo = @idInsumo";
 
-                    connection.Open();
-                    return command.ExecuteNonQuery() > 0;
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@idInsumo", IdInsumo);
+                        cmd.Parameters.AddWithValue("@nomeInsumo", NomeInsumo);
+                        cmd.Parameters.AddWithValue("@quantidadeInsumo", QuantidadeInsumo);
+                        cmd.Parameters.AddWithValue("@validade", Validade);
+                        cmd.Parameters.AddWithValue("@dataValidade", DataValidade);
+                        cmd.Parameters.AddWithValue("@cnpj", CNPJ);
+
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro ao editar insumo: {ex.Message}");
-                return false;
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro ao editar insumo: " + ex.Message);
+                    return false;
+                }
             }
         }
 
-        // Método para visualizar detalhes de um insumo específico
+        // Método para visualizar um insumo por ID
         public Insumo VerInsumo(int idInsumo)
         {
-            string query = @"
-                SELECT i.*, f.nome AS NomeFornecedor, f.cnpj, c.dataCompra 
-                FROM Insumo i
-                JOIN CompraInsumo c ON i.idCompra = c.idCompra
-                JOIN Fornecedores f ON c.idFornecedor = f.idFornecedor
-                WHERE i.idInsumo = @idInsumo";
+            Insumo insumo = null;
 
-            try
+            using (SqlConnection conn = dbController.GetConnection())
             {
-                using (SqlConnection connection = dbController.GetConnection())
+                try
                 {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@idInsumo", idInsumo);
+                    string sql = "SELECT idInsumo, nomeInsumo, quantidadeInsumo, validade, dataValidade, idFornecedor " +
+                                 "FROM Insumo WHERE idInsumo = @idInsumo";
 
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        if (reader.Read())
+                        cmd.Parameters.AddWithValue("@idInsumo", idInsumo);
+                        conn.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            return new Insumo
+                            if (reader.Read())
                             {
-                                IdInsumo = (int)reader["idInsumo"],
-                                NomeInsumo = reader["nomeInsumo"].ToString(),
-                                QuantidadeInsumo = (int)reader["quantidadeInsumo"],
-                                Validade = reader["validade"].ToString(),
-                                DataValidade = Convert.ToDateTime(reader["dataValidade"]),
-                                DataCompra = Convert.ToDateTime(reader["dataCompra"]),
-                                IdCompra = (int)reader["idCompra"],
-                                Fornecedor = new Fornecedor
+                                insumo = new Insumo
                                 {
-                                    IdFornecedor = (int)reader["idFornecedor"],
-                                    NomeFornecedor = reader["NomeFornecedor"].ToString(),
-                                    CNPJ = reader["cnpj"].ToString()
-                                }
-                            };
+                                    IdInsumo = reader.GetInt32(0),
+                                    NomeInsumo = reader.GetString(1),
+                                    QuantidadeInsumo = reader.GetInt32(2),
+                                    Validade = reader.GetString(3),
+                                    DataValidade = reader.GetDateTime(4),
+                                    CNPJ = reader.GetString(5)
+                                };
+                            }
                         }
                     }
                 }
-                return null;
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro ao carregar insumo: " + ex.Message);
+                }
             }
-            catch (Exception ex)
+
+            return insumo;
+        }
+
+        // Método para listar insumos filtrando por CNPJ e pesquisa
+        public List<Insumo> ListarInsumos(string cnpj, string pesquisa)
+        {
+            List<Insumo> insumos = new List<Insumo>();
+
+            using (SqlConnection conn = dbController.GetConnection())
             {
-                Console.WriteLine($"Erro ao visualizar insumo: {ex.Message}");
-                return null;
+                try
+                {
+                    string sql = "SELECT idInsumo, nomeInsumo, quantidadeInsumo, validade, dataValidade, idFornecedor " +
+                                 "FROM Insumo WHERE idFornecedor = @cnpj";
+
+                    if (!string.IsNullOrEmpty(pesquisa))
+                    {
+                        sql += " AND nomeInsumo LIKE @pesquisa";
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@cnpj", cnpj);
+
+                        if (!string.IsNullOrEmpty(pesquisa))
+                        {
+                            cmd.Parameters.AddWithValue("@pesquisa", "%" + pesquisa + "%");
+                        }
+
+                        conn.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Insumo insumo = new Insumo
+                                {
+                                    IdInsumo = reader.GetInt32(0),
+                                    NomeInsumo = reader.GetString(1),
+                                    QuantidadeInsumo = reader.GetInt32(2),
+                                    Validade = reader.GetString(3),
+                                    DataValidade = reader.GetDateTime(4),
+                                    CNPJ = reader.GetString(5)
+                                };
+
+                                insumos.Add(insumo);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro ao listar insumos: " + ex.Message);
+                }
             }
+
+            return insumos;
         }
     }
 }
