@@ -1,5 +1,7 @@
 CREATE DATABASE CityGreen;
 
+DROP DATABASE CityGreen;
+
 USE CityGreen;
 
 -- Tabela de Funcionalidades
@@ -31,10 +33,9 @@ CREATE TABLE User_Permissao_Tem
 -- Tabela de Fornecedores
 CREATE TABLE Fornecedores 
 (
-    idFornecedor INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    cnpj CHAR(14) PRIMARY KEY NOT NULL,
     nome NVARCHAR(255),
     razaoSocial NVARCHAR(255),
-    cnpj CHAR(14),
     telefone1 NVARCHAR(20),
     telefone2 NVARCHAR(20),
     email NVARCHAR(100),
@@ -55,10 +56,10 @@ CREATE TABLE Insumo
     idInsumo INT PRIMARY KEY,
     nomeInsumo NVARCHAR(255),
     quantidadeInsumo INT,
-    validade NVARCHAR(10) CHECK (validade IN ('Vencido', 'Disponivel','esgotado')) DEFAULT 'Usavel',
+    validade NVARCHAR(10) CHECK (validade IN ('Vencido', 'Disponivel','esgotado')) DEFAULT 'Disponivel',
     dataValidade DATE,
-    idFornecedor INT,
-    FOREIGN KEY (idFornecedor) REFERENCES Fornecedores(idFornecedor)
+    idFornecedor CHAR(14),
+    FOREIGN KEY (idFornecedor) REFERENCES Fornecedores(cnpj)
 );
 
 -- Tabela de Produção
@@ -293,96 +294,6 @@ INSERT INTO Funcionalidade (nome) VALUES ('Vendas');
 INSERT INTO Funcionalidade (nome) VALUES ('Produção');
 INSERT INTO Funcionalidade (nome) VALUES ( 'Administrador');
 
-SELECT * FROM Fornecedores
-INSERT INTO Fornecedores 
-(
-    nome, 
-    razaoSocial, 
-    cnpj, 
-    telefone1, 
-    telefone2, 
-    email, 
-    status, 
-    tipo, 
-    infAdicionais, 
-    endereco, 
-    numeroEndereco, 
-    bairro, 
-    cidade, 
-    estado, 
-    pais, 
-    cep
-) 
-VALUES 
-(
-    'Fornecedor Agro',
-    'Fornecedor Agro LTDA',
-    '12345678000199',
-    '(11) 98765-4321',
-    '(11) 91234-5678',
-    'contato@fornecedoragro.com',
-    'ativo',
-    'Fertilizantes',
-    'Especializado em insumos orgânicos',
-    'Rua das Palmeiras',
-    123,
-    'Centro',
-    'São Paulo',
-    'SP',
-    'Brasil',
-    '01001-000'
-);
-
-INSERT INTO Insumo 
-(
-    idInsumo, 
-    nomeInsumo, 
-    quantidadeInsumo, 
-    validade, 
-    dataValidade, 
-    idFornecedor
-) 
-VALUES 
-(
-    1, 
-    'Adubo Orgânico',
-    50, 
-    'Disponivel',
-    '2024-12-31',
-    1
-);
-
-INSERT INTO Insumo 
-(
-    idInsumo, 
-    nomeInsumo, 
-    quantidadeInsumo, 
-    validade, 
-    dataValidade, 
-    idFornecedor
-) 
-VALUES 
-(
-    2, 
-    'Substrato Vegetal',
-    30, 
-    'Disponivel',
-    '2025-03-15',
-    1
-);
-
-
-INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (1, 'Tomate Cereja', 'Vegetal');
-INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (2, 'Alface', 'Vegetal');
-INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (3, 'Manjericão', 'Erva');
-INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (4, 'Morango', 'Fruta');
-INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (5, 'Rúcula', 'Vegetal');
-INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (6, 'Cebolinha', 'Erva');
-INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (7, 'Pimentão', 'Vegetal');
-INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (8, 'Espinafre', 'Vegetal');
-INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (9, 'Cenoura', 'Vegetal');
-INSERT INTO produto (idProduto, nomeProduto, categoria) VALUES (10, 'Pepino', 'Vegetal');
-
 -- Criptografar a senha "12345" usando SHA-256
 DECLARE @senha NVARCHAR(50) = 'Troca123';
 DECLARE @senhaHash VARBINARY(64);
@@ -407,4 +318,64 @@ INSERT INTO User_Permissao_Tem (fk_Usuarios_idUsuario, fk_Funcionalidade_idFunci
 ('G783GA4', 4),
 ('G71GEG3', 4);
 
-SELECT * from Fornecedores
+INSERT INTO Fornecedores (cnpj, nome, razaoSocial, telefone1, telefone2, email, status, tipo, infAdicionais, endereco, numeroEndereco, bairro, cidade, estado, pais, cep) VALUES
+('12345678000195', 'Fazenda Verde', 'Agronegócios Fazenda Verde Ltda', '11-98765-4321', '11-98888-8888', 'contato@fazendaverde.com', 'ativo', 'Produtor', NULL, 'Rua das Flores', 123, 'Jardim das Plantas', 'São Paulo', 'SP', 'Brasil', '01234-567'),
+('98765432000107', 'Hortifruti Natural', 'Hortifruti Natural Ltda', '21-97654-3210', '21-97654-3210', 'contato@hortifrutinhatural.com', 'ativo', 'Distribuidor', 'Entregas diárias', 'Avenida Verde', 456, 'Centro', 'Rio de Janeiro', 'RJ', 'Brasil', '02345-678'),
+('45678912000145', 'Sementes do Brasil', 'Sementes do Brasil Ltda', '31-98765-4321', '31-98888-8888', 'contato@sementesbrasil.com', 'ativo', 'Fornecedor', 'Sementes orgânicas', 'Rua das Sementes', 789, 'Vila Verde', 'Belo Horizonte', 'MG', 'Brasil', '03456-789');
+
+INSERT INTO Insumo (idInsumo, nomeInsumo, quantidadeInsumo, validade, dataValidade, idFornecedor) VALUES
+(1, 'Fertilizante Orgânico', 100, 'Disponivel', '2025-12-31', '12345678000195'),
+(2, 'Agrotóxico Natural', 50, 'Disponivel', '2024-06-30', '98765432000107'),
+(3, 'Semente de Tomate', 200, 'Disponivel', '2024-05-15', '45678912000145'),
+(4, 'Semente de Alface', 150, 'Disponivel', '2024-07-20', '45678912000145'),
+(5, 'Semente de Morango', 300, 'Disponivel', '2024-08-10', '12345678000195');
+
+INSERT INTO Producao (idPlantio, dataInicio, dataFim, produto, statusProducao) VALUES
+(1, '2024-01-10', '2024-04-15', 'Tomate', 'Ativa'),
+(2, '2024-02-15', '2024-05-20', 'Alface', 'Ativa'),
+(3, '2024-03-01', '2024-06-01', 'Morango', 'Ativa'),
+(4, '2024-04-01', '2024-07-10', 'Cenoura', 'Cancelada'),
+(5, '2024-05-15', '2024-08-30', 'Pimentão', 'Ativa');
+
+INSERT INTO InsumoProducao (idInsumo, idPlantio, quantidade) VALUES
+(1, 1, 10),
+(2, 2, 5),
+(3, 1, 20),
+(4, 3, 15),
+(5, 5, 25); 
+
+INSERT INTO Produto (idProduto, nomeProduto, categoria) VALUES
+(1, 'Tomate Cereja', 'Vegetal'),
+(2, 'Alface', 'Vegetal'),
+(3, 'Manjericão', 'Erva'),
+(4, 'Morango', 'Fruta'),
+(5, 'Rúcula', 'Vegetal'),
+(6, 'Cebolinha', 'Erva'),
+(7, 'Pimentão', 'Vegetal'),
+(8, 'Espinafre', 'Vegetal'),
+(9, 'Cenoura', 'Vegetal'),
+(10, 'Pepino', 'Vegetal');
+
+INSERT INTO Lote (idLote, idProduto, quantidade, idProducao, status, validade, dataValidade) VALUES
+(1, 1, 50, 1, 'disponível', 'Usavel', '2025-01-01'),
+(2, 2, 30, 2, 'disponível', 'Usavel', '2025-02-01'),
+(3, 3, 40, 3, 'disponível', 'Usavel', '2025-03-01'),
+(4, 4, 20, 4, 'esgotado', 'Vencido', '2024-01-01'),
+(5, 5, 10, 5, 'disponível', 'Usavel', '2025-04-01');
+
+-- Inserir múltiplos clientes
+-- Inserindo múltiplos clientes do tipo empresas ou supermercados
+INSERT INTO Cliente (nome, telefone1, telefone2, cpf, rg, cnpj, ie, email, numeroEndereco, nomeEndereco, bairro, cidade, estado, cep, clienteTipo, statusCliente) 
+VALUES
+('Supermercado Verde', '11-91234-5678', '11-91234-5678', NULL, NULL, '12345678000195', 'IE123456', 'contato@supermercadoverde.com', 100, 'Rua do Comércio', 'Centro', 'São Paulo', 'SP', '01000-000', 'Jurídico', 'Ativo'),
+('Empório Natural', '21-92345-6789', NULL, NULL, NULL, '98765432000107', NULL, 'contato@emporionatural.com', 200, 'Avenida da Saúde', 'Bela Vista', 'Rio de Janeiro', 'RJ', '02000-000', 'Jurídico', 'Ativo'),
+('Supermercado do Povo', '31-93456-7890', '31-93456-7891', NULL, NULL, '45678912000145', NULL, 'contato@supermercadodopovo.com', 300, 'Rua da Amizade', 'Jardim Botânico', 'Belo Horizonte', 'MG', '03000-000', 'Jurídico', 'Ativo'),
+('Distribuidora de Alimentos Boa Sorte', '41-94456-7890', '41-94456-7891', NULL, NULL, '11223344000190', NULL, 'contato@boasorte.com', 400, 'Rua da Esperança', 'Centro', 'Curitiba', 'PR', '04000-000', 'Jurídico', 'Ativo'),
+('Supermercado Central', '51-95456-7890', '51-95456-7891', NULL, NULL, '99887766000120', 'IE987654', 'contato@supermercadocentral.com', 500, 'Avenida do Comércio', 'Centro', 'Porto Alegre', 'RS', '05000-000', 'Jurídico', 'Ativo');
+
+SELECT * FROM Cliente;
+
+
+INSERT INTO Vendas (numero, infoAdicionais, idCliente, statusVenda) 
+VALUES ('VEN001', 'Venda de produtos frescos', 1, 'Em andamento');
+
