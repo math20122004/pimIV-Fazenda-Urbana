@@ -49,9 +49,7 @@
             nud_Quantidade = new NumericUpDown();
             lbl_valida = new Label();
             date_validade = new DateTimePicker();
-            lbl_fornecedor = new Label();
             lbl_validade2 = new Label();
-            lbl_nomeFornecedor = new Label();
             barraLateral.SuspendLayout();
             pl_editar.SuspendLayout();
             pl_confirmar.SuspendLayout();
@@ -284,21 +282,14 @@
             // 
             // date_validade
             // 
-            date_validade.CalendarFont = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            date_validade.CalendarFont = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            date_validade.CustomFormat = "dd/MM/yyyy";
+            date_validade.Format = DateTimePickerFormat.Custom;
             date_validade.Location = new Point(259, 220);
             date_validade.Name = "date_validade";
-            date_validade.Size = new Size(200, 23);
+            date_validade.RightToLeft = RightToLeft.No;
+            date_validade.Size = new Size(96, 23);
             date_validade.TabIndex = 57;
-            // 
-            // lbl_fornecedor
-            // 
-            lbl_fornecedor.AutoSize = true;
-            lbl_fornecedor.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_fornecedor.Location = new Point(40, 326);
-            lbl_fornecedor.Name = "lbl_fornecedor";
-            lbl_fornecedor.Size = new Size(138, 23);
-            lbl_fornecedor.TabIndex = 59;
-            lbl_fornecedor.Text = "Fornecedor:";
             // 
             // lbl_validade2
             // 
@@ -310,25 +301,13 @@
             lbl_validade2.TabIndex = 61;
             lbl_validade2.Text = "Validade:";
             // 
-            // lbl_nomeFornecedor
-            // 
-            lbl_nomeFornecedor.AutoSize = true;
-            lbl_nomeFornecedor.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_nomeFornecedor.Location = new Point(195, 326);
-            lbl_nomeFornecedor.Name = "lbl_nomeFornecedor";
-            lbl_nomeFornecedor.Size = new Size(130, 23);
-            lbl_nomeFornecedor.TabIndex = 62;
-            lbl_nomeFornecedor.Text = "Fornecedor";
-            // 
             // Form_VerInsumo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(858, 553);
             ControlBox = false;
-            Controls.Add(lbl_nomeFornecedor);
             Controls.Add(lbl_validade2);
-            Controls.Add(lbl_fornecedor);
             Controls.Add(date_validade);
             Controls.Add(lbl_valida);
             Controls.Add(nud_Quantidade);
@@ -381,9 +360,7 @@
         private Label lbl_valida;
         private DateTimePicker date_validade;
         private Label lbl_datavalidade;
-        private Label lbl_fornecedor;
         private ComboBox _fornecedor;
         private Label lbl_validade2;
-        private Label lbl_nomeFornecedor;
     }
 }

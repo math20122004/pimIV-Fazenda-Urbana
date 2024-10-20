@@ -34,7 +34,7 @@ namespace CityGreen
                 foreach (var forn in listaFornecedores)
                 {
                     int rowIndex = dgw_fornecedores.Rows.Add(
-                        forn.CNPJ, // Alterado de IdFornecedor para CNPJ
+                        forn.CNPJ, 
                         forn.NomeFornecedor,
                         forn.StatusFornecedor,
                         forn.Email
@@ -125,8 +125,8 @@ namespace CityGreen
 
         private void btn_CadastrarFornecedor_Click(object sender, EventArgs e)
         {
-            string cnpjParaCadastrar = ""; // ou um CNPJ específico se necessário
-            AbrirFormVerFornecedor(cnpjParaCadastrar, "cadastro"); // Alterado aqui
+            string cnpjParaCadastrar = ""; 
+            AbrirFormVerFornecedor(cnpjParaCadastrar, "cadastro");
         }
     }
 }

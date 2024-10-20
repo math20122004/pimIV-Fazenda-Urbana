@@ -60,6 +60,8 @@ namespace CityGreen
                 tbx_email.Text = fornecedor.Email;
                 txb_RazaoSocial.Text = fornecedor.RazaoSocial;
                 txb_Endereco.Text = fornecedor.Endereco;
+                tbx_fone2.Text = fornecedor.Telefone2;
+                tbx_fone1.Text = fornecedor.Telefone1;
                 txb_Numero.Text = fornecedor.NumeroEndereco.ToString();
                 txb_Bairro.Text = fornecedor.Bairro;
                 txb_Cidade.Text = fornecedor.Cidade;
@@ -91,6 +93,8 @@ namespace CityGreen
             txb_CEP.Enabled = false;
             txb_InfoAdicional.Enabled = false;
             gb_status.Enabled = false;
+            tbx_fone1.Enabled = false;
+            tbx_fone2.Enabled = false;
         }
 
         private void HabilitarCampos()
@@ -107,6 +111,8 @@ namespace CityGreen
             txb_CEP.Enabled = true;
             txb_InfoAdicional.Enabled = true;
             gb_status.Enabled = true;
+            tbx_fone1.Enabled = true;
+            tbx_fone2.Enabled = true;
         }
 
         private void bt_Voltar_Click(object sender, EventArgs e)
@@ -152,6 +158,8 @@ namespace CityGreen
                 Email = tbx_email.Text,
                 CNPJ = tbx_CNPJ.Text,
                 RazaoSocial = txb_RazaoSocial.Text,
+                Telefone2 = tbx_fone2.Text,
+                Telefone1 = tbx_fone1.Text,
                 Endereco = txb_Endereco.Text,
                 NumeroEndereco = int.TryParse(txb_Numero.Text, out var numero) ? numero : 0, // Converte o número
                 Bairro = txb_Bairro.Text,
@@ -159,7 +167,6 @@ namespace CityGreen
                 Estado = txb_Estado.Text,
                 CEP = txb_CEP.Text,
                 InfAdicionais = txb_InfoAdicional.Text,
-                Telefone1 = "" // Adicione os valores dos telefones se necessário
             };
 
             // Tenta cadastrar no banco de dados
@@ -183,6 +190,8 @@ namespace CityGreen
             fornecedor.CNPJ = tbx_CNPJ.Text;
             fornecedor.RazaoSocial = txb_RazaoSocial.Text;
             fornecedor.Endereco = txb_Endereco.Text;
+            fornecedor.Telefone2 = tbx_fone2.Text;
+            fornecedor.Telefone1 = tbx_fone1.Text;
             fornecedor.NumeroEndereco = int.TryParse(txb_Numero.Text, out var numero) ? numero : 0;
             fornecedor.Bairro = txb_Bairro.Text;
             fornecedor.Cidade = txb_Cidade.Text;
@@ -227,54 +236,64 @@ namespace CityGreen
             try
             {
                 Insumo insumo = new Insumo();
-                List<Insumo> listaInsumos = insumo.ListarInsumos(cnpj, pesquisa); // Altera aqui
 
+                // Altere aqui o método para incluir o cnpj no parâmetro
+                List<Insumo> listaInsumos = insumo.ListarInsumos(cnpj, pesquisa);
+
+                // Limpa as linhas existentes no DataGridView antes de adicionar novas
                 dgw_Insumo.Rows.Clear();
 
+                // Verifica se a lista de insumos não é nula e possui itens
                 if (listaInsumos != null && listaInsumos.Count > 0)
                 {
-                    lbl_Mensagem.Hide();
+                    lbl_Mensagem.Hide(); // Esconde o label de mensagem, caso haja insumos a exibir
 
+                    // Adiciona cada insumo da lista ao DataGridView
                     foreach (var ins in listaInsumos)
                     {
+                        // Adiciona uma nova linha ao DataGridView com os dados do insumo
                         int rowIndex = dgw_Insumo.Rows.Add(
                             ins.IdInsumo,
                             ins.NomeInsumo,
                             ins.Validade,
-                            ins.DataValidade.ToShortDateString()
+                            ins.DataValidade.ToShortDateString() // Exibe a data de validade formatada
                         );
 
+                        // Cria um botão de visualização para cada insumo
                         DataGridViewButtonCell btn_verInsumo = new DataGridViewButtonCell
                         {
-                            Value = "Visualizar"
+                            Value = "Visualizar" // Define o texto do botão
                         };
+
+                        // Adiciona o botão na coluna específica da linha recém-adicionada
                         dgw_Insumo.Rows[rowIndex].Cells["col_VerInsumo"] = btn_verInsumo;
                     }
 
-                    // Estilo dos botões
+                    // Estiliza os botões de visualização
                     foreach (DataGridViewRow row in dgw_Insumo.Rows)
                     {
                         DataGridViewButtonCell btnCell = (DataGridViewButtonCell)row.Cells["col_VerInsumo"];
-                        btnCell.FlatStyle = FlatStyle.Flat;
-                        btnCell.Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffffff");
-                        btnCell.Style.ForeColor = System.Drawing.ColorTranslator.FromHtml("#071E22");
-                        btnCell.Style.SelectionBackColor = System.Drawing.ColorTranslator.FromHtml("#1D7874");
-                        btnCell.Style.SelectionForeColor = System.Drawing.ColorTranslator.FromHtml("#071E22");
+                        btnCell.FlatStyle = FlatStyle.Flat; // Define o estilo do botão como flat
+                        btnCell.Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffffff"); // Cor de fundo branca
+                        btnCell.Style.ForeColor = System.Drawing.ColorTranslator.FromHtml("#071E22"); // Cor da fonte
+                        btnCell.Style.SelectionBackColor = System.Drawing.ColorTranslator.FromHtml("#1D7874"); // Cor de fundo ao selecionar
+                        btnCell.Style.SelectionForeColor = System.Drawing.ColorTranslator.FromHtml("#071E22"); // Cor da fonte ao selecionar
                     }
                 }
                 else
                 {
-                    lbl_Mensagem.Show();
+                    lbl_Mensagem.Show(); // Exibe uma mensagem caso não haja insumos
                 }
             }
             catch (Exception ex)
             {
-                // Aqui você pode logar o erro ou mostrar uma mensagem para o usuário
+                // Trate o erro exibindo uma mensagem ao usuário
                 Console.WriteLine($"Erro ao carregar insumos: {ex.Message}");
-                lbl_Mensagem.Text = "Ocorreu um erro ao carregar os insumos.";
-                lbl_Mensagem.Show();
+                lbl_Mensagem.Text = "Ocorreu um erro ao carregar os insumos."; // Define a mensagem de erro no label
+                lbl_Mensagem.Show(); // Exibe o label com a mensagem de erro
             }
         }
+
 
         private void AbrirFormVerInsumo(int idInsumo, string funcao)
         {
