@@ -174,4 +174,35 @@
         xn8HC6w1LKCTJ89qEeIbYwaUnBQXfDgAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="col_CNPJFornecedor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="col_NomeProduto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="col_Quantidade.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="col_lote.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="col_Valor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="col_Retirar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btn_Adicionar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
+        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfoCgUSJiCsvw8uAAAA4UlEQVRYR+2WQQ6CMBBF2XEHj8LG
+        wJE4rFfAEFxo4tb4H36EEENSou3CvuRnJh1m+oUSLDKZzB7O/aXo+mGMyzwa3rRUPCDnrkbABirFE3Lu
+        agRsoFG8IeeuRsAGasUrIu/+3gBrX4WB2xqOipMB8g/XzApGQ1EpVVIj6Ta/xYatdLda1lbX0EMvMzw1
+        AFxLvOe8apz28dcuxMYPi3xdp4deZnhqADS5OY0Bbpuec/JHICOzprXX+o8P4RYM1Ka14mSA3NUIZAM2
+        sPoY7Thoe7GB5J/j5H9IxrjMM5lMOEXxBM07do+3EfhbAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

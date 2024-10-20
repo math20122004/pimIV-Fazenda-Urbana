@@ -28,19 +28,23 @@ namespace CityGreen
         {
             this.ControlBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.TopLevel = false;
+            this.AutoScroll = true;
+            this.Location = new Point(0, 0);
+
 
             if (funcao == "ver")
             {
                 pl_confirmar.Hide();
                 pl_cancelar.Hide();
                 DesabilitarCampos();
-                lbl_funcao.Text = "Visualizar Cliente";
-                VerCliente();
+                lbl_funcao.Text = "Visualizar Venda";
+                VerVenda();
             }
             else
             {
                 this.Height = 539;
-                lbl_funcao.Text = "Cadastrar Cliente";
+                lbl_funcao.Text = "Cadastrar Venda";
                 pl_editar.Hide();
                 pl_cancelar.Hide();
                 btn_confirmar.Text = "Cadastrar";
@@ -52,38 +56,28 @@ namespace CityGreen
 
         private void DesabilitarCampos()
         {
-            tbx_CNPJ.Enabled = false;
-            tbx_nome.Enabled = false;
-            tbx_email.Enabled = false;
-            txb_RazaoSocial.Enabled = false;
-            txb_Endereco.Enabled = false;
-            txb_Numero.Enabled = false;
-            txb_Bairro.Enabled = false;
-            txb_Cidade.Enabled = false;
-            txb_Estado.Enabled = false;
-            txb_CEP.Enabled = false;
+            tbx_ID.Enabled = false;
+            tbx_numero.Enabled = false;
             txb_InfoAdicional.Enabled = false;
             gb_status.Enabled = false;
-            tbx_fone1.Enabled = false;
-            tbx_fone2.Enabled = false;
+            cbx_Cliente.Enabled = false;
+            tbx_numero.Enabled = false;
+            cbx_ItensCompra.Enabled = false;
+            nud_Quantidade.Enabled = false;
+            txb_valor.Enabled = false;
         }
 
         private void HabilitarCampos()
         {
-            tbx_CNPJ.Enabled = true;
-            tbx_nome.Enabled = true;
-            tbx_email.Enabled = true;
-            txb_RazaoSocial.Enabled = true;
-            txb_Endereco.Enabled = true;
-            txb_Numero.Enabled = true;
-            txb_Bairro.Enabled = true;
-            txb_Cidade.Enabled = true;
-            txb_Estado.Enabled = true;
-            txb_CEP.Enabled = true;
+            tbx_ID.Enabled = true;
+            tbx_numero.Enabled = true;
             txb_InfoAdicional.Enabled = true;
             gb_status.Enabled = true;
-            tbx_fone1.Enabled = true;
-            tbx_fone2.Enabled = true;
+            cbx_Cliente.Enabled = true;
+            tbx_numero.Enabled = true;
+            cbx_ItensCompra.Enabled = true;
+            nud_Quantidade.Enabled = true;
+            txb_valor.Enabled = true;
         }
 
 
@@ -102,11 +96,11 @@ namespace CityGreen
             {
                 if (funcao == "visualizar")
                 {
-                    EditarCliente(); // Chama o método para salvar as informações do fornecedor
+                    EditarVenda();
                 }
                 else if (funcao == "cadastro")
                 {
-                    CadastrarCliente(); // Chama o método para cadastrar um novo fornecedor
+                    CadastrarVenda();
                 }
             }
             catch (Exception ex)
@@ -115,17 +109,17 @@ namespace CityGreen
             }
         }
 
-        private void CadastrarCliente()
+        private void CadastrarVenda()
         {
 
         }
 
-        private void EditarCliente()
+        private void EditarVenda()
         {
 
         }
 
-        private void VerCliente()
+        private void VerVenda()
         {
 
         }
@@ -134,15 +128,25 @@ namespace CityGreen
         {
             pl_editar.Show();
             DesabilitarCampos();
-            lbl_funcao.Text = "Visualizar Fornecedor";
+            lbl_funcao.Text = "Visualizar Venda";
             pl_cancelar.Hide();
             pl_confirmar.Hide();
-            VerCliente();
+            VerVenda();
         }
 
         private void bt_voltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_Adicionar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gb_status_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
