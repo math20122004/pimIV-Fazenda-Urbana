@@ -120,16 +120,16 @@
   <metadata name="col_ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="col_Numero.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="col_Nome.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="col_Status.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="col_Cliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="col_email.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="col_VerVenda.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="col_VerClientes.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -150,7 +150,7 @@
         cYiaVxRFURRFkeN0+geBNNocyyFDHwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btn_CadastrarVendas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_CadastrarCliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfoCgUSJiCsvw8uAAAA4UlEQVRYR+2WQQ6CMBBF2XEHj8LG
@@ -182,17 +182,18 @@
         uwRxHT6Dx9V25AHIdgShE0+7XvjfM1MQ+foSAZTCPRU/XDPmX9okU+QVYARMAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btn_VerCliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_VerVendas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
-        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfoChQUCyxpC1WiAAABhUlEQVRYR+2Wy0rEQBBFO/opbvwC
-        F44iDm7dCW4EP0lXrvwkF4KunNmFpB9JxYwgivi6VUk0cQTjkOko5MKhA/O4N9WVSqtBg/6ljEtrkHLA
-        Ai/S+lYZy8ZYXTqC8QaH4ABeQkiARO5+B8ZTcAXjLW8hOIClhEu/DzR48xqCA2iTqTiaBcbSIUwj7yGM
-        zYRw+hDA8A+E6LUS2I7wusMQOknU5PWCu5wbraR+/T2WHK8HIASLh+AARudKu3QNjGG+i7UlhO/TGXj6
-        GoKHVStxgIjMKn50Au7B7Bfk5foCOEAVQoZVK3GAOLUc4BR0EWCCyTnibWwlfsbxrAco6ToYN0v8E7IF
-        5+D5w9yle9KsrQNYUrHhxpJxW2O+8RpkDn1DR7hOwKe5fF78R+dqzAJHx4BK8xuP5o99mvdw5/I65kaN
-        8hXv5iwJICbyOs6AP3OWnAe44y1tw/ASLL/b65LzAIjCuwAhNmGIIVM850s3r1QOK1TCFsczOSN6Mq9U
-        VaJi0KDFpNQ7GvKLVp1z738AAAAASUVORK5CYII=
+        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfoCg0VBQt+Ub9lAAABx0lEQVRYR+2Vy07CQBSGp8E3ceMT
+        mAgLlejSndGlCS+kK9c+hU9BdKPGiIlpaHs60wsQNBrl4n/KpQMCKcQhMfZPvrSFtudjLgeRJ8+fjK9C
+        jUgoIMFakhaO+VhC4W3CtQQUBMO7DEX/1Tge4FgDd5AoKhmbFZhTvA8kOOnv9M0JLCju47qCwhsUGJqC
+        xcWjiheqAhfne349/7e4wkt5W80o7uL67OXjISk8+F5n1mdARsJzIkGUoVcQNYSSoXAG+1wv3gFX2POH
+        YA/sZ6RMMtoip2ERxcMqC8ICcjC0Ja040wNt0AStJXgDF54jC0QZdkkiEEsB6yIevAUjgS7gF64icO4G
+        foFURgHGtV8tSOzi4RvAAp/gEpT1IcZI6cM9C75/06dm9j5BPtqqFwv7uoPzCYk6OJaRGi6wOYvuB6Go
+        9arLNSoW4EVjP37xdOgSHjitP71bPvo/YyzJSAD7fr6EBwHGWNLpgMTkdCQSVUiQ8ZEYTwfWxNRIECTI
+        bVmJKBavsaTT0Z2WIHS6IxkGZgU4qcR4TXCfePZliHP8HZsW4IwkXLvNfQLNKixx4bUJcBIJFOOO6XPb
+        xn8HC6w1LKCTJ89qEeIbYwaUnBQXfDgAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

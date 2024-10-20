@@ -1,7 +1,7 @@
+using CityGreen.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using CityGreen.Classes;
 
 namespace Gestão_Fornecedores
 {
@@ -13,8 +13,7 @@ namespace Gestão_Fornecedores
         public int QuantidadeInsumo { get; set; }
         public DateTime DataValidade { get; set; }
         public string Validade { get; set; }
-        public string CNPJ { get; set; } // Alterado de IdFornecedor para CNPJ
-        public Fornecedor Fornecedor { get; set; }
+        public string CNPJ { get; set; } // Alterado para referenciar o fornecedor através do CNPJ
         private DatabaseController dbController;
 
         public Insumo()
@@ -23,20 +22,21 @@ namespace Gestão_Fornecedores
         }
 
         // Método para cadastrar um novo insumo
+        // Método para cadastrar um novo insumo
         public bool CadastrarInsumo()
         {
             using (SqlConnection conn = dbController.GetConnection())
             {
                 try
                 {
-                    string sql = "INSERT INTO Insumo (nomeInsumo, quantidadeInsumo, validade, dataValidade, idFornecedor) " +
-                                 "VALUES (@nomeInsumo, @quantidadeInsumo, @validade, @dataValidade, @cnpj)";
+                    string sql = @"INSERT INTO Insumo (idInsumo, nomeInsumo, quantidadeInsumo, dataValidade, idFornecedor) 
+                           VALUES (@idInsumo, @nomeInsumo, @quantidadeInsumo, @dataValidade, @cnpj)";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
+                        cmd.Parameters.AddWithValue("@idInsumo", IdInsumo);
                         cmd.Parameters.AddWithValue("@nomeInsumo", NomeInsumo);
                         cmd.Parameters.AddWithValue("@quantidadeInsumo", QuantidadeInsumo);
-                        cmd.Parameters.AddWithValue("@validade", Validade);
                         cmd.Parameters.AddWithValue("@dataValidade", DataValidade);
                         cmd.Parameters.AddWithValue("@cnpj", CNPJ);
 
@@ -47,11 +47,12 @@ namespace Gestão_Fornecedores
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Erro ao cadastrar insumo: " + ex.Message);
+                    MessageBox.Show("Erro ao cadastrar insumo: " + ex.Message);
                     return false;
                 }
             }
         }
+
 
         // Método para editar um insumo existente
         public bool EditarInsumo()
@@ -60,9 +61,10 @@ namespace Gestão_Fornecedores
             {
                 try
                 {
-                    string sql = "UPDATE Insumo SET nomeInsumo = @nomeInsumo, quantidadeInsumo = @quantidadeInsumo, " +
-                                 "validade = @validade, dataValidade = @dataValidade, idFornecedor = @cnpj " +
-                                 "WHERE idInsumo = @idInsumo";
+                    string sql = @"UPDATE Insumo 
+                                   SET nomeInsumo = @nomeInsumo, quantidadeInsumo = @quantidadeInsumo, 
+                                   validade = @validade, dataValidade = @dataValidade, idFornecedor = @cnpj 
+                                   WHERE idInsumo = @idInsumo";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
@@ -95,8 +97,9 @@ namespace Gestão_Fornecedores
             {
                 try
                 {
-                    string sql = "SELECT idInsumo, nomeInsumo, quantidadeInsumo, validade, dataValidade, idFornecedor " +
-                                 "FROM Insumo WHERE idInsumo = @idInsumo";
+                    string sql = @"SELECT idInsumo, nomeInsumo, quantidadeInsumo, validade, dataValidade, idFornecedor 
+                                   FROM Insumo 
+                                   WHERE idInsumo = @idInsumo";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
@@ -138,8 +141,9 @@ namespace Gestão_Fornecedores
             {
                 try
                 {
-                    string sql = "SELECT idInsumo, nomeInsumo, quantidadeInsumo, validade, dataValidade, idFornecedor " +
-                                 "FROM Insumo WHERE idFornecedor = @cnpj";
+                    string sql = @"SELECT idInsumo, nomeInsumo, quantidadeInsumo, validade, dataValidade, idFornecedor 
+                                   FROM Insumo 
+                                   WHERE idFornecedor = @cnpj";
 
                     if (!string.IsNullOrEmpty(pesquisa))
                     {

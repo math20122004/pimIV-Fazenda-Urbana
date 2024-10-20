@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CityGreen")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e32ecccc0daa609057116ec37d4785923dd3d0c")]
 [assembly: System.Reflection.AssemblyProductAttribute("CityGreen")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CityGreen")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

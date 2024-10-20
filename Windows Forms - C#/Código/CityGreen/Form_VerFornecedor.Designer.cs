@@ -84,6 +84,9 @@
             gb_status = new GroupBox();
             rb_simS = new RadioButton();
             rb_naoS = new RadioButton();
+            tbx_fone2 = new TextBox();
+            tbx_fone1 = new TextBox();
+            label9 = new Label();
             barraLateral.SuspendLayout();
             pl_editar.SuspendLayout();
             pl_confirmar.SuspendLayout();
@@ -650,6 +653,9 @@
             // 
             // panel5
             // 
+            panel5.Controls.Add(tbx_fone2);
+            panel5.Controls.Add(tbx_fone1);
+            panel5.Controls.Add(label9);
             panel5.Controls.Add(label8);
             panel5.Controls.Add(gb_status);
             panel5.Controls.Add(txb_InfoAdicional);
@@ -722,6 +728,36 @@
             rb_naoS.TabStop = true;
             rb_naoS.Text = "Não";
             rb_naoS.UseVisualStyleBackColor = true;
+            // 
+            // tbx_fone2
+            // 
+            tbx_fone2.BorderStyle = BorderStyle.FixedSingle;
+            tbx_fone2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbx_fone2.Location = new Point(559, 342);
+            tbx_fone2.MaxLength = 255;
+            tbx_fone2.Name = "tbx_fone2";
+            tbx_fone2.Size = new Size(139, 27);
+            tbx_fone2.TabIndex = 105;
+            // 
+            // tbx_fone1
+            // 
+            tbx_fone1.BorderStyle = BorderStyle.FixedSingle;
+            tbx_fone1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbx_fone1.Location = new Point(411, 342);
+            tbx_fone1.MaxLength = 255;
+            tbx_fone1.Name = "tbx_fone1";
+            tbx_fone1.Size = new Size(139, 27);
+            tbx_fone1.TabIndex = 104;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(295, 342);
+            label9.Name = "label9";
+            label9.Size = new Size(112, 23);
+            label9.TabIndex = 103;
+            label9.Text = "Telefone:";
             // 
             // Form_VerFornecedor
             // 
@@ -818,5 +854,8 @@
         private GroupBox gb_status;
         private RadioButton rb_simS;
         private RadioButton rb_naoS;
+        private TextBox tbx_fone2;
+        private TextBox tbx_fone1;
+        private Label label9;
     }
 }

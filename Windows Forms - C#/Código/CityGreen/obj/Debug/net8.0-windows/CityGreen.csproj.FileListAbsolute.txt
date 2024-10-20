@@ -202,3 +202,7 @@ C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.ge
 C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
 C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerFornecedor.resources
 C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerInsumo.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.sourcelink.json
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerVendas.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Clientes.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerClientes.resources

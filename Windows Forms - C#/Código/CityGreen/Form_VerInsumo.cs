@@ -16,6 +16,7 @@ namespace CityGreen
             this.funcao = funcao;
             this.Id_Insumo = idInsumo;
             this.CNPJ = cnpj; // Inicializa CNPJ
+
         }
 
         private void Form_VerInsumo_Load(object sender, EventArgs e)
@@ -38,8 +39,6 @@ namespace CityGreen
                 pl_cancelar.Hide();
                 btn_confirmar.Text = "Cadastrar";
                 HabilitarCampos();
-                lbl_fornecedor.Hide();
-                lbl_nomeFornecedor.Hide();
                 lbl_validade2.Hide();
                 lbl_valida.Hide();
             }
@@ -98,23 +97,60 @@ namespace CityGreen
 
         private void CadastrarInsumo()
         {
-            Insumo novoInsumo = new Insumo
+            try
             {
-                NomeInsumo = tbx_nome.Text,
-                QuantidadeInsumo = (int)nud_Quantidade.Value,
-                DataValidade = date_validade.Value.Date, // Captura a data do DateTimePicker
-                Validade = "Disponível", // Estado inicial
-                CNPJ = CNPJ // Usar CNPJ para cadastro
-            };
+                // Verificação do campo de ID
+                if (string.IsNullOrWhiteSpace(tbx_ID.Text))
+                {
+                    MessageBox.Show("O ID do insumo é obrigatório.");
+                    return;
+                }
 
-            if (novoInsumo.CadastrarInsumo())
-            {
-                MessageBox.Show("Insumo cadastrado com sucesso!");
-                this.Close();
+                // Verifica se o ID é um número válido
+                if (!int.TryParse(tbx_ID.Text, out int insumoID))
+                {
+                    MessageBox.Show("O ID do insumo deve ser um número válido.");
+                    return;
+                }
+
+                // Validações básicas dos outros campos
+                if (string.IsNullOrWhiteSpace(tbx_nome.Text))
+                {
+                    MessageBox.Show("O nome do insumo é obrigatório.");
+                    return;
+                }
+
+                if (nud_Quantidade.Value <= 0)
+                {
+                    MessageBox.Show("A quantidade do insumo deve ser maior que zero.");
+                    return;
+                }
+
+                // Criando uma nova instância da classe Insumo com os valores do formulário
+                Insumo novoInsumo = new Insumo
+                {
+                    IdInsumo = insumoID, // ID do insumo validado
+                    NomeInsumo = tbx_nome.Text.Trim(), // Nome do insumo
+                    QuantidadeInsumo = (int)nud_Quantidade.Value, // Quantidade do insumo
+                    DataValidade = date_validade.Value.Date, // Data de validade do insumo
+                    CNPJ = CNPJ // Usando o CNPJ da variável global
+                };
+
+                // Tentativa de cadastro usando o método CadastrarInsumo da classe Insumo
+                if (novoInsumo.CadastrarInsumo())
+                {
+                    MessageBox.Show("Insumo cadastrado com sucesso!");
+                    this.Close(); // Fecha o formulário após o sucesso
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar o insumo. Tente novamente.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar o insumo.");
+                // Tratamento de erros inesperados
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}");
             }
         }
 
