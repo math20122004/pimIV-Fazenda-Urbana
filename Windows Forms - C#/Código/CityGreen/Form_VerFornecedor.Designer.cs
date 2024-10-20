@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_VerFornecedor));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             barraLateral = new FlowLayoutPanel();
             pl_editar = new Panel();
             btn_editar = new Button();
@@ -80,13 +80,13 @@
             txb_InfoAdicional = new TextBox();
             label7 = new Label();
             panel5 = new Panel();
+            tbx_fone2 = new TextBox();
+            tbx_fone1 = new TextBox();
+            label9 = new Label();
             label8 = new Label();
             gb_status = new GroupBox();
             rb_simS = new RadioButton();
             rb_naoS = new RadioButton();
-            tbx_fone2 = new TextBox();
-            tbx_fone1 = new TextBox();
-            label9 = new Label();
             barraLateral.SuspendLayout();
             pl_editar.SuspendLayout();
             pl_confirmar.SuspendLayout();
@@ -480,25 +480,25 @@
             dgw_Insumo.BorderStyle = BorderStyle.None;
             dgw_Insumo.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             dgw_Insumo.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(7, 30, 34);
-            dataGridViewCellStyle1.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(7, 30, 34);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgw_Insumo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(7, 30, 34);
+            dataGridViewCellStyle5.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(7, 30, 34);
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgw_Insumo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgw_Insumo.ColumnHeadersHeight = 50;
             dgw_Insumo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgw_Insumo.Columns.AddRange(new DataGridViewColumn[] { col_IDInsumo, col_NomeInsumo, col_Validade, col_data, col_VerInsumo });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgw_Insumo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgw_Insumo.DefaultCellStyle = dataGridViewCellStyle6;
             dgw_Insumo.EnableHeadersVisualStyles = false;
             dgw_Insumo.GridColor = Color.FromArgb(7, 30, 34);
             dgw_Insumo.Location = new Point(90, 60);
@@ -506,23 +506,23 @@
             dgw_Insumo.Name = "dgw_Insumo";
             dgw_Insumo.ReadOnly = true;
             dgw_Insumo.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(7, 30, 34);
-            dataGridViewCellStyle3.SelectionBackColor = Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(7, 30, 34);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgw_Insumo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.White;
+            dataGridViewCellStyle7.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(7, 30, 34);
+            dataGridViewCellStyle7.SelectionBackColor = Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(7, 30, 34);
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgw_Insumo.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgw_Insumo.RowHeadersVisible = false;
             dgw_Insumo.RowHeadersWidth = 50;
             dgw_Insumo.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(7, 30, 34);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(29, 120, 116);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dgw_Insumo.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(7, 30, 34);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(29, 120, 116);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dgw_Insumo.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dgw_Insumo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgw_Insumo.Size = new Size(663, 175);
             dgw_Insumo.TabIndex = 3;
@@ -685,6 +685,36 @@
             panel5.Size = new Size(850, 382);
             panel5.TabIndex = 46;
             // 
+            // tbx_fone2
+            // 
+            tbx_fone2.BorderStyle = BorderStyle.FixedSingle;
+            tbx_fone2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbx_fone2.Location = new Point(559, 342);
+            tbx_fone2.MaxLength = 255;
+            tbx_fone2.Name = "tbx_fone2";
+            tbx_fone2.Size = new Size(139, 27);
+            tbx_fone2.TabIndex = 105;
+            // 
+            // tbx_fone1
+            // 
+            tbx_fone1.BorderStyle = BorderStyle.FixedSingle;
+            tbx_fone1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbx_fone1.Location = new Point(411, 342);
+            tbx_fone1.MaxLength = 255;
+            tbx_fone1.Name = "tbx_fone1";
+            tbx_fone1.Size = new Size(139, 27);
+            tbx_fone1.TabIndex = 104;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(295, 342);
+            label9.Name = "label9";
+            label9.Size = new Size(112, 23);
+            label9.TabIndex = 103;
+            label9.Text = "Telefone:";
+            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -728,36 +758,6 @@
             rb_naoS.TabStop = true;
             rb_naoS.Text = "Não";
             rb_naoS.UseVisualStyleBackColor = true;
-            // 
-            // tbx_fone2
-            // 
-            tbx_fone2.BorderStyle = BorderStyle.FixedSingle;
-            tbx_fone2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbx_fone2.Location = new Point(559, 342);
-            tbx_fone2.MaxLength = 255;
-            tbx_fone2.Name = "tbx_fone2";
-            tbx_fone2.Size = new Size(139, 27);
-            tbx_fone2.TabIndex = 105;
-            // 
-            // tbx_fone1
-            // 
-            tbx_fone1.BorderStyle = BorderStyle.FixedSingle;
-            tbx_fone1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbx_fone1.Location = new Point(411, 342);
-            tbx_fone1.MaxLength = 255;
-            tbx_fone1.Name = "tbx_fone1";
-            tbx_fone1.Size = new Size(139, 27);
-            tbx_fone1.TabIndex = 104;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(295, 342);
-            label9.Name = "label9";
-            label9.Size = new Size(112, 23);
-            label9.TabIndex = 103;
-            label9.Text = "Telefone:";
             // 
             // Form_VerFornecedor
             // 
