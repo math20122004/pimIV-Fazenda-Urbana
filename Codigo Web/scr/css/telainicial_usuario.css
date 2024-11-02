@@ -1,0 +1,706 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    
+    background-color: #e8f7e4;
+}
+
+main {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    padding-left: calc(82px + 20px); /* Ajuste o padding conforme necessário para a sidebar */
+    transition: padding-left 0.5s;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 100vh;
+    border-radius: 0px 18px 18px 0px;
+    position: fixed; /* Alterado para fixed para manter a sidebar fixa */
+    transition: all .5s;
+    min-width: 82px;
+    z-index: 2;
+}
+
+#sidebar_content {
+    padding: 12px;
+}
+
+#user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+#user_avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#user_infos {
+    display: flex;
+    flex-direction: column;
+}
+
+#user_infos span:last-child {
+    color: #6b6b6b;
+    font-size: 12px;
+}
+
+#side_items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.side-item {
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.side-item.active {
+    background-color: #4f46e5;
+}
+
+.side-item:hover:not(.active),
+#logout_btn:hover {
+    background-color: #e3e9f7;
+}
+
+.side-item a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0a0a;
+}
+
+.side-item.active a {
+    color: #e3e9f7;
+}
+
+.side-item a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+#logout {
+    border-top: 1px solid #e3e9f7;
+    padding: 12px;
+}
+
+#logout_btn {
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 8px;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#open_btn {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    background-color: #13d420;
+    color: #e3e9f7;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#open_btn_icon {
+    transition: transform .3s ease;
+}
+
+.open-sidebar #open_btn_icon {
+    transform: rotate(180deg);
+}
+
+.item-description {
+    width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    transition: width .6s;
+    height: 0px;
+}
+
+#sidebar.open-sidebar {
+    min-width: 15%;
+}
+
+#sidebar.open-sidebar .item-description {
+    width: 125px;
+    height: auto;
+}
+
+#sidebar.open-sidebar .side-item a {
+    justify-content: flex-start;
+    gap: 14px;
+}
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal .btn {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal .btn#confirmNo {
+    background-color: #f44336;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    
+    background-color: #e4f7eb;
+}
+
+main {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    padding-left: calc(82px + 20px); /* Ajuste o padding conforme necessário para a sidebar */
+    transition: padding-left 0.5s;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 100vh;
+    border-radius: 0px 18px 18px 0px;
+    position: fixed; /* Alterado para fixed para manter a sidebar fixa */
+    transition: all .5s;
+    min-width: 82px;
+    z-index: 2;
+}
+
+#sidebar_content {
+    padding: 12px;
+}
+
+#user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+#user_avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#user_infos {
+    display: flex;
+    flex-direction: column;
+}
+
+#user_infos span:last-child {
+    color: #6b6b6b;
+    font-size: 12px;
+}
+
+#side_items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.side-item {
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.side-item.active {
+    background-color: #4f46e5;
+}
+
+.side-item:hover:not(.active),
+#logout_btn:hover {
+    background-color: #e3e9f7;
+}
+
+.side-item a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0a0a;
+}
+
+.side-item.active a {
+    color: #e3e9f7;
+}
+
+.side-item a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+#logout {
+    border-top: 1px solid #e3e9f7;
+    padding: 12px;
+}
+
+#logout_btn {
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 8px;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#open_btn {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    background-color: #13d420;
+    color: #e3e9f7;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#open_btn_icon {
+    transition: transform .3s ease;
+}
+
+.open-sidebar #open_btn_icon {
+    transform: rotate(180deg);
+}
+
+.item-description {
+    width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    transition: width .6s;
+    height: 0px;
+}
+
+#sidebar.open-sidebar {
+    min-width: 15%;
+}
+
+#sidebar.open-sidebar .item-description {
+    width: 125px;
+    height: auto;
+}
+
+#sidebar.open-sidebar .side-item a {
+    justify-content: flex-start;
+    gap: 14px;
+}
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal .btn {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal .btn#confirmNo {
+    background-color: #f44336;
+}
+
+#admin-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    width: 30%;
+}
+
+#sales-chart, #recent-sales {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #bee2be;
+}
+
+/* Estilo da seção de informações do usuário */
+#user-info {
+    margin-top: 20px; /* Espaço acima da seção */
+    display: flex; /* Usando flexbox para disposição */
+    flex-direction: column; /* Coluna para cartões */
+    gap: 20px; /* Espaçamento entre cartões */
+}
+
+/* Estilo do cartão de informações */
+.info-card {
+    background-color: white; /* Fundo branco */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px; /* Espaçamento interno */
+    width: 50%; /* Largura total */
+}
+
+/* Título do cartão */
+.info-card h3 {
+    font-size: 24px; /* Tamanho do título */
+    margin-bottom: 10px; /* Margem abaixo do título */
+    color: #333; /* Cor do texto do título */
+}
+
+/* Lista dentro do cartão */
+.info-card ul {
+    list-style-type: none; /* Remove marcadores da lista */
+}
+
+/* Item da lista */
+.info-card li {
+    font-size: 18px; /* Tamanho da fonte */
+    margin: 5px 0; /* Margem acima e abaixo do item */
+    color: #555; /* Cor do texto */
+}
+
+/* Estilo das notificações */
+#notifications {
+    color: #f44336; /* Cor vermelha para notificações */
+}
+
+/* Estilo da lista de tarefas */
+#tasks {
+    color: #4CAF50; /* Cor verde para tarefas */
+}
+
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal .btn {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal .btn#confirmNo {
+    background-color: #f44336;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #sidebar {
+        min-width: 60px; /* Diminuindo a largura da sidebar em telas menores */
+    }
+
+    main {
+        padding-left: calc(60px + 20px); /* Ajusta o padding para corresponder à nova largura da sidebar */
+    }
+
+    .info-card {
+        width: 100%; /* Cartões ocupam 100% da largura */
+        padding: 15px; /* Ajusta o padding */
+    }
+
+    table {
+        width: 100%; /* Tabela ocupa 100% da largura */
+        margin-bottom: 20px; /* Adiciona margem inferior para espaçamento entre tabelas */
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+}
+
+@media (max-width: 480px) {
+    #sidebar {
+        min-width: 50px; /* Mais ajuste para telas muito pequenas */
+    }
+
+    main {
+        padding-left: calc(50px + 20px); /* Ajusta o padding */
+    }
+
+    .info-card {
+        padding: 10px; /* Menos padding nos cartões */
+    }
+
+    table {
+        font-size: 12px; /* Reduz ainda mais o tamanho da fonte */
+        margin-bottom: 15px; /* Adiciona margem inferior para espaçamento entre tabelas */
+    }
+}
+
+/* Estilo para telas maiores (computadores) */
+@media (min-width: 769px) {
+    table {
+        margin-bottom: 30px; /* Adiciona margem inferior para espaçamento entre tabelas em telas maiores */
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Estilo da seção de informações do usuário */
+#user-info {
+    margin-top: 20px; /* Espaço acima da seção */
+    display: flex; /* Usando flexbox para disposição */
+    flex-direction: column; /* Coluna para cartões */
+    gap: 20px; /* Espaçamento entre cartões */
+}
+
+/* Estilo do cartão de informações */
+.info-card {
+    background-color: white; /* Fundo branco */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px; /* Espaçamento interno */
+    width: 50%; /* Largura total */
+}
+
+/* Título do cartão */
+.info-card h3 {
+    font-size: 24px; /* Tamanho do título */
+    margin-bottom: 10px; /* Margem abaixo do título */
+    color: #333; /* Cor do texto do título */
+}
+
+/* Lista dentro do cartão */
+.info-card ul {
+    list-style-type: none; /* Remove marcadores da lista */
+}
+
+/* Item da lista */
+.info-card li {
+    font-size: 18px; /* Tamanho da fonte */
+    margin: 5px 0; /* Margem acima e abaixo do item */
+    color: #555; /* Cor do texto */
+}
+
+/* Estilo das notificações */
+#notifications {
+    color: #f44336; /* Cor vermelha para notificações */
+}
+
+/* Estilo da lista de tarefas */
+#tasks {
+    color: #4CAF50; /* Cor verde para tarefas */
+}
+
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal .btn {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal .btn#confirmNo {
+    background-color: #f44336;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #sidebar {
+        min-width: 60px; /* Diminuindo a largura da sidebar em telas menores */
+    }
+
+    main {
+        padding-left: calc(60px + 20px); /* Ajusta o padding para corresponder à nova largura da sidebar */
+    }
+
+    .info-card {
+        width: 100%; /* Cartões ocupam 100% da largura */
+        padding: 15px; /* Ajusta o padding */
+    }
+
+    table {
+        width: 100%; /* Tabela ocupa 100% da largura */
+        margin-bottom: 20px; /* Adiciona margem inferior para espaçamento entre tabelas */
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+}
+
+@media (max-width: 480px) {
+    #sidebar {
+        min-width: 50px; /* Mais ajuste para telas muito pequenas */
+    }
+
+    main {
+        padding-left: calc(50px + 20px); /* Ajusta o padding */
+    }
+
+    .info-card {
+        padding: 10px; /* Menos padding nos cartões */
+    }
+
+    table {
+        font-size: 12px; /* Reduz ainda mais o tamanho da fonte */
+        margin-bottom: 15px; /* Adiciona margem inferior para espaçamento entre tabelas */
+    }
+}
+
+/* Estilo para telas maiores (computadores) */
+@media (min-width: 769px) {
+    table {
+        margin-bottom: 30px; /* Adiciona margem inferior para espaçamento entre tabelas em telas maiores */
+    }
+}
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="scr/css/pedidos.css"> <!-- Link para o CSS -->
+</head>
+<body>
+    <header>
+        <h1 class="titulo-pedidos"></h1>
+    </header>
+
+    <main>
+        <section class="tabela-pedidos">
+            <table class="tabela-botoes">
+                <thead>
+                    <tr>
+                        <th scope="col">Tabela de Vendas</th>
+                    </tr>   
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="btn-pedido" onclick="mostrarDetalhesVendas()">Ver Vendas</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn-pedido" onclick="ocultarDetalhesVendas()">Ocultar Vendas</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para mostrar detalhes da venda -->
+        <section id="detalhes-pedido" class="detalhes-pedido" style="display: none;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Produto"></td>
+                        <td data-label="Quantidade"></td>
+                        <td data-label="Preço"></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Produto"></td>
+                        <td data-label="Quantidade"></td>
+                        <td data-label="Preço"></td>
+                    </tr>
+                    <!-- Adicione mais produtos conforme necessário -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="javascript/pedido.js"></script>
+</body>
+</html>

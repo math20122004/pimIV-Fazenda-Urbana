@@ -1,0 +1,260 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* Variáveis de Cores */
+:root {
+    --cor-fundo: white;
+    --cor-titulo: #333;
+    --cor-hover: #4CAF50;
+    --cor-hover-dark: #45a049;
+    --cor-detalhe-fundo: #f9f9f9;
+    --cor-borda: #ccc;
+    --cor-texto-secundario: #888;
+}
+
+/* Estilo do título */
+.titulo-fornecedores {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--cor-titulo);
+}
+
+/* Estilo do contêiner principal */
+.tabelas-fornecedores {
+    display: flex;
+    flex-direction: row; /* Inicialmente em linha */
+    flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte */
+    justify-content: center; /* Centraliza os itens */
+    gap: 20px; /* Espaçamento entre os itens */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilo da tabela */
+.tabela-fornecedores {
+    background: var(--cor-fundo);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%; /* Para ocupar 100% do espaço disponível */
+    max-width: 1200px; /* Aumenta a largura máxima para 1200px */
+    overflow: auto; /* Permite rolagem se necessário */
+}
+
+/* Estilo das tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: auto; /* Permite que a tabela ajuste automaticamente as colunas */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 15px; /* Aumenta o padding para dar mais espaço */
+    text-align: center;
+    word-wrap: break-word; /* Quebra de palavras longas */
+    overflow: hidden; /* Garante que o conteúdo não transborde */
+    
+}
+
+th {
+    background-color: #f2f2f2;
+    color: var(--cor-titulo);
+}
+
+/* Especificação de largura para a coluna STATUS */
+td.status {
+    width: 20%; /* Aumenta a largura da coluna STATUS para 20% */
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos gerais para os botões */
+.btn-fornecedor,
+.btn-cadastrar {
+    background-color: var(--cor-hover);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    display: block; /* Garante que os botões sejam exibidos como blocos */
+    margin: 10px auto; /* Centraliza os botões */
+}
+
+/* Efeito de hover para os botões */
+.btn-fornecedor:hover,
+.btn-cadastrar:hover {
+    background-color: var(--cor-hover-dark);
+}
+
+/* Estilos para o modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo do conteúdo do modal */
+.modal-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%; 
+    max-width: 600px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para o formulário do modal */
+.modal-form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    flex-wrap: wrap;
+}
+
+/* Estilos para os rótulos do formulário */
+label {
+    flex: 1; 
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Estilos para os campos de entrada */
+input[type="text"],
+input[type="email"] {
+    flex: 2; 
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+}
+
+/* Estilos para o botão de salvar */
+button[type="submit"] {
+    background-color: var(--cor-hover);
+    color: white; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s; 
+    width: 100%; 
+}
+
+/* Efeito de hover para o botão de salvar */
+button[type="submit"]:hover {
+    background-color: var(--cor-hover-dark);
+}
+
+/* Estilos para o botão de fechar */
+.fechar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar:hover,
+.fechar:focus {
+    color: black;
+    cursor: pointer;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 1024px) {
+    .tabelas-fornecedores {
+        flex-direction: column; /* Muda para coluna em telas menores */
+        gap: 15px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .titulo-fornecedores {
+        font-size: 20px; 
+    }
+
+    .modal-form {
+        flex-direction: column; 
+    }
+
+    .modal-form label {
+        margin-right: 0; 
+        margin-bottom: 5px; 
+    }
+
+    .modal-form input {
+        margin-bottom: 10px; 
+    }
+
+    /* Ajustes adicionais para dispositivos móveis */
+    th, td {
+        padding: 10px; /* Reduz o padding para economizar espaço */
+        font-size: 14px; /* Ajusta o tamanho da fonte para telas pequenas */
+    }
+
+    .tabela-fornecedores {
+        padding: 10px; /* Reduz o padding da tabela */
+    }
+
+    /* Estilo do botão de salvar no modal */
+    button[type="submit"] {
+        padding: 8px; /* Reduz o padding do botão para dispositivos móveis */
+        font-size: 14px; /* Ajusta o tamanho da fonte do botão */
+    }
+
+    /* Estilo para exibir a tabela verticalmente em dispositivos móveis */
+    table {
+        display: block; /* Transforma a tabela em um bloco */
+    }
+
+    tr {
+        display: flex; /* Exibe as linhas como flex */
+        flex-direction: column; /* Cada linha como coluna em telas pequenas */
+        margin-bottom: 10px; /* Espaçamento entre linhas */
+        border: 1px solid var(--cor-borda); /* Borda entre as linhas */
+        border-radius: 10px; /* Arredondamento das bordas */
+        padding: 10px; /* Padding interno */
+    }
+
+    th {
+        display: none; /* Oculta os cabeçalhos na visualização vertical */
+    }
+
+    td {
+        display: flex; /* Exibe as células como flex */
+        justify-content: space-between; /* Espaço entre chave e valor */
+        border-bottom: 1px solid var(--cor-borda); /* Borda inferior */
+    }
+}
+
+/* Estilo da nova seção de detalhes */
+.detalhes-fornecedor {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    background-color: var(--cor-detalhe-fundo);
+    border-radius: 10px;
+    width: 100%; /* Para ocupar toda a largura do container */
+    max-width: 1200px; /* Aumenta a largura máxima da seção de detalhes */
+}
