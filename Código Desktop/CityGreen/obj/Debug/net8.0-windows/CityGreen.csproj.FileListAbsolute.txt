@@ -1,0 +1,286 @@
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Properties.Resources.resources
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.csproj.GenerateResource.cache
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.AssemblyInfoInputs.cache
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.AssemblyInfo.cs
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.csproj.CoreCompileInputs.cache
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\bin\Debug\net8.0-windows\CityGreen.exe
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\bin\Debug\net8.0-windows\CityGreen.deps.json
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\bin\Debug\net8.0-windows\CityGreen.runtimeconfig.json
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\bin\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\bin\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\refint\CityGreen.dll
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\ref\CityGreen.dll
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Fornecedores.resources
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Inicio.resources
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Login.resources
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Principal.resources
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Producao.resources
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Usuarios.resources
+C:\Users\Niuan\Desktop\Projeto PIM\Barra_Lateral\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Vendas.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\bin\Debug\net8.0-windows\CityGreen.exe
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\bin\Debug\net8.0-windows\CityGreen.deps.json
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\bin\Debug\net8.0-windows\CityGreen.runtimeconfig.json
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\bin\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\bin\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Fornecedores.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Inicio.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Login.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Principal.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Producao.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Usuarios.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Form_Vendas.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.Properties.Resources.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.csproj.GenerateResource.cache
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.AssemblyInfoInputs.cache
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.AssemblyInfo.cs
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.csproj.CoreCompileInputs.cache
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\refint\CityGreen.dll
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\Barra_Lateral\obj\Debug\net8.0-windows\ref\CityGreen.dll
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\bin\Debug\net8.0-windows\CityGreen.exe
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\bin\Debug\net8.0-windows\CityGreen.deps.json
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\bin\Debug\net8.0-windows\CityGreen.runtimeconfig.json
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\bin\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\bin\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Fornecedores.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Inicio.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Login.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Principal.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Producao.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Usuarios.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Vendas.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.Properties.Resources.resources
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.GenerateResource.cache
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfoInputs.cache
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfo.cs
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.CoreCompileInputs.cache
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\refint\CityGreen.dll
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
+C:\Users\Niuan\Desktop\Projeto PIM\CityGreen\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\UNIP\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.exe
+C:\Users\UNIP\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.deps.json
+C:\Users\UNIP\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.runtimeconfig.json
+C:\Users\UNIP\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.dll
+C:\Users\UNIP\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Fornecedores.resources
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Inicio.resources
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Login.resources
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Principal.resources
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Producao.resources
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Usuarios.resources
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Vendas.resources
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Properties.Resources.resources
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.GenerateResource.cache
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfoInputs.cache
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfo.cs
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.CoreCompileInputs.cache
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.dll
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\refint\CityGreen.dll
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
+C:\Users\UNIP\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Fornecedores.resources
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Inicio.resources
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Login.resources
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Principal.resources
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Producao.resources
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Usuarios.resources
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Vendas.resources
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Properties.Resources.resources
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.GenerateResource.cache
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfoInputs.cache
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfo.cs
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.CoreCompileInputs.cache
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.dll
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\refint\CityGreen.dll
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\UNIP\Desktop\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.exe
+C:\Users\UNIP\Desktop\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.deps.json
+C:\Users\UNIP\Desktop\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.runtimeconfig.json
+C:\Users\UNIP\Desktop\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.dll
+C:\Users\UNIP\Desktop\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
+C:\Users\UNIP\Desktop\Código\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.exe
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.deps.json
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.runtimeconfig.json
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.dll
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Fornecedores.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Inicio.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Login.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Principal.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Producao.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Usuarios.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Vendas.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Properties.Resources.resources
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.GenerateResource.cache
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfoInputs.cache
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfo.cs
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.CoreCompileInputs.cache
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.dll
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\refint\CityGreen.dll
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
+C:\Users\UNIP\Downloads\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.exe
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.deps.json
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.runtimeconfig.json
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Fornecedores.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Inicio.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Login.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Principal.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Producao.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Usuarios.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Vendas.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Properties.Resources.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.GenerateResource.cache
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfoInputs.cache
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfo.cs
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.CoreCompileInputs.cache
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\refint\CityGreen.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.AssemblyReference.cache
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.Up2Date
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerUsuario.resources
+C:\Users\Niuan\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.exe
+C:\Users\Niuan\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.deps.json
+C:\Users\Niuan\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.runtimeconfig.json
+C:\Users\Niuan\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\Niuan\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Niuan\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Niuan\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Niuan\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Niuan\Downloads\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.AssemblyReference.cache
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Fornecedores.resources
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Inicio.resources
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Login.resources
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Principal.resources
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Producao.resources
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Usuarios.resources
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Vendas.resources
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerUsuario.resources
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Properties.Resources.resources
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.GenerateResource.cache
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfoInputs.cache
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfo.cs
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.CoreCompileInputs.cache
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.Up2Date
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\refint\CityGreen.dll
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
+C:\Users\Niuan\Downloads\Código\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerFornecedor.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerInsumo.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.sourcelink.json
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerVendas.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Clientes.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerClientes.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.exe
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.deps.json
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.runtimeconfig.json
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.AssemblyReference.cache
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Clientes.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Fornecedores.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Inicio.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Login.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Principal.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Producao.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Usuarios.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Vendas.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerClientes.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerFornecedor.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerInsumo.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerUsuario.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerVendas.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Properties.Resources.resources
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.GenerateResource.cache
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfoInputs.cache
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfo.cs
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.CoreCompileInputs.cache
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.sourcelink.json
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.Up2Date
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.dll
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\refint\CityGreen.dll
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.pdb
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
+C:\Users\Niuan\Downloads\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.exe
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.deps.json
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.runtimeconfig.json
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.dll
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\CityGreen.pdb
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.AssemblyReference.cache
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Clientes.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Fornecedores.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Inicio.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Login.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Principal.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Producao.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Usuarios.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_Vendas.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerClientes.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerFornecedor.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerInsumo.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerUsuario.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerVendas.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Properties.Resources.resources
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.GenerateResource.cache
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.GeneratedMSBuildEditorConfig.editorconfig
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfoInputs.cache
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.AssemblyInfo.cs
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.CoreCompileInputs.cache
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.sourcelink.json
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.csproj.Up2Date
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.dll
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\refint\CityGreen.dll
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.pdb
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.genruntimeconfig.cache
+D:\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\ref\CityGreen.dll
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerProducao.resources
+C:\Users\Niuan\Desktop\pimIV-Fazenda-Urbana-main\Windows Forms - C#\Código\CityGreen\obj\Debug\net8.0-windows\CityGreen.Form_VerLote.resources
