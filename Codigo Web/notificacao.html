@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scr/css/notificacao.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Importa Chart.js -->
+    <title>Notificações</title>
+</head>
+<body>
+    <div class="container-notificacoes">
+        <h1 class="titulo-notificacoes">Notificações</h1>
+        <ul class="lista-notificacoes" id="listaNotificacoes">
+            <li class="item-notificacao">
+                <span class="texto-notificacao">Colheita: Maçãs Prontas</span>
+                <button class="botao-detalhes" onclick="mostrarTabelaColheitas()">Ver Detalhes</button>
+            </li>
+            <li class="item-notificacao">
+                <span class="texto-notificacao">Previsão do Tempo: Chuvas</span>
+                <button class="botao-detalhes" onclick="mostrarTabelaPrevisao()">Ver Detalhes</button>
+            </li>
+            <li class="item-notificacao">
+                <span class="texto-notificacao">Notificação de Fornecedores</span>
+                <button class="botao-detalhes" onclick="mostrarTabelaFornecedores()">Ver Detalhes</button>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="modalDetalhes" class="modal-detalhes" onclick="fecharModal()">
+        <div class="conteudo-modal" onclick="event.stopPropagation()">
+            <span class="fechar-modal" onclick="fecharModal()">×</span>
+            <p id="detalhesTexto"></p>
+            <div id="tabelaColheitas" class="tabela-colheitas" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data de Colheita</th>
+                            <th>Descrição</th>
+                            <th>Porcentagem de Sucesso (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01/10/2024</td>
+                            <td>Colheita de maçãs, sem incidentes.</td>
+                            <td>95</td>
+                        </tr>
+                        <tr>
+                            <td>15/10/2024</td>
+                            <td>Colheita de maçãs, alguns danos devido ao clima.</td>
+                            <td>85</td>
+                        </tr>
+                        <tr>
+                            <td>22/10/2024</td>
+                            <td>Colheita de maçãs, tudo ocorreu bem.</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="tabelaPrevisao" class="tabela-previsao" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dia</th>
+                            <th>Temperatura (°C)</th>
+                            <th>Condição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Segunda</td>
+                            <td>24</td>
+                            <td>Parcialmente Nublado</td>
+                        </tr>
+                        <tr>
+                            <td>Terça</td>
+                            <td>22</td>
+                            <td>Chuva</td>
+                        </tr>
+                        <tr>
+                            <td>Quarta</td>
+                            <td>26</td>
+                            <td>Ensolarado</td>
+                        </tr>
+                        <tr>
+                            <td>Quinta</td>
+                            <td>23</td>
+                            <td>Chuva</td>
+                        </tr>
+                        <tr>
+                            <td>Sexta</td>
+                            <td>25</td>
+                            <td>Parcialmente Nublado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="tabelaFornecedores" class="tabela-fornecedores" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fornecedor</th>
+                            <th>Produto</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="irParaFornecedores()">
+                            <td>Fornecedor A</td>
+                            <td>Adubo Orgânico</td>
+                            <td>Atrasado</td>
+                        </tr>
+                        <tr onclick="irParaFornecedores()">
+                            <td>Fornecedor B</td>
+                            <td>Sementes de Tomate</td>
+                            <td>Atrasado</td>
+                        </tr>
+                        <tr onclick="irParaFornecedores()">
+                            <td>Fornecedor C</td>
+                            <td>Pesticida Natural</td>
+                            <td>Atrasado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="graficoIrrigacao" style="display: none;">
+                <canvas id="graficoFalhas" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/notificacao.js"></script>
+    
+</body>
+</html>

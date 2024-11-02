@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Produção</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="scr/css/producao.css"> <!-- Link para o seu CSS -->
+    
+</head>
+<body>
+    <header>
+        <h1 class="titulo-monitoramento">Monitoramento de Produção</h1>
+    </header>
+
+    <main class="tabelas-monitoramento">
+        <!-- Seção de Produções -->
+        <section class="tabela-monitoramento">
+            <h2 class="titulo-monitoramento">Produções</h2>
+            <button class="btn-carregar" onclick="carregarProducoes()">Carregar Produções</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome do Insumo</th>
+                        <th>Data de Início</th>
+                        <th>Data de Fim</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="producoes">
+                    <!-- As produções serão carregadas aqui -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="javascript/producao.js"></script> <!-- Link para o seu arquivo JavaScript -->
+    
+</body>
+</html>

@@ -1,0 +1,129 @@
+/* Importação de fonte */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* Estilos gerais */
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.titulo-monitoramento {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Layout das seções */
+.tabelas-monitoramento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Tabela de monitoramento */
+.tabela-monitoramento {
+    width: 100%;
+    min-height: 300px;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.tabela-monitoramento table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-monitoramento th, 
+.tabela-monitoramento td {
+    padding: 20px;
+    text-align: center;
+}
+
+.tabela-monitoramento td h4 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Botões */
+.btn-carregar, .btn-producao {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-carregar:hover, .btn-producao:hover {
+    background-color: #266e26;
+}
+
+/* Detalhes da produção */
+.detalhes-producao {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .tabelas-monitoramento {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .titulo-monitoramento {
+        font-size: 20px;
+    }
+
+    .tabela-monitoramento {
+        padding: 15px;
+    }
+
+    .tabela-monitoramento td h4 {
+        font-size: 14px;
+    }
+
+    /* Tabela responsiva */
+    .tabela-monitoramento table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 15px;
+    }
+
+    td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+}

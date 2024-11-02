@@ -1,0 +1,91 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container-fornecedor {
+    width: 90%;
+    max-width: 400px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.titulo-cadastro {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos do Formulário */
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.campo label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.campo input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo do Botão */
+.botao-salvar {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.botao-salvar:hover {
+    background-color: #45a049;
+}
+
+/* Estilos gerais para os botões */
+.botao-salvar, .botao-voltar {
+    background-color: #4CAF50; /* Azul */
+    color: white; /* Texto branco */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Cantos arredondados */
+    padding: 10px 15px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de ponteiro */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+    margin-top: 10px; /* Margem superior */
+}
+
+/* Estilos para quando o mouse passa sobre o botão Salvar */
+.botao-salvar:hover {
+    background-color: #266e26; /* Azul mais escuro */
+}
+
+/* Estilos para quando o mouse passa sobre o botão Voltar */
+.botao-voltar:hover {
+    background-color: #266e26; /* Azul mais escuro */
+}
+
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container-fornecedor {
+        width: 95%;
+    }
+}

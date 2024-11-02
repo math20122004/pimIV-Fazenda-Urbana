@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scr/css/index.css">
+    <title>Green City</title>
+    <script>
+        async function validateForm(event) {
+            event.preventDefault(); // Evita o envio automático do formulário
+    
+            const email = document.querySelector('input[type="email"]').value;
+            const password = document.querySelector('input[type="password"]').value;
+    
+            // Elemento de imagem
+            const userImage = document.getElementById('user-image');
+    
+            // Valida se o email contém "@"
+            if (email.indexOf("@") === -1) {
+                alert("Por favor, insira um email válido com '@'.");
+                return false;
+            }
+    
+            // Valida se a senha é "1234"
+            if (password !== "1234") {
+                alert("Senha Incorreta");
+                return false;
+            }
+    
+            try {
+                // Faz a requisição para a API para obter a lista de usuários
+                const response = await fetch('https://1241-2804-836c-0-1cb0-15d9-fc32-175d-cc3f.ngrok-free.app/usuarios/');
+                const users = await response.json();
+    
+                // Verifica se o email está na lista de usuários
+                const user = users.find(user => user.email === email);
+    
+                if (user) {
+                    // Verifica qual email foi inserido e redireciona para a página correspondente
+                    if (email === "maria.clara@example.com") {
+                        window.location.href = "telainicial_admin.html";
+                        userImage.src = "path/to/admin-image.jpg"; // Caminho da imagem do administrador
+                    } else if (email === "victor.antunes@example.com") {
+                        window.location.href = "telainicial_usuario.html";
+                        userImage.src = "imagens/user.jpeg"; // Caminho da imagem do usuário
+                    } else {
+                        alert("Email não autorizado. Tente novamente.");
+                        return false;
+                    }
+                } else {
+                    alert("Email não encontrado. Tente novamente.");
+                    return false;
+                }
+            } catch (error) {
+                alert("Erro ao acessar a API. Tente novamente mais tarde.");
+                console.error(error);
+                return false;
+            }
+        }
+    </script>
+    
+    
+</head>
+
+<body>
+    <main class="container" id="container">
+        <section class="form-container sign-in">
+            <form onsubmit="validateForm(event)">
+                <h1>Entrar</h1>                    
+                <span>Use sua senha e email</span>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+                <br>
+                <span class="percasenha">Em caso de perda de senha, contate o seu supervisor</span>
+            </form>
+        </section>
+        <aside class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right">
+                    <h1>Green City</h1>
+                </div>
+            </div>
+        </aside>
+        <!-- Imagem do usuário -->
+        <img id="user-image" src="" alt="Imagem do Usuário" style="display:none;"> <!-- Oculta a imagem por padrão -->
+    </main>
+</body>
+</html>
