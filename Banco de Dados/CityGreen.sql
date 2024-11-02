@@ -65,7 +65,7 @@ CREATE TABLE Insumo
 -- Tabela de Produção
 CREATE TABLE Producao 
 (
-    idPlantio INT PRIMARY KEY,
+    idPlantio INT IDENTITY(1,1) PRIMARY KEY,
     dataInicio DATE,
     dataFim DATE,
     produto NVARCHAR(255),
@@ -92,12 +92,11 @@ CREATE TABLE Produto
 -- Tabela de Lotes
 CREATE TABLE Lote 
 (
-    idLote INT PRIMARY KEY,
+    idLote INT IDENTITY(1,1) PRIMARY KEY,
     idProduto INT,
     quantidade INT,
     idProducao INT,
-	status NVARCHAR(10) CHECK (status IN ('disponível', 'esgotado')) DEFAULT 'disponível',
-    validade NVARCHAR(10) CHECK (validade IN ('Vencido', 'Usavel')) DEFAULT 'Usavel',
+	status NVARCHAR(10) CHECK (status IN ('disponível', 'esgotado','vencido')) DEFAULT 'disponível',
     dataValidade DATE,
     FOREIGN KEY (idProducao) REFERENCES Producao (idPlantio),
     FOREIGN KEY (idProduto) REFERENCES produto (idProduto)
@@ -110,8 +109,6 @@ CREATE TABLE Cliente
     nome NVARCHAR(255),
     telefone1 NVARCHAR(20),
     telefone2 NVARCHAR(20),
-    cpf CHAR(14),
-    rg CHAR(9),
     cnpj CHAR(14),
     ie CHAR(9),
     email NVARCHAR(100),
@@ -166,9 +163,9 @@ AFTER INSERT, UPDATE
 AS
 BEGIN
     UPDATE Lote
-    SET validade = 'Vencido'
+    SET status = 'Vencido'
     WHERE dataValidade <= CAST(GETDATE() AS DATE)
-      AND validade != 'Vencido';
+      AND status != 'Vencido';
 END;
 
 -- Trigger para subtrair a quantidade de Insumo ao associar à Produção
@@ -329,12 +326,12 @@ INSERT INTO Insumo (idInsumo, nomeInsumo, quantidadeInsumo, validade, dataValida
 (4, 'Semente de Alface', 150, 'Disponivel', '2024-07-20', '45678912000145'),
 (5, 'Semente de Morango', 300, 'Disponivel', '2024-08-10', '12345678000195');
 
-INSERT INTO Producao (idPlantio, dataInicio, dataFim, produto, statusProducao) VALUES
-(1, '2024-01-10', '2024-04-15', 'Tomate', 'Ativa'),
-(2, '2024-02-15', '2024-05-20', 'Alface', 'Ativa'),
-(3, '2024-03-01', '2024-06-01', 'Morango', 'Ativa'),
-(4, '2024-04-01', '2024-07-10', 'Cenoura', 'Cancelada'),
-(5, '2024-05-15', '2024-08-30', 'Pimentão', 'Ativa');
+INSERT INTO Producao (dataInicio, dataFim, produto, statusProducao) VALUES
+('2024-01-10', '2024-04-15', 'Tomate', 'Ativa'),
+('2024-02-15', '2024-05-20', 'Alface', 'Ativa'),
+('2024-03-01', '2024-06-01', 'Morango', 'Ativa'),
+('2024-04-01', '2024-07-10', 'Cenoura', 'Cancelada'),
+('2024-05-15', '2024-08-30', 'Pimentão', 'Ativa');
 
 INSERT INTO InsumoProducao (idInsumo, idPlantio, quantidade) VALUES
 (1, 1, 10),
@@ -355,12 +352,12 @@ INSERT INTO Produto (idProduto, nomeProduto, categoria) VALUES
 (9, 'Cenoura', 'Vegetal'),
 (10, 'Pepino', 'Vegetal');
 
-INSERT INTO Lote (idLote, idProduto, quantidade, idProducao, status, validade, dataValidade) VALUES
-(1, 1, 50, 1, 'disponível', 'Usavel', '2025-01-01'),
-(2, 2, 30, 2, 'disponível', 'Usavel', '2025-02-01'),
-(3, 3, 40, 3, 'disponível', 'Usavel', '2025-03-01'),
-(4, 4, 20, 4, 'esgotado', 'Vencido', '2024-01-01'),
-(5, 5, 10, 5, 'disponível', 'Usavel', '2025-04-01');
+INSERT INTO Lote (idProduto, quantidade, idProducao, status, dataValidade) VALUES
+(1, 50, 1, 'disponível', '2025-01-01'),
+(2, 30, 2, 'disponível', '2025-02-01'),
+(3, 40, 3, 'disponível', '2025-03-01'),
+(4, 20, 4, 'esgotado', '2024-01-01'),
+(5, 10, 5, 'disponível', '2025-04-01');
 
 INSERT INTO Cliente (idCliente,nome, telefone1, telefone2, cnpj, ie, email, numeroEndereco, nomeEndereco, bairro, cidade, estado, cep, clienteTipo, statusCliente) 
 VALUES
